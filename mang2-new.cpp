@@ -35,7 +35,7 @@ void in_mang(float **arr, int n, int m)
 }
 void sum_row(float **arr, int n, int m)
 {
-    int sum_row[n];
+    
     for(int i=0; i<n; i++)
     {
         int sum = 0 ;
@@ -43,7 +43,7 @@ void sum_row(float **arr, int n, int m)
         {
             sum += arr[i][j];
         }
-        sum_row[i] = sum;
+        
         cout << "\ntong cua hang " << i+1 << ":  " << sum << endl;
     }
 }
