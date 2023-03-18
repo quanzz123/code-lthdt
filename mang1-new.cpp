@@ -18,6 +18,7 @@ void xuat(float arr[], int n)
     }
     cout << endl;
 }
+
 float sum(float arr[], int n)
 {
     float sum =0;
@@ -39,6 +40,8 @@ int main()
     nhap(arr,n);
 
     xuat(arr,n);
+    
+    cout << "\nsum= " << sum(arr,n);
 
     float avg = (float)sum(arr,n) / n;
     cout << "\nAvg= " << avg;
