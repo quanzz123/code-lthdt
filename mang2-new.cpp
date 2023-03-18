@@ -48,6 +48,8 @@ int main()
 
     in_mang(arr,n,m);
     
+    in_mang(arr,n,m);
+    
     for(int i=0; i<n; i++)
     delete arr[i];
     delete arr;
