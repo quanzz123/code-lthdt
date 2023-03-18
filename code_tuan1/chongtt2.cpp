@@ -26,6 +26,8 @@ ps operator++(ps &a)
 int operator>(ps a, ps b)
 {
 	
+}
+	
 //=====================================
 int main()
 {
