@@ -56,6 +56,7 @@ int main()
     cin >> m;
     float **arr;
     arr = new float*[n];
+    
     tao_mang(arr,n,m);
 
     nhap_mang(arr,n,m);
