@@ -15,14 +15,7 @@ void inVecto(float arr[], int n){
     cout << ")";
     cout << endl;
 }
-void tinh(float arr[], int n, int m){
-    if(n == m){
-        
-    } else{
-        cout << "\nhai vecto khong cung chieu";
 
-    }
-}
 void vector_add_subtract(float* a, int n, float* b, int m)
 {
     if(n!=m)
