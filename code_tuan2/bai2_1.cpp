@@ -38,11 +38,17 @@ void vector_add_subtract(float* a, int n, float* b, int m)
         diff[i] = a[i]-b[i];
     }
     cout<<"Tong cua hai vector la: ";
-    for(int i=0;i<n;i++)
+    cout << "(";
+    for(int i=0;i<n;i++){
         cout<<sum[i]<<" ";
+    }
+    cout << ")";
     cout<<endl<<"Hieu cua hai vector la: ";
-    for(int i=0;i<n;i++)
+    cout << "(";
+    for(int i=0;i<n;i++){
         cout<<diff[i]<<" ";
+    }
+    cout << ")";
     cout<<endl;
     delete[] sum;
     delete[] diff;
