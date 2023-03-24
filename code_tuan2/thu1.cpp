@@ -105,5 +105,6 @@ int main() {
     cin >> b;
     cout << "Phan so a: " << a << endl;
     cout << "Phan so b: " << b << endl;
+    cout << "dao dau ps a: " << (-a);
 }
    
