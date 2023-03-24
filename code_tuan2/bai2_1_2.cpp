@@ -1,7 +1,7 @@
 #include"iostream"
 using namespace std;
  void taovecto(float *&a, int n){
-    float *a = new float[n];
+    a = new float[n];
     for(int i=0; i<n; i++){
         cin >> a[i];
     }
@@ -9,7 +9,7 @@ using namespace std;
  void invecto(float *a, int n){
     cout << "(";
     for(int i=0; i<n; i++){
-        cout << a[i];
+        cout << a[i] << " ";
     }
     cout << ")";
     cout << endl;
@@ -60,6 +60,7 @@ using namespace std;
 
     cout << "\nhieu cua hai vecto: " << endl;
     invecto(hieu,n);
+
     giai_phong(a);
     giai_phong(b);
     giai_phong(tong);
