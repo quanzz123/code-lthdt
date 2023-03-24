@@ -35,6 +35,9 @@ ps operator-(ps a, ps b)
     c.ms = a.ms*b.ms;
     return c;
 }
+bool operator>(ps a, ps b){
+    return a.ts*b.ms > a.ms*b.ts;
+}
 int main()
 {
     
@@ -49,6 +52,7 @@ int main()
     xuatps(x); cout << "\t-\t"; xuatps(y); cout <<"\t=\t"; xuatps(t);
     cout << endl;
     
+    cout << "\nphan so a > b" << endl <<  (x > y) << endl;
     return 0;
 }
 
