@@ -33,6 +33,25 @@ ps operator-(ps a){
     ps c;
     c.ts = -a.ts;
     c.ms = a.ms;
+    return c;
+}
+ps operator-(ps a, ps b){
+    ps c;
+    c.ts = a.ts*b.ms - a.ms*b.ts;
+    c.ms = a.ms * b.ms;
+    return c;
+}
+ps operator*(ps a, ps b){
+    ps c;
+    c.ts = a.ts * b.ts;
+    c.ms = a.ms * b.ms;
+    return c;
+}
+ps operator/(ps a, ps b){
+    ps c;
+    c.ts = a.ts * b.ms;
+    c.ms = a.ms * b.ts;
+    return c;
 }
 bool operator>(ps a, ps b){
     return a.ts*b.ms > a.ms*b.ts;
