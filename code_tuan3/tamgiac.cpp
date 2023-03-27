@@ -86,17 +86,22 @@ private:
 
 
 int main() {
-    Point p1, p2, p3;
+       Point p1, p2, p3;
     Triangle t;
+    TriangleValidator validator;
 
     p1.init(0, 0);
     p2.init(3, 0);
     p3.init(0, 4);
 
-    t.init(p1, p2, p3);
+    if (validator.isValid(p1, p2, p3)) {
+        t.init(p1, p2, p3);
 
-    cout << "Perimeter: " << t.perimeter() << endl;
-    cout << "Area: " << t.area() << endl;
+        cout << "Perimeter: " << t.perimeter() << endl;
+        cout << "Area: " << t.area() << endl;
+    } else {
+        cout << "Invalid triangle" << endl;
+    }
 
     return 0;
 }
