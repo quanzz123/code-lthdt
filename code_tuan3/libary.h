@@ -82,6 +82,9 @@ class TriagleValidator{
     public:
         bool check(point a, point b, point c){
             float ab , ac, bc;
+            ab = canh(a, b);
+            ac = canh(a, c);
+            bc = canh(b, c);
             if(ab+ac>bc && ab+bc>ac && ac+bc>ab ){
                 return true;
             }
