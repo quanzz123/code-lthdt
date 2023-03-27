@@ -14,7 +14,7 @@ int main(){
         cout << "\ncv= " << t.cv() << endl;
         cout << "\ndt = " << t.dt() << endl;
     } else{
-        cout << "\nkhong to thanh mot tam giac!" << endl;
+        cout << "\nkhong to thanh mot tam giac!" << endl; //ok
     }
     return 0;
 }
