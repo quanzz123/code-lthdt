@@ -1,4 +1,4 @@
-#include<thuvien1.h>
+#include<libary.h>
 
 int main(){
     point p1, p2, p3;
