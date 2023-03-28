@@ -36,13 +36,13 @@ class Triangcle{
             b = ob;
             c = oc;
         }
-        float canh(point a, point b){
+        float canh(point po1, point po2){
             float x1, x2, y1, y2, canh;
-            x1 = a.X();
-            y1 = a.Y();
+            x1 = po1.X();
+            y1 = po1.Y();
 
-            x2 = b.X();
-            y2 = b.Y();
+            x2 = po2.X();
+            y2 = po2.Y();
 
             canh = sqrt((x2 - x1)*(x2 - x1) + (y2 - y1)*(y2 - y1));
             return canh;
@@ -68,13 +68,13 @@ class Triangcle{
 };
 class TriagleValidator{
     private:
-        float canh(point a, point b){
+        float canh(point po1, point po2){
             float x1, x2, y1, y2, canh;
-            x1 = a.X();
-            y1 = a.Y();
+            x1 = po1.X();
+            y1 = po1.Y();
 
-            x2 = b.X();
-            y2 = b.Y();
+            x2 = po2.X();
+            y2 = po2.Y();
 
             canh = sqrt((x2 - x1)*(x2 - x1) + (y2 - y1)*(y2 - y1));
             return canh;
