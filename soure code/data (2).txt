@@ -1,0 +1,4 @@
+3
+Quang	HoaBinh	20	20000
+Son	HungYen	50	1000
+Quyet	ChuongMy	10	100000
