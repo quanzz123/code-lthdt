@@ -20,4 +20,10 @@ class hcn{
             cout << "chieu rong= " << b << endl;
             cout << "chu vi= " << chuvi() << endl << "dien tich = " << dientich() << endl;
         }
+        float A(){
+            return a;
+        }
+        float B(){
+            return b;
+        }
 };
