@@ -75,6 +75,10 @@ class TriagleValidator {
             a = canh(B, C);
             b = canh(A, B);
             c = canh(A, C);
+            if(a+b>c && a+c>b && b+c>a) {
+                return true;
+            }
+            return false;
         }
 
 };
