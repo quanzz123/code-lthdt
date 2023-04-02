@@ -1,3 +1,4 @@
+
 #include<bits/stdc++.h>
 using namespace std;
 
@@ -26,4 +27,4 @@ class hcn{
         float B(){
             return b;
         }
-};
+}; 
