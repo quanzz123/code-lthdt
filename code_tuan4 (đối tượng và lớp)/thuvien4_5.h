@@ -20,6 +20,8 @@ class TaiKhoan {
             getline(cin, NH);
             cout << "\nnhap so du tai khoan: ";
             cin >> so_du;
+            cin >> gui;
+            cin >> rut;
             cin.ignore();
 
         }

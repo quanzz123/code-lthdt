@@ -11,10 +11,6 @@ int main() {
     for(int i=0; i < n; i++) {
         cout << "\nnhap thong tin cho tai khoan " << i+1 << ":" <<endl;
         ds[i].nhap_data();
-        cout << "\nnhap so tien gui cua tai khoan" << i+1 << ":" <<endl;
-        int a;
-        cin >> a;
-        a = ds[i].tiengui();
 
     }
     for(int i=0; i<n; i++) {
