@@ -13,8 +13,9 @@ int main() {
         ds[i].nhap_data();
 
     }
+    cout <<"\n====danh sach tai khoan====\n" << endl;
     for(int i=0; i<n; i++) {
-        cout <<"\n====danh sach tai khoan====\n" << endl;
+    
         ds[i].hien_thi();
         ds[i].gui_tien(ds[i].tiengui());
         

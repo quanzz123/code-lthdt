@@ -30,6 +30,8 @@ class TaiKhoan {
                 so_du +=tien;
                 cout << "\nnap tien thanh cong!" << endl;
             
+            } else {
+                cout << "\nvuot qua han muc giao dich!" << endl;
             }
             
         }
