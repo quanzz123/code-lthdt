@@ -20,7 +20,9 @@ class TaiKhoan {
             getline(cin, NH);
             cout << "\nnhap so du tai khoan: ";
             cin >> so_du;
+            cout << "\nnhap so tien gui: ";
             cin >> gui;
+            cout << "\nnhap so tien rut: ";
             cin >> rut;
             cin.ignore();
 
@@ -44,6 +46,7 @@ class TaiKhoan {
             }
         }
         float sodu() {
+            
             return so_du;
         }
         int tiengui() {

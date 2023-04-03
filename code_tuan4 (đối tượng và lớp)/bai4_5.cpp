@@ -15,9 +15,12 @@ int main() {
     }
     cout <<"\n====danh sach tai khoan====\n" << endl;
     for(int i=0; i<n; i++) {
-    
+        cout << "\ntai khoan thu " << i+1 << ":" ;
         ds[i].hien_thi();
         ds[i].gui_tien(ds[i].tiengui());
+        ds[i].rut_tien(ds[i].tienrut());
+        cout << "\nso du sau cung: " <<ds[i].sodu() << endl;
+
         
     }
 }
