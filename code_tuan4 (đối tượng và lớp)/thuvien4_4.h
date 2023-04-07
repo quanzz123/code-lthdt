@@ -32,4 +32,15 @@ class HocSinh {
 
         }
 };
+/*Bài 4.4. Xây dựng lớp HocSinh mô tả các học sinh của một lớp học, lớp gồm các thành
+phần:
+- Các thuộc tính mô tả họ tên, điểm kỳ 1, điểm kỳ 2.
+- Hàm khởi tạo.
+- Hàm nhập dữ liệu.
+- Hàm hiển thị dữ liệu.
+- Hàm kiểm tra điểm trung bình năm học của học sinh có >= 5 hay không? (điểm
+trung bình năm học = (điểm kỳ 1 + 2 * điểm kỳ 2) / 3).
+Viết hàm main tạo 3 đối tượng học sinh; Hiển thị dữ liệu những học sinh vừa tạo;
+Hiển thị những học sinh có điểm trung bình năm học >= 5. */
+
 

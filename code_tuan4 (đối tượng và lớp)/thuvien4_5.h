@@ -63,3 +63,15 @@ class TaiKhoan {
 
         }
 };
+/*Bài 4.5*. Xây dựng lớp TaiKhoan mô tả thông tin tài khoản ngân hàng bao gồm những
+thành phần sau:
+- Các thuộc tính mô tả tên người gửi tiền, số tài khoản, tên ngân hàng, số tiền.
+- Hàm khởi tạo tài khoản.
+- Hàm cho phép gửi một số lượng tiền vào tài khoản.
+- Hàm cho phép rút một số lượng tiền từ tài khoản (sau khi đã kiểm tra tài khoản
+còn tiền).
+- Hàm hiển thị các thông tin về tên và tài khoản.
+Viết hàm main tạo một đối tượng và thực hiện các công việc gửi tiền, rút tiền cho đối
+tượng đó; Mở rộng chương trình tạo 3 đối tượng TaiKhoan và in ra màn hình những
+chủ tài khoản có số tiền >n (với n được nhập từ bàn phím).
+Gợi ý: Xây dựng phương thức trả về số tiền trong tài khoản.*/
