@@ -1,20 +1,21 @@
-#include<streambuf>
+#include<iostream>
 #include<bits/stdc++.h>
 using namespace std;
 
 class HocSinh {
     private:
-        char ho_ten[20];
+        string ho_ten;
         float diem_ki1;
         float diem_ki2;
     public:
         void khoitao() {
             cout << "\nnhap ho va ten hoc sinh: ";
-            cin >> ho_ten;
+            getline(cin,ho_ten);
             cout << "\nnhap diem ki 1 : ";
             cin >> diem_ki1;
             cout << "\nnhap diem ki 2: ";
             cin >> diem_ki2;
+            cin.ignore();
         }
         /*bool check_diemtb() {
             float diem_tb;
