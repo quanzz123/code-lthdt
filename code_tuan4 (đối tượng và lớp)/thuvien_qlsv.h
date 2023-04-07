@@ -19,10 +19,10 @@ class SinhVien {
         void XepLoai(float diem) {
             if(diem >= 8.0) {
                 cout << "\n Xep loai gioi!" << endl;
-            } else if(diem >= 7.0) {
+            } else if(diem >= 7.0 && diem <= 8.0) {
                 cout << "\nXep loai Kha!" << endl;
 
-            } else if(diem >= 5.0) {
+            } else if(diem >= 5.0 && diem <= 7.0) {
                 cout << "\nXep loai trung binh!" << endl;
             } else {
                 cout << "\nXep loai kem!" << endl;
