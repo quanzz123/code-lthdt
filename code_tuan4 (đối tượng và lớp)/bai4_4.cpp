@@ -23,7 +23,7 @@ int main() {
 
     for(int i=0; i <= n; i++) {
         if(hs[i].diem_tb() >= 5) {
-            hs[i].printf();
+            hs->printf();
         }
     }
     system("pause");
