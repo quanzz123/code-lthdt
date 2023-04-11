@@ -1,24 +1,22 @@
 #include"thuvien5_3.h"
-#include<iomanip>
 int main() {
-    MatHang M1("banh", 2, 300);
-    MatHang M2("keo", 5, 500);
-    MatHang M3("sua", 5, 400);
-    cout << left << setw(20) << "Ten mat hang"
-    << setw(10) << "So Luong"
-    << setw(10) << "Don Gia"
-    << setw(10) << "Thanh Tien" 
-    << endl;
-    cout << setfill('-') << setw(50) << "-" << endl;
+    int n;
+    cout << "nhap so luong mat hang: ";
+    cin >> n;
+    cin.ignore();
+    MatHang* ds = new MatHang[n];
+    for(int i=0; i<n; i++) {
+        ds[i].Nhapthongtin();
+    }
+    cout << "\n\n\t\t===BANG THONG KE CAC MAT HANG===\n\n";
+    cout << setw(20) << left << "Ten Mat Hang";
+    cout << setw(10) << right << "So Luong";
+    cout << setw(15) << right << "Don Gia";
+    cout << setw(18) << right << "Thanh Tien(VND)" << endl;
+    cout << setfill('-') << setw(63) << "-" <<endl;
     cout << setfill(' ');
-
-    M1.inthongtin();
-    M2.inthongtin();
-    M3.inthongtin();
-
-    cout << setfill('-') << setw(50) << "-" << endl;
-    cout << setfill(' ');
-    system("pause");
-
-
+    for(int i=0; i<n; i++) {
+        ds[i].inthongtin();
+    }
+    return 0;
 }
