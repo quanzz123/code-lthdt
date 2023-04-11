@@ -21,11 +21,11 @@ class MatHang {
             cin.ignore();
         }
         void inthongtin() {
-            cout << setw(20) << left << Ten;
+            cout << setw(20) << left << Ten << "|";
             cout << setw(10) << right << SoLuong;
             cout << setw(15) << right << DonGia;
             cout << setw(18) << right << SoLuong * DonGia << endl;
-            cout << setfill('-') << setw(63) << "-" << endl;
+            cout << setfill('-') << setw(65) << "-" << endl;
             cout << setfill(' ');
         }
         ~MatHang() {
