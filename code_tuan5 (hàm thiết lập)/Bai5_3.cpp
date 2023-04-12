@@ -2,6 +2,7 @@
 int main() {
     int n;
     cout << "nhap so luong mat hang: ";
+    //freopen("5_3.txt", "r", stdin);
     cin >> n;
     cin.ignore();
     MatHang* ds = new MatHang[n];

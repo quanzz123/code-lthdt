@@ -46,8 +46,8 @@ class TamGiac {
             cout << "\nDo dai canh a = " << a << endl;
             cout << "\nDo dai canh b = " << b << endl;
             cout << "\nDo dai canh c = " << c << endl;
-            cout << "\nChu vi tam giac = " << ChuVi() << endl;
-            cout <<"\nDien tich tam giac = " << DienTich() << endl;
+            //cout << "\nChu vi tam giac = " << ChuVi() << endl;
+            //cout <<"\nDien tich tam giac = " << DienTich() << endl;
 
         }
         /*void in() {

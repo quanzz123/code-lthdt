@@ -38,7 +38,7 @@ void Corporation::OutputCorp()
 }
 void InputArr()
 {
-    ///freopen("data.txt","r",stdin);  // cach nhap khac du lieu tu file data.txt trong project
+    freopen("data (2).txt","r",stdin);  // cach nhap khac du lieu tu file data.txt trong project
     cin>>n;
     for(int i=0;i<n;i++)
     {

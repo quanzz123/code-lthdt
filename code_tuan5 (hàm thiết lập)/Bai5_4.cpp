@@ -2,6 +2,7 @@
 int main() {
     int n;
     cout << "Nhap so luong tam giac: ";
+    freopen("5_4.txt", "r", stdin);
     cin >> n;
     cin.ignore();
     TamGiac* ds = new TamGiac[n];
@@ -13,6 +14,12 @@ int main() {
     for(int i=0; i<n; i++) {
         cout << "\nThong tin tam giac thu " << i+1 << endl;
         ds[i].in();
+        if(ds[i].Geta(), ds[i].Getb(), ds[i].Getc()) {
+            cout << "\nChu vi =  " << ds[i].ChuVi() << endl;
+            cout << "\nDien Tich = " << ds[i].DienTich() << endl;
+        } else {
+            cout << "\nBa canh khong tao thanh mot tam giac!" << endl;
+        }
         
     }
     return 0;

@@ -21,7 +21,7 @@ class MatHang {
             cin.ignore();
         }
         void inthongtin() {
-            cout << setw(20) << left << Ten << "|";
+            cout << setw(20) << left << Ten ;
             cout << setw(10) << right << SoLuong;
             cout << setw(15) << right << DonGia;
             cout << setw(18) << right << SoLuong * DonGia << endl;
