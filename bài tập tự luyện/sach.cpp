@@ -23,10 +23,10 @@
         }
         void Nhap_data() {
             cout << "Nhap ten sach: ";
-            cin.ignore();
+            //cin.ignore();
             getline(cin,TenSach);
             cout << "Nhap ten tac gia: ";
-            cin.ignore();
+            //cin.ignore();
             getline(cin, TacGia);
             cout << "Nhap so luong sach: ";
             cin >> SoLuong;
@@ -68,5 +68,18 @@
             cout << setfill(' ');
     for(int i=0; i<n; i++) {
         ds[i].in_data();
+    }
+    int max = 0;
+    for(int i=0; i<n; i++) {
+        if(ds[i].getSoLuong() > max) {
+            max = ds[i].getSoLuong();
+        }
+    }
+    cout << "\n\n\t\t===THONG TIN SACH CO SO LUONG LON NHAT===\n\n";
+    for(int i=0; i<n; i++) {
+        if(ds[i].getSoLuong() == max) {
+            ds[i].in_data();
+            cout << endl;
+        }
     }
  }
