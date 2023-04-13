@@ -8,6 +8,6 @@ int main() {
     cin >> ox >> oy;
     Crircle O(ox, oy, k);
     O.print();
-
+    return 0;
 
 }

@@ -22,5 +22,6 @@ int main() {
         }
         
     }
+    delete[] ds;
     return 0;
 }

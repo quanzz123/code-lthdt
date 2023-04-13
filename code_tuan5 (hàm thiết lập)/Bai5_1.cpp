@@ -3,4 +3,5 @@ int main() {
     MyFlle f;
     f.Input();
     f.print();
+    return 0;
 }

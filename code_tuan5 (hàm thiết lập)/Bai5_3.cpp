@@ -19,5 +19,6 @@ int main() {
     for(int i=0; i<n; i++) {
         ds[i].inthongtin();
     }
+    delete[] ds;
     return 0;
 }
