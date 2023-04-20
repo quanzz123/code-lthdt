@@ -10,8 +10,8 @@ class Matrix {
            m = 0;
            v = NULL; 
         }
-        Matrix(int m, int n);
-        Matrix(int m, int n, int val);
+        Matrix(int row, int col);
+        Matrix(int row, int col, int val);
         void add();
         void print();
         ~Matrix();
