@@ -29,8 +29,8 @@ ostream& operator<<(ostream& os, Matrix& mat) {
     }
 }
 Matrix :: Matrix(int row, int col) {
-     n = row;
-     m = col;
+     this->n = row;
+     this->m = col;
      v = new int*[n];
      for(int i=0; i<n; i++) {
         v[i] = new int[m];
@@ -39,20 +39,20 @@ Matrix :: Matrix(int row, int col) {
         }
      }
 }
-Matrix :: Matrix(int row, int col, int val) {
-    n = row;
-    m = col;
+Matrix :: Matrix(int row, int col, int** val) {
+    this->n = row;
+    this->m = col;
     v = new int*[n];
     for(int i=0; i<n; i++) {
         v[i] = new int[m];
         for(int j=0; j<n; j++) {
-            v[i][j] = val;
+            v[i][j] = val[i][j];
         }
     }
 }
 Matrix :: Matrix(Matrix &a) {
-    n = a.n;
-    m = a.m;
+    this->n = a.n;
+    this->m = a.m;
     v = new int*[n];
     for(int i=0; i<n; i++) {
         v[i] = new int[m];
@@ -62,8 +62,8 @@ Matrix :: Matrix(Matrix &a) {
      }
 }
 void Matrix :: operator=(Matrix &a) {
-    n = a.n;
-    m = a.m;
+    this->n = a.n;
+    this->m = a.m;
     v = new int*[n];
     for(int i=0; i<a.n; i++) {
         v[i] = new int[a.m];
@@ -82,6 +82,18 @@ void Matrix :: print() {
 }
 int main() {
     Matrix a;
+    cout << "nhap ma tran: " << endl;
     cin >> a;
+    cout << "\nin ma tran: " << endl;
     cout << a;
+
+    cout << endl;
+    int data[3][3] = {{4,5,3},{7,8,5},{2,4,5}};
+    int **arr = new int*[3];
+    for(int i=0; i<3; i++) {
+        arr[i] = data[i];
+    }
+    Matrix b(3,3,arr);
+    cout << b;
+
 }

@@ -11,7 +11,7 @@ class Matrix {
            v = NULL; 
         }
         Matrix(int row, int col);
-        Matrix(int row, int col, int val);
+        Matrix(int row, int col, int **val);
         void add();
         void print();
         ~Matrix();
