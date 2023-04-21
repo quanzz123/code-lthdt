@@ -9,7 +9,7 @@ istream& operator>>(istream& is, Matrix& mat) {
     cout << "nhap so hang: ";
     is >> mat.n;
     cout << "nhap so cot: ";
-    is >> mat.n;
+    is >> mat.m;
     mat.v = new int*[mat.n];
     for(int i=0; i<mat.n; i++) {
         mat.v[i] = new int[mat.m];
@@ -19,6 +19,14 @@ istream& operator>>(istream& is, Matrix& mat) {
         }
     }
     return is;
+}
+ostream& operator<<(ostream& os, Matrix& mat) {
+    for(int i=0; i<mat.n; i++) {
+        for(int j=0; j<mat.m; j++) {
+            os << mat.v[i][j] << "  ";
+        }
+        cout << endl;
+    }
 }
 Matrix :: Matrix(int row, int col) {
      n = row;
@@ -43,8 +51,37 @@ Matrix :: Matrix(int row, int col, int val) {
     }
 }
 Matrix :: Matrix(Matrix &a) {
-    
+    n = a.n;
+    m = a.m;
+    v = new int*[n];
+    for(int i=0; i<n; i++) {
+        v[i] = new int[m];
+        for(int j=0; j<m; j++) {
+            v[i][j] = a.v[i][j];
+        }
+     }
 }
-ỉnt main() {
-    
+void Matrix :: operator=(Matrix &a) {
+    n = a.n;
+    m = a.m;
+    v = new int*[n];
+    for(int i=0; i<a.n; i++) {
+        v[i] = new int[a.m];
+        for(int j=0; j<a.m; j++) {
+            v[i][j] = a.v[i][j];
+        } 
+    }
+}
+void Matrix :: print() {
+    for(int i=0; i<n; i++) {
+        for(int j=0; j<n; j++) {
+            cout << v[i][j] << "  ";
+        }
+        cout << endl;
+    }
+}
+int main() {
+    Matrix a;
+    cin >> a;
+    cout << a;
 }
