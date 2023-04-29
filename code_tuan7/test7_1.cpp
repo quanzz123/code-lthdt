@@ -37,7 +37,7 @@ class Triangle : public Point {
             double bc = distance(b,c);
             double p = ab + ac + bc;
             if(ab +ac <= bc || ab + bc <= ac || bc + ac <= ab) {
-                cout << "NO" << endl;
+                //cout << "NO" << endl;
                 return 0;
             }
             return p;
@@ -49,7 +49,6 @@ class Triangle : public Point {
             double bc = distance(b,c);
             double p = (ab + ac + bc) / 2.0;
             if(ab +ac <= bc || ab + bc <= ac || bc + ac <= ab) {
-                cout << "NO" << endl;
                 return 0;
             }
             return sqrt(p*(p-ab)*(p-ac)*(p-bc));
