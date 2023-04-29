@@ -13,12 +13,12 @@ class Point {
             y = oy;
         }
         void display() {
-            cout << "(" << x << ", " << y << ")";
+            cout << "(" << fixed << setprecision(0) << x << ", " << fixed << setprecision(0) << y << ")";
         }
-        friend float distance(Point a, Point b);
+        friend double distance(Point a, Point b);
 };
 
-float distance(Point a, Point b) {
+double distance(Point a, Point b) {
     return sqrt(pow(a.x - b.x, 2) + pow(a.y - b.y, 2));
 }
 
@@ -31,19 +31,42 @@ class Triangle : public Point {
             b = ob;
             c = oc;
         }
-        float perimeter() {
-            return distance(a, b) + distance(b, c) + distance(c, a);
+        double perimeter() {
+            double ab = distance(a,b);
+            double ac = distance(a, c);
+            double bc = distance(b,c);
+            double p = ab + ac + bc;
+            if(ab +ac <= bc || ab + bc <= ac || bc + ac <= ab) {
+                cout << "NO" << endl;
+                return 0;
+            }
+            return p;
+            //return distance(a, b) + distance(b, c) + distance(c, a);
         }
-        float area() {
-            float p = perimeter() / 2;
-            return sqrt(p * (p - distance(a, b)) * (p - distance(b, c)) * (p - distance(c, a)));
+        double area() {
+            double ab = distance(a,b);
+            double ac = distance(a, c);
+            double bc = distance(b,c);
+            double p = (ab + ac + bc) / 2.0;
+            if(ab +ac <= bc || ab + bc <= ac || bc + ac <= ab) {
+                cout << "NO" << endl;
+                return 0;
+            }
+            return sqrt(p*(p-ab)*(p-ac)*(p-bc));
+            //double p = perimeter() / 2;
+            //return sqrt(p * (p - distance(a, b)) * (p - distance(b, c)) * (p - distance(c, a)));
         }
         void display() {
-            cout << "| "; cout << setw(8);
+            /*cout << "| "; cout << setw(8);
             a.display(); cout << " | "; cout << setw(8);
             b.display(); cout << " | "; cout << setw(8);
             c.display(); cout << " | ";
-            cout << setw(6) << fixed << setprecision(2) << perimeter() << " | " << setw(8) << fixed << setprecision(2) << area() << " |\n";
+            cout << setw(6) << fixed << setprecision(2) << perimeter() << " | " << setw(8) << fixed << setprecision(2) << area() << " |\n";*/
+			cout << "|" << setw(10); a.display();
+			cout << "|" << setw(10); b.display();
+			cout << "|" << setw(10); c.display();
+			cout << "|" << setw(16) << fixed << setprecision(2) << perimeter();
+			cout << "|" << setw(15) << fixed << setprecision(2) << area() << "|" << endl;
         }
 };
 
@@ -68,14 +91,14 @@ int main() {
     }
 
     cout << "\nDanh sach tam giac:\n";
-	cout << "    _________________________________________________________________________\n";
-    cout << "   | STT | Toa do diem A | Toa do diem B | Toa do diem C | Chu vi | Dien tich|\n";
-    cout << "   |-----|---------------|---------------|---------------|--------|----------|\n";
+	cout << "    ______________________________________________________________________________________\n";
+    cout << "   | STT | Toa do diem A | Toa do diem B | Toa do diem C |       chu vi   |      Dien tich|\n";
+    cout << "   |-----|---------------|---------------|---------------|----------------|---------------|\n";
     for (int i = 0; i < n; i++) {
         cout << "   |  " << i + 1 << "  ";
         triangles[i].display();
     }
-	cout << "   |_____|_______________|_______________|_______________|________|__________|\n";
+	cout << "   |_____|_______________|_______________|_______________|________________|_______________|\n";
     delete[] triangles;
     return 0;
 }
