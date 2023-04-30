@@ -27,9 +27,29 @@ class MyDate {
             cout << setfill('_') << setw(73) << "_" << endl;
             cout << setfill(' ');
         }
-        friend 
+        int getdate() {
+            return date;
+        }
+        int getmonth() {
+            return month;
+        }
+        int getyear() {
+            return year;
+        }
+        friend bool operator>=(const MyDate& date1,const MyDate& date2);
 
 };
+bool operator>=(const MyDate& date1,const MyDate& date2) {
+    if(date1.year > date2.year) {
+        return true;
+    } else if(date1.year == date2.year && date1.month > date2.month) {
+        return true;
+    } else if(date1.month == date2.month && date1.date > date2.date) {
+        return true;
+    } else {
+        return false;
+    }
+}
 int main() {
     int n;
     cout << "Nhap n = ";
@@ -52,6 +72,24 @@ int main() {
         list[i].print();
         cout << endl;
     }
-    return 0;
+    cout << "day: " << list[1].getdate() << "/" << list[1].getmonth() << "/" << list[1].getyear();
+    cout << "\t>=\t";
+    cout << "day: " << list[3].getdate() << "/" << list[3].getmonth() << "/" << list[3].getyear() << endl;
+    if(list[1] >= list[2]) {
+        cout << "true" << endl;
+    } else {
+        cout << "false" << endl;
+    }
+    MyDate max = list[0];
+    for(int i=0; i<n; i++) {
+        if(list[i] >= max) {
+            max = list[i];
+            cout << "|" << setw(5) << right << i+1 << setw(3);
+            max.print();
+        }
+        
+    }
+
+    return 0;   
 
 }
