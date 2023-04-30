@@ -72,14 +72,26 @@ int main() {
         list[i].print();
         cout << endl;
     }
-    cout << "day: " << list[1].getdate() << "/" << list[1].getmonth() << "/" << list[1].getyear();
-    cout << "\t>=\t";
-    cout << "day: " << list[3].getdate() << "/" << list[3].getmonth() << "/" << list[3].getyear() << endl;
-    if(list[1] >= list[2]) {
+    //cout << "day: " << list[1].getdate() << "/" << list[1].getmonth() << "/" << list[1].getyear();
+    //cout << "\t>=\t";
+    //cout << "day: " << list[3].getdate() << "/" << list[3].getmonth() << "/" << list[3].getyear() << endl;
+    /*if(list[1] >= list[2]) {
         cout << "true" << endl;
     } else {
         cout << "false" << endl;
-    }
+    }*/
+    
+    cout << "\t\t==========The latest date==============";
+    cout << endl;
+    cout << setw(3) << setfill('_') << setw(73) << "_" <<endl;
+    cout << setfill(' ');
+    cout << "|" << setw(5) << right << "stt" << setw(3);
+    cout << "|" << setw(15) << right << "date" << setw(3);
+    cout << "|" << setw(10) << right << "month" << setw(3);
+    cout << "|" << setw(10) << right << "year" << setw(3);
+    cout << "|" << setw(15) << right << "day" << setw(5) << "|" << endl;
+    cout << setfill('_') << setw(73) << "_" <<endl;
+    cout << setfill(' ');
     MyDate max = list[0];
     for(int i=0; i<n; i++) {
         if(list[i] >= max) {
