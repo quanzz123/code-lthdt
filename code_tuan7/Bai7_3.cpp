@@ -29,6 +29,13 @@ class MyTime {
             cout << setw(16) << "|";
             cout << setw(24) << "|";
             cout << endl; */
+            cout << "|" << setfill('-') << setw(16) << "|";
+            cout << setw(16) << "|";
+            cout << setw(16) << "|";
+            cout << setw(16) << "|";
+            cout << setw(24) << "|";
+            cout << endl; 
+            cout << setfill(' ');
         }
         friend bool operator>=(MyTime& time1, MyTime& time2);
 };
@@ -52,6 +59,7 @@ int main() {
         cout << "Nhap time thu: " << i+1 << endl;
         time[i].add();
     }
+    cout << "\n\n\t\t============BANG THONG KE MOC THOI GIAN=============\n\n\n";
     cout << setfill('-') << setw(89) << "-" << endl;
     cout << setfill(' ');
     cout << "|" << "\t" << setw(5) << left << "stt" << "\t";
@@ -62,24 +70,14 @@ int main() {
     cout << "|";
     cout << setfill('-') << setw(87) << "-" << "|" << endl;
     cout << setfill(' ');
-    /*cout << "|" << setfill('-') << setw(16) << "|";
-     cout << setw(16) << "|";
-            cout << setw(16) << "|";
-            cout << setw(16) << "|";
-            cout << setw(24) << "|";
-            cout << endl;*/
+   
     for(int i=0; i<n;i++) {
         cout << "|" << "\t" << setw(5) << left << i+1 << "\t";
         time[i].display();
-        cout << "|" << setfill('-') << setw(16) << "|";
-            cout << setw(16) << "|";
-            cout << setw(16) << "|";
-            cout << setw(16) << "|";
-            cout << setw(24) << "|";
-            cout << endl; 
-            cout << setfill(' ');
+        
+            
     }
-
+    cout << "\n\n\t\t==========MOC THOI GIAN DAI NHAT============\n\n";
     cout << setfill('-') << setw(89) << "-" << endl;
     cout << setfill(' ');
     cout << "|" << "\t" << setw(5) << left << "stt" << "\t";
@@ -97,13 +95,7 @@ int main() {
             
             cout << "|" << "\t" << setw(5) << left << i+1 << "\t";
             max.display();
-            cout << "|" << setfill('-') << setw(16) << "|";
-            cout << setw(16) << "|";
-            cout << setw(16) << "|";
-            cout << setw(16) << "|";
-            cout << setw(24) << "|";
-            cout << endl; 
-            cout << setfill(' ');
+           
         }
     }
 
