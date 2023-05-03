@@ -13,7 +13,7 @@ class Frac {
             
         friend ostream& operator<<(ostream& os, Frac& f);
         bool operator >= (Frac other) {
-        return (num * other.den >= other.num * den);
+        return num*other.den >= den*other.num;
     }
 };
 istream& operator>>(istream& is, Frac& f) {
@@ -41,6 +41,21 @@ int main() {
         cin >> arr[i];
     }
     cout << "output: " << endl;
+    for(int i=0; i<3; i++) {
+        cout << arr[i] << " ";
+    }
+    cout << endl;
+    for(int i=0; i<2; i++) {
+        for(int j=i+1; j<3; j++) {
+            if(arr[i] >= arr[j]) {
+                Frac temp = arr[i];
+                arr[i] = arr[j];
+                arr[j] = temp;
+            }
+        }
+    }
+
+    cout << "Befor sorting: " << endl;
     for(int i=0; i<3; i++) {
         cout << arr[i] << " ";
     }
