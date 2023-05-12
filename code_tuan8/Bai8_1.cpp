@@ -1,7 +1,7 @@
 #include<bits/stdc++.h>
 using namespace std;
 class Vector {
-    private:
+    protected:
         int n;
         int *v;
     public:
@@ -18,7 +18,7 @@ class Vector {
         }
         friend istream operator >>(istream& is, Vector& vec);
         friend ostream operator<<(ostream& os, Vector& vec);
-        friend operator+(vector& vec1, Vector& vec2);
+        friend  Vector operator+(Vector& vec1, Vector& vec2);
 };
 Vector::Vector(int size) {
     n = size;
@@ -38,7 +38,7 @@ Vector::Vector(int size, int val) {
 Vector::Vector(Vector& a) {
     n = a.n;
     v = new int[n];
-    for(in i=0; i<n; i++) {
+    for(int i=0; i<n; i++) {
         v[i] = a.v[i];
     }
 }
@@ -72,5 +72,15 @@ Vector operator+(vector& vec1, Vector& vec2) {
     }
 }
 int main() {
+    vector a(5);
+    cin >> a;
+    vector b(5);
+    cin >> b;
+
+    Vector c = a+b;
+
+    cout << "Vector a: " << a << endl;
+    cout << "Vector b: " << b << endl;
+    cout << "Vector c = " << c << endl;
 
 }
