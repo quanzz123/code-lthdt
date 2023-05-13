@@ -60,7 +60,7 @@ int main() {
         time[i].add();
     }
     cout << "\n\n\t\t============BANG THONG KE MOC THOI GIAN=============\n\n\n";
-    cout << setfill('-') << setw(89) << "-" << endl;
+    cout <<"+" << setfill('-') << setw(87) << "-" << "+" << endl;
     cout << setfill(' ');
     cout << "|" << "\t" << setw(5) << left << "stt" << "\t";
     cout << "|" << "\t" << setw(5) << left << "hours" << "\t";
@@ -68,9 +68,18 @@ int main() {
     cout << "|" << "\t" << setw(5) << left << "seconds" << "\t";
     cout << "|" << "\t" << setw(10) << right << "time" << "\t" << "|" << endl;
     cout << "|";
-    cout << setfill('-') << setw(87) << "-" << "|" << endl;
+    //cout << setfill('-') << setw(87) << "-" << "|" << endl;
+    //cout << setfill(' ');
+    cout << setfill('-') << setw(15) << "-" << "|";
     cout << setfill(' ');
-   
+    cout << setfill('-') << setw(15) << "-" << "|";
+    cout << setfill(' ');
+    cout << setfill('-') << setw(15) << "-" << "|";
+    cout << setfill(' ');
+    cout << setfill('-') << setw(15) << "-" << "|";
+    cout << setfill(' ');
+    cout << setfill('-') << setw(23) << "-" << "|" << endl;
+    cout << setfill(' ');
     for(int i=0; i<n;i++) {
         cout << "|" << "\t" << setw(5) << left << i+1 << "\t";
         time[i].display();
