@@ -88,7 +88,7 @@ int main() {
         c[i] = Cricle(color, a, b, r);
     }
     cout << "\n\n";
-    cout << setw(5) << left <<  "===========bảng thong ke===========" << endl;
+    cout << "\t"<<  "===========bang thong ke===========" << endl;
     cout <<"+" << setfill('-') << setw(40) << "-" << "+" << endl;
     cout << setfill(' ');
     cout << "|" << setw(3) << left << "stt";
