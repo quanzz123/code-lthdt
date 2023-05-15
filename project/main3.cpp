@@ -141,5 +141,6 @@ class Protector : public ITDevice {
         }
 };
 int main() {
-
-}
+    vector<Device*> devices;
+    int choice;
+    
