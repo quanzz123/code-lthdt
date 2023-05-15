@@ -309,5 +309,102 @@ case 4: {
 }*/
 
 
+#include <iostream>
+#include <vector>
+#include <string>
+
+using namespace std;
+
+// Lớp cha Thiết bị
+class Device {
+protected:
+    string name;
+    string code;
+    string importDate;
+    bool isExpired;
+
+public:
+    Device(string name, string code, string importDate) {
+        this->name = name;
+        this->code = code;
+        this->importDate = importDate;
+        this->isExpired = false;
+    }
+
+    virtual void displayInfo() = 0;
+
+    bool getIsExpired() {
+        return isExpired;
+    }
+
+    void setIsExpired(bool isExpired) {
+        this->isExpired = isExpired;
+    }
+};
+
+// Lớp con Máy in
+class Printer : public Device {
+protected:
+    string color;
+    int speed;
+    int memory;
+
+public:
+    Printer(string name, string code, string importDate, string color, int speed, int memory)
+        : Device(name, code, importDate) {
+        this->color = color;
+        this->speed = speed;
+        this->memory = memory;
+    }
+
+    void displayInfo() override {
+        cout << "Tên thiết bị: " << name << endl;
+        cout << "Mã thiết bị: " << code << endl;
+        cout << "Ngày nhập: " << importDate << endl;
+        cout << "Tình trạng: " << (isExpired ? "Hết hạn" : "Đang sử dụng") << endl;
+        cout << "Màu sắc: " << color << endl;
+        cout << "Tốc độ: " << speed << endl;
+        cout << "Bộ nhớ: " << memory << "MB" << endl;
+    }
+};
+
+// Lớp con Máy in đen trắng
+class BlackAndWhitePrinter : public Printer {
+private:
+    int dpi;
+
+public:
+    BlackAndWhitePrinter(string name, string code, string importDate, string color, int speed, int memory, int dpi)
+        : Printer(name, code, importDate, color, speed, memory) {
+        this->dpi = dpi;
+    }
+
+    void displayInfo() override {
+        Printer::displayInfo();
+        cout << "Số điểm ảnh: " << dpi << endl;
+    }
+};
+
+// Lớp con Máy in màu
+class ColorPrinter : public BlackAndWhitePrinter {
+private:
+    int numColors;
+
+public:
+    ColorPrinter(string name, string code, string importDate, string color, int speed, int memory, int dpi, int numColors)
+        : BlackAndWhitePrinter(name, code, importDate, color, speed, memory, dpi) {
+        this->numColors = numColors;
+    }
+
+    void displayInfo() override {
+        BlackAndWhitePrinter::displayInfo();
+        cout << "Số màu: " << numColors << endl;
+    }
+};
+
+// Lớp Máy
+
+
+
 
 

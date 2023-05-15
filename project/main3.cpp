@@ -36,12 +36,21 @@ class ITDevice {
             cout << "Nhap ngay nhap thiet bi: ";
             fflush(stdin);
             getline(cin, date);
+            cout << "Nhập tình trạng (1 - Đang sử dụng, 0 - Đến thời hạn thanh lý): ";
+            cin >> status;
         }
         void display() {
+            cout << "\n\t===danh sach may tinh===\n";
             cout << "Ten thiet bi: " << name << endl;
             cout << "Ma thiet bi: " << code << endl;
             cout << "Ngay nhap thiet bi: " << date << endl;
             cout << "Tinh trang: " << (status ? "het han" : "con han") << endl;
+        }
+        bool getStatus() {
+            return status;
+        }
+        string getName() {
+            return name;
         }
 
 };
@@ -51,7 +60,7 @@ class Printer : public ITDevice {
         int speed;
         int memory;
     public:
-        Printer(string n=" ",string c=" ", string d=" ",string col=" ", int sp=" ", int mem=" ") :ITDevice(n,c,d) {
+        Printer(string n=" ",string c=" ", string d=" ",string col=" ", int sp=0, int mem=0) :ITDevice(n,c,d) {
             color = col;
             speed = sp;
             memory = mem;
@@ -64,6 +73,7 @@ class Printer : public ITDevice {
             cin >> memory;
         }
         void display() {
+            cout << "\n\t===danh sach may in===\n";
             ITDevice::display();
             cout << "Toc do: " << speed << endl;
             cout << "Bo nho: " << memory << endl;
@@ -74,7 +84,7 @@ class BWPrinter : public Printer {
     protected:
         int pixels; //điểm ảnh
     public:
-        BWPrinter(string n=" ",string c=" ", string d=" ",string col=" ", int sp=" ", int mem=" ", int pix=0) : Printer(n,c,d,col,sp,mem) {
+        BWPrinter(string n=" ",string c=" ", string d=" ",string col=" ", int sp=0, int mem=0, int pix=0) : Printer(n,c,d,col,sp,mem) {
             pixels = pix;
         }
         void input() {
@@ -83,6 +93,7 @@ class BWPrinter : public Printer {
             cin >> pixels;
         }
         void display() {
+            cout << "\n\t===danh sach may in den trang===\n";
             Printer::display();
             cout << "So diem anh: " << pixels << endl;
         }
@@ -91,7 +102,7 @@ class ColorPrinter : public BWPrinter {
     protected:
         int colors; // số màu
     public:
-        ColorPrinter(string n=" ",string c=" ", string d=" ",string col=" ", int sp=" ", int mem=" ", int pix=0, int cols=0) : BWPrinter(n,c,d,col,sp,mem,pix) {
+        ColorPrinter(string n=" ",string c=" ", string d=" ",string col=" ", int sp=0, int mem=0, int pix=0, int cols=0) : BWPrinter(n,c,d,col,sp,mem,pix) {
             colors = cols;
         }
         void input() {
@@ -100,7 +111,7 @@ class ColorPrinter : public BWPrinter {
             cin >> colors;
         }
         void display() {
-
+            cout << "\n\t===danh sach may in mau===\n";
             BWPrinter::display();
             cout << "So mau: " << colors << endl;
         }
@@ -119,15 +130,16 @@ class Scaner : public ITDevice {
             cin >> scanspeed;
         }
         void display() {
+            cout << "\n\t===danh sach may quet===\n";
             ITDevice::display();
             cout << "toc do quet: " << scanspeed << endl;
         }
 };
-class Protector : public ITDevice {
+class Projector : public ITDevice {
     protected:
         int maxHours;
     public:
-        Protector(string n=" ",string c=" ", string d=" ", string s=" ", int ss=0, int mH =0) : ITDevice(n,c,d,ss) {
+        Projector(string n=" ",string c=" ", string d=" ", int ss=0, int mH =0) : ITDevice(n,c,d) {
             maxHours = mH;
         }
         void input() {
@@ -136,11 +148,201 @@ class Protector : public ITDevice {
             cin >> maxHours;
         }
         void display() {
+            cout << "\n\tdanh sach may chieu===\n";
             ITDevice::display();
             cout << "so gio max: " << maxHours << endl;
         }
 };
 int main() {
-    vector<Device*> devices;
+    vector<ITDevice*> devices;
     int choice;
-    
+
+    while (true) {
+        cout << "================= MENU =================" << endl;
+        cout << "1. Them thiet bi" << endl;
+        cout << "2. Hien thi thong tin cac thiet bi" << endl;
+        cout << "3. Thong ke va tim kiem" << endl;
+        cout << "4. Danh sach thiet bi het han su dung" << endl;
+        cout << "0. Thoat chuong trinh" << endl;
+        cout << "========================================" << endl;
+        cout << "Nhap lu chon cua ban: ";
+        cin >> choice;
+
+        switch (choice) {
+            case 1: {
+                int deviceChoice;
+                cout << "================= MENU =================" << endl;
+                cout << "1. May tinh" << endl;
+                cout << "2. May in den trang" << endl;
+                cout << "3. May in mau" << endl;
+                cout << "4. May quet" << endl;
+                cout << "5. May chieu" << endl;
+                cout << "0. Quay lai" << endl;
+                cout << "========================================" << endl;
+                cout << "Nhap lua chon cua ban: ";
+                cin >> deviceChoice;
+
+                switch (deviceChoice) {
+                    case 1: {
+                        ITDevice* newDevice = new ITDevice();
+                        newDevice->input();
+                        devices.push_back(newDevice);
+                        cout << "Tham may tanh thanh cang!" << endl;
+                        break;
+                    }
+                    case 2: {
+                        BWPrinter* newDevice = new BWPrinter();
+                        newDevice->input();
+                        devices.push_back(newDevice);
+                        cout << "Them may in đen trang thanh cong!" << endl;
+                        break;
+                    }
+                    case 3: {
+                        ColorPrinter* newDevice = new ColorPrinter();
+                        newDevice->input();
+                        devices.push_back(newDevice);
+                        cout << "Them may in mau thanh cong!" << endl;
+                        break;
+                    }
+                    case 4: {
+                        Scaner* newDevice = new Scaner();
+                        newDevice->input();
+                        devices.push_back(newDevice);
+                        cout << "Them may quet thanh cong!" << endl;
+                        break;
+                    }
+                    case 5: {
+                        Projector* newDevice = new Projector();
+                        newDevice->input();
+                        devices.push_back(newDevice);
+                        cout << "Them may chieu thanh cong!" << endl;
+                        break;
+                    }
+                    case 0:
+                        break;
+                    default:
+                        cout << "Laa chon khong hop le!" << endl;
+                }
+
+                break;
+            }
+            case 2: {
+                if (devices.empty()) {
+                    cout << "Danh sach thiet bi trong!" << endl;
+                } else {
+                    cout << "====== Danh sach thiet bi ======" << endl;
+                    for (ITDevice* device : devices) {
+                        device->display();
+                        cout << "-----------------------" << endl;
+                    }
+                }
+
+                break;
+            }
+             case 3: {
+    int searchChoice;
+    cout << "----- Thong ke và tim kiem -----"<<endl;
+    cout << "1. Thong ke theo tinh trang" << endl;
+    cout << "2. Tim kiem theo ten" << endl;
+    cout << "3. Quay lai" << endl;
+    cout << "Nhap lua chon cua ban: ";
+    cin >> searchChoice;
+
+    switch (searchChoice) {
+        case 1: {
+            int statusChoice;
+            cout << "----- Thong ke theo tinh trang -----" << endl;
+            cout << "1. Thiet bi đang su dung đuoc" << endl;
+            cout << "2. Thiet bi đen thoi han thanh ly" << endl;
+            cout << "Nhap lua chon cua ban: ";
+            cin >> statusChoice;
+
+            if (statusChoice == 1) {
+                int countInUse = 0;
+                for (ITDevice* device : devices) {
+                    if (device->getStatus() == true) {
+                        countInUse++;
+                    }
+                }
+                cout << "So luong thiet bi đang su dung đuoc: " << countInUse << endl;
+            } else if (statusChoice == 2) {
+                int countExpired = 0;
+                for (ITDevice* device : devices) {
+                    if (device->getStatus() == false) {
+                        countExpired++;
+                    }
+                }
+                cout << "So lưong thiet bi đen thoi han thanh ly: " << countExpired << endl;
+            } else {
+                cout << "Lua chon khong hop le!" << endl;
+            }
+
+            break;
+        }
+        case 2: {
+            string searchName;
+            cout << "----- Tim kiem theo ten -----" << endl;
+            cout << "Nhap ten thiet bi can tim kiem: ";
+            cin.ignore();
+            getline(cin, searchName);
+
+            bool found = false;
+            for (ITDevice* device : devices) {
+                if (device->getName() == searchName) {
+                    device->display();
+                    found = true;
+                }
+            }
+
+            if (!found) {
+                cout << "Khong tim thay thiet bi nao co ten: " << searchName << endl;
+            }
+
+            break;
+        }
+        case 3:
+            break;
+        default:
+            cout << "Lua chon khong hop le!" << endl;
+    }
+
+    break;
+}
+
+            
+            case 4: {
+                vector<ITDevice*> expiredDevices;
+                // Kiểm tra và lưu trữ các thiết bị hết hạn vào danh sách expiredDevices
+                for (ITDevice* device : devices) {
+                    // Kiểm tra nếu tình trạng là hết hạn
+                    if (device->getStatus()) {
+                        expiredDevices.push_back(device);
+                    }
+                }
+
+                if (expiredDevices.empty()) {
+                    cout << "Khong co thiet bi nao het han su dung!" << endl;
+                } else {
+                    cout << "===== Danh sach thiet bi het han =====" << endl;
+                    for (ITDevice* device : expiredDevices) {
+                        device->display();
+                        cout << "-----------------------" << endl;
+                    }
+                }
+
+                break;
+            }
+            case 0:
+                cout << "Thoat chuong trinh. Cam on ban đa su dung!" << endl;
+                return 0;
+            default:
+                cout << "Lua chon khong hop le!" << endl;
+        }
+    }
+
+    return 0;
+}
+
+            
+
+
