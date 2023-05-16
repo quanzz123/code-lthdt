@@ -1,0 +1,3 @@
+p1 4 5 red
+p1 3 4 blue
+p3 3 2 pink
