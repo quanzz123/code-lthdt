@@ -36,7 +36,7 @@ class ITDevice {
             cout << "Nhap ngay nhap thiet bi: ";
             fflush(stdin);
             getline(cin, date);
-            cout << "Nhập tình trạng (1 - Đang sử dụng, 0 - Đến thời hạn thanh lý): ";
+            cout << "Nhap tinh trang (1 - Đang su dung, 0 - Đen thoi han thanh ly): ";
             cin >> status;
         }
         void display() {
