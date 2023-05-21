@@ -50,7 +50,7 @@ class ITDevice {
             return status;
         }
         string getName() {
-            return name;
+            return name; //tao hàm get lấy thêm thiết bị
         }
 
 };
