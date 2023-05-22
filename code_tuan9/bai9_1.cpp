@@ -127,16 +127,17 @@ int main() {
                         int q;
                         cout << "Nhap lo luong muon xuat: ";
                         cin >> q;
-                        printers[index].xuat(q);
+                        printers[index].xuatkho(q);
                         cout << "Xuat may in thanh cong!" << endl;
 
                     } else {
                         cout << "Khong ton tai index của máy in." << endl;
-                    } else {
-                        cout << "khong ton tai may in nao trong kho!" << endl;
                     }
-                    break;
+                } else {
+                    cout << "Chua co may in nao trong kho!" << endl;
+            
                 }
+                break;
             }
             case 3: {
                 if(count > 0) {
@@ -161,7 +162,8 @@ int main() {
                     for(int i=0; i < count; i++) {
                         cout << "|" << setw(7) << left << i+1;
                         cout << "|" << setw(10) << left << printers[i].getname();
-                        cout << "|" << setw(5) << left << printers[i].getdpi;
+                        //cout << "|" << setw(5) << left << printers[i].getdpi;
+                        cout << "|" << setw(5) << left << printers[i].getdpi();
                         cout << "|" << setw(10) << left << printers[i].getcolor();
                         cout << "|" << setw(10) << left << printers[i].getsoluong() << "|" << endl;                        
                     }
@@ -180,8 +182,6 @@ int main() {
             }
             cout << endl;
         } while(choice != 0);
-        retunrn 0;
-
-       
-    
+        return 0;
 }
+   
