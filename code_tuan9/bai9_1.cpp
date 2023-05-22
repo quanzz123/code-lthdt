@@ -62,6 +62,66 @@ void showmenu() {
     cout << "0. Exit" << endl;
 }
 int main() {
-    Colorlaser cl(" p1", 2, 3, " red");
+    const int MAX = 3;
+    Colorlaser printers[MAX];
+    int count =0;
+    ifstream inputfile("printers.txt");
+    if(inputfile.is_open()) {
+        string name, color;
+        int soluong, dpi;
+
+        while(getline(inputfile, name) && count < MAX) {
+            inputfile >> soluong >> dpi;
+            inputfile.ignore();
+            getline(inputfile, color);
+
+            printers[count] = Colorlaser(name, soluon, dpi, color);
+            count++;
+        }
+        inputfile.close();
+        cout << "da lay du lieu tu tep printers.txt" << endl;
+
+    } else {
+        cout << "Khong dung dinh dang printers.txt" << endl;
+    }
+    int choice;
+    do {
+        showmenu();
+        cout << "moi nhap lua chon: ";
+        cin >> choice;
+
+        switch (choice) {
+            case 1: {
+                if(count < MAX) {
+                    string name, color;
+                    int soluong, dpi;
+                    cout << "Nhap ten may in: ";
+                    fflush(stdin);
+                    getline(cin, name);
+
+                    cout << "Nhap so luong: ";
+                    cin >> soluong;
+
+                    cout << "Nhap dpi: ";
+                    cin >> dpi;
+
+                    cout << "Nhap may sac: ";
+                    fflush(stdin);
+                    getline(cin, color);
+
+                    printers[count] = Colorlaser(name, soluong, dpi, color);
+                    count++;
+                    cout << "Them may in thanh cong!" << endl;
+                } else {
+                    cout << "da dat gioi han so luong may in" << endl;
+                }
+                break;
+            }
+            case 2: {
+                
+            }
+        } 
+
+       
     
 }
