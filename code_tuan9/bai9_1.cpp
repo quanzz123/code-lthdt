@@ -118,7 +118,54 @@ int main() {
                 break;
             }
             case 2: {
-                
+                if(count >0) {
+                    int index;
+                    cout << "Nhap index cua may in muon xuat: "; // index ở đây có nghĩa là số thứ tự của máy in.
+                    cin >> index;
+
+                    if(index >=0 && index < count) {
+                        int q;
+                        cout << "Nhap lo luong muon xuat: ";
+                        cin >> q;
+                        printers[index].xuat(q);
+                        cout << "Xuat may in thanh cong!" << endl;
+
+                    } else {
+                        cout << "Khong ton tai index của máy in." << endl;
+                    } else {
+                        cout << "khong ton tai may in nao trong kho!" << endl;
+                    }
+                    break;
+                }
+            }
+            case 3: {
+                if(count > 0) {
+                    cout << "thong tin may in: " << endl;
+                    cout << "+" << setfill('-') << setw(42) << "-" << "+" << endl;
+                    cout << setfill(' '); 
+                    cout << "|" << setw(7) << left << "May in";
+                    cout << "|" << setw(10) << left << "Ten";
+                    cout << "|" << setw(5) << left << "Dpi";
+                    cout << "|" << setw(10) << left << "Mau sac";
+                    cout << "|" << setw(10) << left << "So luong" << "|" << endl;
+                    cout << "|" << setfill('-') << setw(7) << "-" << "|";
+                    cout << setfill(' ');
+                    cout << setfill('-') << setw(10) << "-" << "|";
+                    cout << setfill(' ');
+                    cout << setfill('-') << setw(5) << "-" << "|";
+                    cout << setfill(' ');                    
+                    cout << setfill('-') << setw(10) << "-" << "|";
+                    cout << setfill(' ');
+                    cout << setfill('-') << setw(10) << "-" << "|" << endl;
+                    cout << setfill(' ');                    
+                    for(int i=0; i < count; i++) {
+                        cout << "|" << setw(7) << left << i+1;
+                        cout << "|" << setw(10) << left << printers[i].getname();
+                        cout << "|" << setw(5) << left << printers[i].getdpi;
+                        cout << "|" << setw(10) << left << printers[i].getcolor();
+                        cout << "|" << setw(10) << left << printers[i].getsoluong() << "|" << endl;                        
+                    }
+                }
             }
         } 
 
