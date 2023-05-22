@@ -5,7 +5,7 @@ class Printer {
         string name;
         int soluong;
     public:
-        Printer(sting n=" ", int sl=0) {
+        Printer(string n=" ", int sl=0) {
             name = n;
             soluong = sl;
         }
@@ -41,14 +41,14 @@ class Colorprinter : public virtual Printer {
     protected:
         string color;
     public:
-        Colorprinter(string name=" ", int sl=0, string col=" ") : Printer(n,sl) {
+        Colorprinter(string n=" ", int sl=0, string col=" ") : Printer(n,sl) {
             color = col;
         }
         string getcolor() {
             return color;
         }
 };
-class Colorlaser : public laser, public: Colorprinter {
+class Colorlaser : public laser, public  Colorprinter {
     public:
         Colorlaser(string n=" ", int sl=0, int dpi=0, string col=" ")
         :Printer(n,sl), laser(n,sl, dpi), Colorprinter(n,sl,col) {}

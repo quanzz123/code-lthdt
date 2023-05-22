@@ -111,7 +111,7 @@ class ColorPrinter : public BWPrinter {
             cin >> colors;
         }
         void display() {
-            cout << "\n\t===danh sach may in mau===\n";
+            cout << "\n\t===Danh sach may in mau===\n";
             BWPrinter::display();
             cout << "So mau: " << colors << endl;
         }
@@ -130,7 +130,7 @@ class Scaner : public ITDevice {
             cin >> scanspeed;
         }
         void display() {
-            cout << "\n\t===danh sach may quet===\n";
+            cout << "\n\t===Danh sach may quet===\n";
             ITDevice::display();
             cout << "toc do quet: " << scanspeed << endl;
         }
