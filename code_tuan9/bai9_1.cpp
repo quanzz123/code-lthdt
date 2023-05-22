@@ -75,7 +75,7 @@ int main() {
             inputfile.ignore();
             getline(inputfile, color);
 
-            printers[count] = Colorlaser(name, soluon, dpi, color);
+            printers[count] = Colorlaser(name, soluong, dpi, color);
             count++;
         }
         inputfile.close();
