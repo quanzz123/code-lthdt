@@ -36,7 +36,7 @@ class ITDevice {
             cout << "Nhap ngay nhap thiet bi: ";
             fflush(stdin);
             getline(cin, date);
-            cout << "Nhap tinh trang (1 - Đang su dung, 0 - Đen thoi han thanh ly): ";
+            cout << "Nhap tinh trang (1 - Dang su dung, 0 - Den thoi han thanh ly): ";
             cin >> status;
         }
         void display() {
@@ -47,7 +47,7 @@ class ITDevice {
             cout << "Tinh trang: " << (status ? "het han" : "con han") << endl;
         }
         bool getStatus() {
-            return status;
+            return status; // tạo hàm kiểm tra bool để kiểm tra tình trang của sản phẩm, với 1 là vòn hàng và 0 là hết hàng
         }
         string getName() {
             return name; //tao hàm get lấy thêm thiết bị
