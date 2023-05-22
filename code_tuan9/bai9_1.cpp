@@ -165,9 +165,22 @@ int main() {
                         cout << "|" << setw(10) << left << printers[i].getcolor();
                         cout << "|" << setw(10) << left << printers[i].getsoluong() << "|" << endl;                        
                     }
+                } else {
+                    cout << "chua co may in nao trong kho!" << endl;
                 }
+                break;
             }
-        } 
+            case 0: {
+                cout << "ket thuc chuong trinh!" << endl;
+                break;
+            }
+            default : {
+                cout << "lua chon khong hop le!" << endl;
+                break;
+            }
+            cout << endl;
+        } while(choice != 0);
+        retunrn 0;
 
        
     
