@@ -1,166 +1,155 @@
-#include <iostream>
-#include <fstream>
-#include <string>
+#include<bits/stdc++.h>
+#include<sstream>
 using namespace std;
 
+
 class Printer {
-protected:
-    string Name;
-    int Soluong;
-public:
-    Printer() {}
-    void nhapkho(int q) {
-        Printer::Soluong += q;
-    }
-    void xuatkho(int q) {
-        if (Printer::Soluong >= q) {
-            Printer::Soluong -= q;
-        } else {
-            cout << "Khong du so luong trong kho." << endl;
+    protected:
+        string name;
+        int soluong;
+    public:
+        Printer(string n=" ", int sl=0) {
+            name = n;
+            soluong = sl;
         }
-    }
+        void Nhapkho(int q) {
+            soluong += q;
+        }
+        void  Xuatkho(int q) {
+            if(soluong >= q) {
+                soluong -= q;
+            } else {
+                cout << "khng du so luong trong kho!" << endl;
+            }
+        }
+        void display() {
+            cout << "|" << setw(10) << left << name;
+            cout << "|" << setw(5) << left << soluong; 
+        }
 };
-
 class Laser : public Printer {
-protected:
-    int Dpi;
-public:
-    Laser(int dpi) : Dpi(dpi) {}
-};
-
-class ColorPrinter : public Printer {
-protected:
-    string Color;
-public:
-    ColorPrinter(string color) : Color(color) {}
-};
-
-class ColorLaser : public Laser, public ColorPrinter {
-public:
-    ColorLaser(string name, int soluong, int dpi, string color)
-        : Laser(dpi), ColorPrinter(color) {
-        Name = name;
-        Soluong = soluong;
-    }
-};
-
-void displayMenu() {
-    cout << "============= MENU =============" << endl;
-    cout << "1. Them may in" << endl;
-    cout << "2. Xuat may in" << endl;
-    cout << "3. Hien thi thong tin may in" << endl;
-    cout << "0. Thoat" << endl;
-    cout << "================================" << endl;
-}
-
-int main() {
-    const int MAX_PRINTERS = 3;
-    ColorLaser printers[3];
-    int count = 0;
-
-    ifstream inputFile("printers.txt");
-    if (inputFile.is_open()) {
-        string name, color;
-        int soluong, dpi;
-
-        while (getline(inputFile, name) && count < 3) {
-            inputFile >> soluong >> dpi;
-            inputFile.ignore();
-            getline(inputFile, color);
-
-            printers[count] = ColorLaser(name, soluong, dpi, color);
-            count++;
+    protected:
+        int Dpi;
+    public:
+        Laser(string n=" ", int sl=0, int dpi=0) : Printer(n,sl) {
+            Dpi = dpi;
         }
-
-        inputFile.close();
-        cout << "Da nap du lieu tu tep printers.txt." << endl;
-    } else {
-        cout << "Khong the mo tep printers.txt." << endl;
-    }
-
+        void display() {
+            Printer::display();
+            cout << "|" << setw(5) << left << Dpi;
+        }
+};
+class ColorPrinter : public Printer {
+    protected:
+        string Color;
+    public:
+        ColorPrinter(string n =" ", int sl=0, string cl=" ") : Printer(n,sl) {
+            Color = cl;
+        }
+        void display() {
+            Printer::display();
+            cout << "|" << setw(5) << left << Color;
+        }
+};
+class ColorLaser : public Laser, public ColorPrinter {
+    protected:
+    public:
+        ColorLaser(string n=" ", int sl=0, int dpi=0, string cl=0) : Laser(n,sl, dpi) , ColorPrinter(n, sl, cl) {
+    
+        }
+        void display() {
+            Laser::display();
+            cout << "|" << setw(5) << left << Color << endl;
+        }
+};
+int main() {
+    vector<ColorLaser> Printers;
     int choice;
+    int q;
+    string name;
+    int dpi;
+    string color;
+
     do {
-        displayMenu();
-        cout << "Nhap lua chon cua ban: ";
+        cout << "\n===MENU===" << endl;
+        cout << "1.Nhap them san pham vao kho" << endl;
+        cout << "2.Hien thi thong tin cac san pham" << endl;
+        cout << "3.Xuat kho" << endl;
+        cout << "0.Thoat khoi chuong trinh" << endl;
+        cout << "Moi nhap lua chon cua ban: " ;
         cin >> choice;
 
-        switch (choice) {
-            case 1: {
-                if (count < 3) {
-                    string name, color;
-                    int soluong, dpi;
+        switch (choice) 
+            case 1:
+ifstream inputFile("printers.txt");
+if(inputFile.is_open()) {
+    while(!inputFile.eof()) {
+        string line;
 
-                    cout << "Nhap ten may in: ";
-                    cin.ignore();
-                    getline(cin, name);
-
-                    cout << "Nhap so luong: ";
-                    cin >> soluong;
-
-                    cout << "Nhap Dpi: ";
-                    cin >> dpi;
-
-                    cout << "Nhap mau sac: ";
-                    cin.ignore();
-                    getline(cin, color);
-
-                    printers[count] = ColorLaser(name, soluong, dpi, color);
-                    count++;
-                    cout << "Them may in thanh cong!" << endl;
-                } else {
-                    cout << "Da dat gioi han so luong may in." << endl;
-                }
-                break;
-            }
-            case 2: {
-                if (count > 0) {
-                    int index;
-                    cout << "Nhap index cua may in muon xuat: ";
-                    cin >> index;
-
-                    if (index >= 0 && index < count) {
-                        int q;
-                        cout << "Nhap so luong muon xuat: ";
-                                               cin >> q;
-                        printers[index].xuatkho(q);
-                        cout << "Xuat may in thanh cong!" << endl;
-                    } else {
-                        cout << "Index khong hop le." << endl;
-                    }
-                } else {
-                    cout << "Chua co may in nao trong kho." << endl;
-                }
-                break;
-            }
-            case 3: {
-                if (count > 0) {
-                    cout << "Thong tin cac may in:" << endl;
-                    for (int i = 0; i < count; i++) {
-                        cout << "May in " << i + 1 << ":" << endl;
-                        cout << "Ten: " << printers[i].Name << endl;
-                        cout << "Dpi: " << printers[i].Dpi << endl;
-                        cout << "Mau sac: " << printers[i].Color << endl;
-                        cout << "So luong trong kho: " << printers[i].Soluong << endl;
-                        cout << endl;
-                    }
-                } else {
-                    cout << "Chua co may in nao trong kho." << endl;
-                }
-                break;
-            }
-            case 0: {
-                cout << "Ket thuc chuong trinh." << endl;
-                break;
-            }
-            default: {
-                cout << "Lua chon khong hop le." << endl;
-                break;
-            }
+        if(line.empty()) {
+            continue; //bỏ qua các dòng trống.
         }
+        stringstream ss(line);
+        string name;
+        int soluong;
+        int dpi;
+        string color;
 
-        cout << endl;
-    } while (choice != 0);
+        ss >> name >> soluong >> dpi >> color;
 
-    return 0;
+        // thêm vào vector vector Printes.
+        Printers.push_back(ColorLaser(name, soluong, dpi, color));
+    }
+    inputFile.close();
+} else {
+    cout << "khong the mo tep tu file!" << endl;
+}               
+            case 2:
+                cout << "thong tin cac san pham: "<< endl;
+                for (int i = 0; i < Printers.size(); i++) {
+                    cout << "|" << setw(3) << left << i+1;
+                    Printers[i].display();
+                }
+                break;
+            case 3:
+                cout << "Nhap so luong san pham can xuat kho: ";
+                cin >> q;
+                Printers[0].ColorPrinter::Xuatkho(q);
+                break;
+            case 0:
+                cout << "Exit!" << endl;
+                break;
+            default :
+                cout << "lua chon khong hop le moi nhap lai lua chon!" << endl;
+                break;
+        
+    }
+
+
+while (choice != 0);
+
+ifstream inputFile("printers.txt");
+if(inputFile.is_open()) {
+    while(!inputFile.eof()) {
+        string line;
+
+        if(line.empty()) {
+            continue; //bỏ qua các dòng trống.
+        }
+        stringstream ss(line);
+        string name;
+        int soluong;
+        int dpi;
+        string color;
+
+        ss >> name >> soluong >> dpi >> color;
+
+        // thêm vào vector vector Printes.
+        Printers.push_back(ColorLaser(name, soluong, dpi, color));
+    }
+    inputFile.close();
+} else {
+    cout << "khong the mo tep tu file!" << endl;
 }
-
+return 0;
+}

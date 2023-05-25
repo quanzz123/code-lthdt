@@ -1,4 +1,5 @@
 #include<bits/stdc++.h>
+#include<sstream>
 using namespace std;
 
 
@@ -75,10 +76,10 @@ int main() {
         cout << "2.Hien thi thong tin cac san pham" << endl;
         cout << "3.Xuat kho" << endl;
         cout << "0.Thoat khoi chuong trinh" << endl;
-        cout << "Moi nhap lua chọn cua ban: " ;
+        cout << "Moi nhap lua chon cua ban: " ;
         cin >> choice;
 
-        switch (choice) {
+        switch (choice) 
             case 1:
                 cout << "Nhap tong tin dan pham: " << endl;
                 cout << "Nhap ten may in: ";
@@ -115,7 +116,31 @@ int main() {
         
     }
 
-}
+
 while (choice != 0);
+
+ifstream inputFile("printers.txt");
+if(inputFile.is_open()) {
+    while(!inputFile.eof()) {
+        string line;
+
+        if(line.empty()) {
+            continue; //bỏ qua các dòng trống.
+        }
+        stringstream ss(line);
+        string name;
+        int soluong;
+        int dpi;
+        string color;
+
+        ss >> name >> soluong >> dpi >> color;
+
+        // thêm vào vector vector Printes.
+        Printers.push_back(ColorLaser(name, soluong, dpi, color));
+    }
+    inputFile.close();
+} else {
+    cout << "khong the mo tep tu file!" << endl;
+}
 return 0;
 }
