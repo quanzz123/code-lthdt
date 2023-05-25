@@ -79,7 +79,7 @@ int main() {
         cout << "Moi nhap lua chon cua ban: " ;
         cin >> choice;
 
-        switch (choice) 
+        switch (choice) {
             case 1:
 ifstream inputFile("printers.txt");
 if(inputFile.is_open()) {
@@ -121,10 +121,9 @@ if(inputFile.is_open()) {
                 break;
             default :
                 cout << "lua chon khong hop le moi nhap lai lua chon!" << endl;
-                break;
+                break; }
         
     }
-
 
 while (choice != 0);
 

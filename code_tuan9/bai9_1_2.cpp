@@ -79,7 +79,7 @@ int main() {
         cout << "Moi nhap lua chon cua ban: " ;
         cin >> choice;
 
-        switch (choice) 
+        switch (choice) {
             case 1:
                 cout << "Nhap tong tin dan pham: " << endl;
                 cout << "Nhap ten may in: ";
@@ -112,35 +112,12 @@ int main() {
                 break;
             default :
                 cout << "lua chon khong hop le moi nhap lai lua chon!" << endl;
-                break;
+                break; }
         
-    }
+    } while (choice != 0);
 
 
-while (choice != 0);
+    
 
-ifstream inputFile("printers.txt");
-if(inputFile.is_open()) {
-    while(!inputFile.eof()) {
-        string line;
-
-        if(line.empty()) {
-            continue; //bỏ qua các dòng trống.
-        }
-        stringstream ss(line);
-        string name;
-        int soluong;
-        int dpi;
-        string color;
-
-        ss >> name >> soluong >> dpi >> color;
-
-        // thêm vào vector vector Printes.
-        Printers.push_back(ColorLaser(name, soluong, dpi, color));
-    }
-    inputFile.close();
-} else {
-    cout << "khong the mo tep tu file!" << endl;
-}
 return 0;
 }
