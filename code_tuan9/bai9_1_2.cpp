@@ -27,6 +27,7 @@ class Printer {
             cout << "|" << setw(5) << left << soluong; 
         }
 };
+//-------------------------------------------------------------
 class Laser : public Printer {
     protected:
         int Dpi;
@@ -39,6 +40,7 @@ class Laser : public Printer {
             cout << "|" << setw(5) << left << Dpi;
         }
 };
+//-----------------------------------------------------------------
 class ColorPrinter : public Printer {
     protected:
         string Color;
@@ -51,6 +53,7 @@ class ColorPrinter : public Printer {
             cout << "|" << setw(5) << left << Color;
         }
 };
+//----------------------------------------------------------------
 class ColorLaser : public Laser, public ColorPrinter {
     protected:
     public:
@@ -62,6 +65,7 @@ class ColorLaser : public Laser, public ColorPrinter {
             cout << "|" << setw(5) << left << Color << endl;
         }
 };
+//----------------------------------------------------------------
 int main() {
     vector<ColorLaser> Printers;
     int choice;
