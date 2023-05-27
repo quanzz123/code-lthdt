@@ -1,5 +1,7 @@
 #include <iostream>
 #include <fstream>
+#include <vector>
+#include <algorithm>
 using namespace std;
 
 class SV {
@@ -8,183 +10,167 @@ protected:
     string hoTen;
 
 public:
-    virtual void nhap() = 0;
-    virtual void hienThi() = 0;
-    virtual void ghi(ofstream& file) = 0;
-    virtual void doc(ifstream& file) = 0;
-};
+    SV() {}
+    SV(const string& lopHoc, const string& hoTen) : lopHoc(lopHoc), hoTen(hoTen) {}
 
-class SVSP : public SV {
-private:
-    float hocBong;
-
-public:
-    void nhap() {
+    virtual void nhap() {
         cout << "Nhap lop hoc: ";
         cin >> lopHoc;
         cout << "Nhap ho ten: ";
         cin.ignore();
         getline(cin, hoTen);
+    }
+
+    virtual void hienThi() const {
+        cout << "Lop hoc: " << lopHoc << endl;
+        cout << "Ho ten: " << hoTen << endl;
+    }
+     string getlophoc() const {
+        return lopHoc;
+    }
+     string gethovaten() const {
+        return hoTen;
+    }
+};
+
+class SVSP : public SV {
+private:
+    double hocBong;
+
+public:
+    SVSP() {}
+    SVSP(const string& lopHoc, const string& hoTen, double hocBong) : SV(lopHoc, hoTen), hocBong(hocBong) {}
+
+    void nhap() override {
+        SV::nhap();
         cout << "Nhap hoc bong: ";
         cin >> hocBong;
     }
 
-    void hienThi() {
-        cout << "Loai sinh vien: SVSP" << endl;
-        cout << "Lop hoc: " << lopHoc << endl;
-        cout << "Ho ten: " << hoTen << endl;
+    void hienThi() const override {
+        SV::hienThi();
         cout << "Hoc bong: " << hocBong << endl;
     }
 
-    void ghi(ofstream& file) {
-        file << "SVSP" << endl;
-        file << lopHoc << endl;
-        file << hoTen << endl;
-        file << hocBong << endl;
-    }
-
-    void doc(ifstream& file) {
-        file >> lopHoc;
-        file.ignore();
-        getline(file, hoTen);
-        file >> hocBong;
-    }
-
-    bool operator>(const SVSP& other) {
+    bool operator>(const SVSP& other) const {
         return hocBong > other.hocBong;
     }
 };
 
 class SVKS : public SV {
 private:
-    int hocPhi;
+    double hocPhi;
 
 public:
-    void nhap() {
-        cout << "Nhap lop hoc: ";
-        cin >> lopHoc;
-        cout << "Nhap ho ten: ";
-        cin.ignore();
-        getline(cin, hoTen);
+    SVKS() {}
+    SVKS(const string& lopHoc, const string& hoTen, double hocPhi) : SV(lopHoc, hoTen), hocPhi(hocPhi) {}
+
+    void nhap() override {
+        SV::nhap();
         cout << "Nhap hoc phi: ";
         cin >> hocPhi;
     }
 
-    void hienThi() {
-        cout << "Loai sinh vien: SVKS" << endl;
-        cout << "Lop hoc: " << lopHoc << endl;
-        cout << "Ho ten: " << hoTen << endl;
+    void hienThi() const override {
+        SV::hienThi();
         cout << "Hoc phi: " << hocPhi << endl;
     }
 
-    void ghi(ofstream& file) {
-        file << "SVKS" << endl;
-        file << lopHoc << endl;
-        file << hoTen << endl;
-        file << hocPhi << endl;
-    }
-
-    void doc(ifstream& file) {
-        file >> lopHoc;
-        file.ignore();
-        getline(file, hoTen);
-        file >> hocPhi;
-    }
-
-    bool operator>(const SVKS& other) {
+    bool operator>(const SVKS& other) const {
         return hocPhi > other.hocPhi;
     }
+
 };
-
-void sapXepSVSP(SVSP** arr, int n) {
-    for (int i = 0; i < n - 1; i++) {
-        for (int j = 0; j < n - i - 1; j++) {
-            if (*arr[j] > *arr[j + 1]) {
-                SVSP* temp = arr[j];
-                arr[j] = arr[j + 1];
-                arr[j + 1] = temp;
-            }
-        }
-    }
+void ghiSinhVien(ofstream& outFile, const SV& sv) {
+    outFile << "Lop hoc: " << sv.getlophoc() << endl;
+    outFile << "Ho ten: " << sv.gethovaten() << endl;
 }
-
-void sapXepSVKS(SVKS** arr, int n) {
-    for (int i = 0; i < n - 1; i++) {
-        for (int j = 0; j < n - i - 1; j++) {
-            if (*arr[j] > *arr[j + 1]) {
-                SVKS* temp = arr[j];
-                arr[j] = arr[j + 1];
-                arr[j + 1] = temp;
-            }
-        }
-    }
-}
-
-void ghiFile(SV** danhSach, int n) {
-    ofstream file("output10_1.txt");
-    if (file.is_open()) {
-        file << n << endl;
-        for (int i = 0; i < n; i++) {
-            danhSach[i]->ghi(file);
-        }
-        file.close();
-        cout << "Da ghi du lieu vao file." << endl;
-    }
-    else {
-        cout << "Khong the mo file." << endl;
-    }
-}
-
-void docFile(SV**& danhSach, int& n) {
-    ifstream file("input10_1.txt");
-    if (file.is_open()) {
-        file >> n;
-        file.ignore();
-        danhSach = new SV*[n];
-        for (int i = 0; i < n; i++) {
-            string loai;
-            getline(file, loai);
-            if (loai == "SVSP") {
-                danhSach[i] = new SVSP();
-            }
-            else if (loai == "SVKS") {
-                danhSach[i] = new SVKS();
-            }
-            danhSach[i]->doc(file);
-        }
-        file.close();
-        cout << "Da doc du lieu tu file." << endl;
-    }
-    else {
-        cout << "Khong the mo file." << endl;
-    }
-}
-
 
 int main() {
-    SV** danhSach;
+    vector<SVSP> danhSachSVSP;
+    vector<SVKS> danhSachSVKS;
+
+    // Đọc dữ liệu từ tệp input.txt
+    ifstream inFile("input10_1.txt");
+    if (!inFile) {
+        cerr << "Khong the mo file input.txt" << endl;
+        return 1;
+    }
+
     int n;
+    inFile >> n;
 
-    docFile(danhSach, n);
-
-    cout << "Danh sach sinh vien truoc khi sap xep:" << endl;
     for (int i = 0; i < n; i++) {
-        danhSach[i]->hienthiFile();
-        cout << endl;
-    }
+        string loaiSinhVien;
+        inFile >> loaiSinhVien;
 
-    if (n > 0) {
-        sapXepSVSP(reinterpret_cast<SVSP**>(danhSach), n);
-        sapXepSVKS(reinterpret_cast<SVKS**>(danhSach), n);
-    }
+        if (loaiSinhVien == "SVSP") {
+            string lopHoc;
+            string hoTen;
+            double hocBong;
+            inFile.ignore();
+            getline(inFile, lopHoc);
+            getline(inFile, hoTen);
+            inFile >> hocBong;
+            SVSP svsp(lopHoc, hoTen, hocBong);      
+            danhSachSVSP.push_back(svsp);
+            } else if (loaiSinhVien == "SVKS") {
+                string lopHoc;
+                string hoTen;
+                double hocPhi;
+                inFile.ignore();
+                getline(inFile, lopHoc);
+                getline(inFile, hoTen);
+                inFile >> hocPhi;
+                SVKS svks(lopHoc, hoTen, hocPhi);
+                danhSachSVKS.push_back(svks);
+        }
+}
+inFile.close();
 
-    cout << "Danh sach sinh vien sau khi sap xep:" << endl;
-    for (int i = 0; i < n; i++) {
-        danhSach[i]->hienThi();
-        cout << endl;
-    }
-    ghiFile(danhSach,n);
+// Hiển thị thông tin các đối tượng SVSP và SVKS
+cout << "Danh sach SVSP: " << endl;
+for (const SVSP& svsp : danhSachSVSP) {
+    svsp.hienThi();
+    cout << endl;
+}
 
-    delete[] danhSach;
-    return 0;
+cout << "Danh sach SVKS: " << endl;
+for (const SVKS& svks : danhSachSVKS) {
+    svks.hienThi();
+    cout << endl;
+}
+
+// Sắp xếp danh sách SVSP và SVKS
+sort(danhSachSVSP.begin(), danhSachSVSP.end(), [](const SVSP& a, const SVSP& b) {
+    return a > b;
+});
+
+sort(danhSachSVKS.begin(), danhSachSVKS.end(), [](const SVKS& a, const SVKS& b) {
+    return a > b;
+});
+
+// Ghi thông tin các đối tượng SVSP vào tệp output.txt
+ofstream outFile("output10_1.txt");
+if (!outFile) {
+    cerr << "Khong the mo file output.txt" << endl;
+    return 1;
+}
+
+outFile << "Danh sach SVSP sau khi sap xep theo hoc bong: " << endl;
+for (const SVSP& svsp : danhSachSVSP) {
+    ghiSinhVien(outFile, svsp);
+    outFile << endl;
+}
+
+// Ghi thông tin các đối tượng SVKS vào tệp output.txt
+outFile << "Danh sach SVKS sau khi sap xep theo hoc phi: " << endl;
+for (const SVKS& svks : danhSachSVKS) {
+    ghiSinhVien(outFile, svks);
+    outFile << endl;
+}
+
+outFile.close();
+
+return 0;
 }
