@@ -81,7 +81,7 @@ int main() {
     for(int i=0; i<n; i++) {
         c[i].input();
     }
-    cout <<"+" << setfill('-') << setw(119) << "-" << "+" << endl;
+    cout <<(char)218 << setfill('-') << setw(119) << "-" << (char)191 << endl;
     cout << setfill(' ');
     cout << "|" << "\t" << setw(2) << left << "stt" << "\t";
     cout << "|" << "\t" << setw(10) << left << "Namecolor" << "\t";

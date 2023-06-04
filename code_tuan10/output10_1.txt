@@ -1,5 +1,12 @@
-Danh sach SVSP sau khi sap xep theo hoc bong: 
-Lop hoc: John Doe
-Ho ten: 9.5
+63k3
+nguyen van anh
+9.5
 
-Danh sach SVKS sau khi sap xep theo hoc phi: 
+63k1
+nguyen van an
+9.8
+
+63k2
+nguyen hing quan
+300000
+

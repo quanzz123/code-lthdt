@@ -89,7 +89,7 @@ int main() {
     }
     cout << "\n\n";
     cout << "\t"<<  "===========bang thong ke===========" << endl;
-    cout <<"+" << setfill('-') << setw(40) << "-" << "+" << endl;
+    cout << (char)218 << setfill('-') << setw(40) << "-" << (char)191 << endl;
     cout << setfill(' ');
     cout << "|" << setw(3) << left << "stt";
     cout << "|" << setw(9) << left << "Namecolor";;

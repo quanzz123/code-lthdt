@@ -231,8 +231,8 @@ int main() {
                     cout << "Danh sach thiet bi trong!" << endl;
                 } else {
                     cout << "====== Danh sach thiet bi ======" << endl;
-                    for (ITDevice* device : devices) {
-                        device->display();
+                    for (int i=0; i< devices.size(); i++) {
+                        devices[i]->display();
                         cout << "-----------------------" << endl;
                     }
                 }

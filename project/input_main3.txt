@@ -1,0 +1,13 @@
+mayin
+
+3
+pr1 100
+pr2 300
+pr3 400
+
+maytinh
+
+3
+cp1 200
+cp2 400
+cp3 700
