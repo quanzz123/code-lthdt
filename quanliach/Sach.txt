@@ -1,0 +1,36 @@
+sach1
+Cach Lam Giau
+Pham Nhat Vuong
+Ha Noi
+150000
+2021
+322
+2/11/2021
+0
+sach2
+Lap Trinh & Giai Thuat
+Le Minh Hoang
+Ha Noi
+150000
+2002
+321
+2/11/2021
+2
+sach3
+Canh Dong Bat Tan
+Nguyen Ngoc Tu
+Tre
+22000
+2006
+220
+2/11/2021
+0
+sach4
+7 Vien Ngoc Rong
+Toriyama Akira
+Kim Dong
+22000
+2009
+220
+2/11/2021
+0

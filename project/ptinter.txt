@@ -1,0 +1,8 @@
+maytinh
+mt002 300
+mt002 400
+
+mayindentrang
+
+dt001 500
+dt002 600
