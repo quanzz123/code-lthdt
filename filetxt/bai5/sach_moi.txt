@@ -1,0 +1,5 @@
+12345,Sach 1,Khoa hoc,Tác gia 1,Nha xuat ban kimdong,2022-01-01,200,200,5,2023-05-01,2023-05-15
+23456,Sach 2,Toan hoc,Tác gia 2,Nha xuat ban sphn,2021-12-15,150,150,3,2023-06-01,2023-06-10
+34567,Sach 3,Van hoc,Tác gia 3,Nha xuat ban thanhnien,2022-03-10,180,180,4,2023-05-20,2023-06-05
+45678,Sach 4,Lich su,Tác gia 4,Nha xuat ban phunu,2022-05-20,250,250,2,2023-05-25,2023-06-02
+56789,Sach 5,am nhac,Tác gia 5,Nha xuat ban vietduc,2022-02-28,100,100,6,10:00,12:00
