@@ -1,0 +1,4 @@
+3
+P110 Tran tung lam 12 4 1985 dienchau 8.56 80000 20000
+D310 Lu cao tai 12 6 2003, dienchau 4.66, 600000, 3000
+P123 nguyen hong quan 25 6 2003 dienchau 6.44 300000 40000

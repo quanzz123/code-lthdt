@@ -51,29 +51,30 @@ class NhanVien {
 //cài dặt phương thức đọc file của lớp cha
 void NhanVien::Doc_File(ifstream &filein) {
     getline(filein, maNhanVien, ',');
-    filein.seekg(1,ios_base::cur);// dịch con trỏ chỉ vị tại vị trí hiện tại sang bên phải 1 byte
+    filein.ignore();
     getline(filein, tenNhanVien, ',');
     int ngay;
+    filein.ignore();
     filein >> ngay;
     namsinh.setterngay(ngay);
-    filein.seekg(1, ios_base::cur);
+    
+    string ngayStr, thangStr, namStr;
+    getline(filein, ngayStr, '/');
+    getline(filein, thangStr, '/');
+    getline(filein, namStr, ',');
 
-    int thang;
-    filein >> thang;
-    namsinh.setterthang(thang);
-    filein.seekg(1, ios_base::cur); //dùng con trỏ chỉ vị để bỏ qua kí tự "/" trong file
+    namsinh.setterngay(stoi(ngayStr));
+    namsinh.setterthang(stoi(thangStr));
+    namsinh.setternam(stoi(namStr));
 
-    int nam;
-    filein >> nam;
-    namsinh.setternam(nam);
 
-    filein.seekg(2,ios_base::cur); // dịch con trỏ chỉ vị sang trái 2 byte bỏ qua dáu "," và khoảng trống
+    filein.ignore();
     getline(filein, diachi, ',');
-    filein.seekg(1,ios_base::cur);
+    filein.ignore();
     filein >> hesoluong;
-    filein.seekg(1,ios_base::cur);
+    filein.ignore();
     filein >> luongcoban;
-    filein.seekg(1,ios_base::cur);
+    
 }
 //xuẩt thổng tin nhân viên
 void NhanVien::xuat() {
@@ -126,7 +127,7 @@ void NhanVienThietKe::xuat() {
 
 void Menu(NhanVien* ds[], int& n) {
     ifstream filein;
-    filein.open("NHANVIEN.txt", ios_base::in);
+    filein.open("NHANVIEN1.txt", ios_base::in);
     while (true) {
         system("cls");
         cout << "\n\n\n\t===MENU=======";
