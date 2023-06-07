@@ -152,7 +152,7 @@ int main() {
 
         inputFile.close();
 } else {
-cout << "Không thể mở tệp thietbi.txt!" << endl;
+cout << "Khong the mo tep  thietbi.txt!" << endl;
 return 1; // Kết thúc chương trình với mã lỗi 1
 }
 // Hiển thị thông tin thiết bị
@@ -160,6 +160,32 @@ for (const auto& thietBi : danhSachThietBi) {
     thietBi->hienThiThongTin();
     cout << "--------------------------" << endl;
 }
+cout << "\n\n\t\tThong tin cac thiet bi :" << endl;
+for (const auto& thietBi : danhSachThietBi) {
+    if (dynamic_cast<MayTinh*>(thietBi) != nullptr) {
+        cout << "Loại thiết bị: Máy tính" << endl;
+    } else if (dynamic_cast<MayInDenTrang*>(thietBi) != nullptr) {
+        cout << "Loại thiết bị: Máy in đen trắng" << endl;
+    } else if (dynamic_cast<MayInMau*>(thietBi) != nullptr) {
+        cout << "Loại thiết bị: Máy in màu" << endl;
+    } else if (dynamic_cast<MayQuet*>(thietBi) != nullptr) {
+        cout << "Loại thiết bị: Máy quét" << endl;
+    } else if (dynamic_cast<MayThamChieu*>(thietBi) != nullptr) {
+        cout << "Loại thiết bị: Máy tham chiếu" << endl;
+    }
+    thietBi->hienThiThongTin();
+    cout << "--------------------------" << endl;
+}
+cout << "\n\n\t\tthong tin cac loai mau tinh:" << endl;
+for (const auto& thietBi : danhSachThietBi) {
+    MayTinh* mayTinh = dynamic_cast<MayTinh*>(thietBi);
+    if (mayTinh != nullptr) {
+        cout << "Loại thiết bị: Máy tính" << endl;
+        mayTinh->hienThiThongTin();
+        cout << "--------------------------" << endl;
+    }
+}
+
 
 // Giải phóng bộ nhớ
 for (const auto& thietBi : danhSachThietBi) {
