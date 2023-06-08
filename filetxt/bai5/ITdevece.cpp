@@ -3,6 +3,7 @@
 #include <vector>
 #include <string>
 #include <sstream>
+#include <bits/stdc++.h>
 using namespace std;
 
 // Lớp cơ sở Thiết bị
@@ -18,14 +19,14 @@ public:
         : tenThietBi(ten), maThietBi(ma), ngayNhap(ngay), trangThai(trangthai) {}
 
     virtual void hienThiThongTin() {
-        cout << "Tên thiết bị: " << tenThietBi << endl;
-        cout << "Mã thiết bị: " << maThietBi << endl;
-        cout << "Ngày nhập: " << ngayNhap << endl;
-        cout << "Trạng thái: " << trangThai << endl;
-    }
+        cout << "|"<< setw(12) <<  tenThietBi; //12
+        cout << "|" << setw(11) << maThietBi; // 11
+        cout << "|" << setw(9) << ngayNhap; //9
+        cout << "|" << setw(10) << trangThai; //10
+    } 
 
     bool daDenThoiHanThanhLy() {
-        return trangThai == "đến thời hạn thanh lý";
+        return trangThai == "thanhly";
     }
 };
 
@@ -42,9 +43,9 @@ public:
 
     void hienThiThongTin() {
         ThietBi::hienThiThongTin();
-        cout << "Màu sắc: " << mauSac << endl;
-        cout << "Tốc độ: " << tocDo << endl;
-        cout << "Bộ nhớ: " << boNho << endl;
+        cout << "|" << setw(7) << mauSac ; // 7
+        cout << "|" << setw(6) << tocDo ; // 6
+        cout << "|"<< setw(6) << boNho << "|" << endl; // 6
     }
 };
 
@@ -66,7 +67,7 @@ public:
 
     void hienThiThongTin() {
         MayIn::hienThiThongTin();
-        cout << "Số điểm ảnh: " << soDiemAnh << endl;
+        cout << "So diem anh: " << soDiemAnh << endl;
     }
 };
 
@@ -81,7 +82,7 @@ public:
 
     void hienThiThongTin() {
         MayInDenTrang::hienThiThongTin();
-        cout << "Số màu: " << soMau << endl;
+        cout << "So mau: " << soMau << endl;
     }
 };
 // Lớp Máy quét
@@ -95,7 +96,7 @@ public:
 
     void hienThiThongTin() {
         ThietBi::hienThiThongTin();
-        cout << "Tốc độ quét: " << tocDoQuet << endl;
+        cout << "Toc do quet: " << tocDoQuet << endl;
     }
 };
 
@@ -110,7 +111,7 @@ public:
 
     void hienThiThongTin() {
         ThietBi::hienThiThongTin();
-        cout << "Số giờ tham chiếu tối đa: " << gioThamChieuToiDa << endl;
+        cout << "So gio tham chieu toi da: " << gioThamChieuToiDa << endl;
     }
 };
 
@@ -163,15 +164,15 @@ for (const auto& thietBi : danhSachThietBi) {
 cout << "\n\n\t\tThong tin cac thiet bi :" << endl;
 for (const auto& thietBi : danhSachThietBi) {
     if (dynamic_cast<MayTinh*>(thietBi) != nullptr) {
-        cout << "Loại thiết bị: Máy tính" << endl;
+        cout << "Loai thiet bi: May tinh" << endl;
     } else if (dynamic_cast<MayInDenTrang*>(thietBi) != nullptr) {
-        cout << "Loại thiết bị: Máy in đen trắng" << endl;
+        cout << "Loai thiet bi: May in den trang" << endl;
     } else if (dynamic_cast<MayInMau*>(thietBi) != nullptr) {
-        cout << "Loại thiết bị: Máy in màu" << endl;
+        cout << "Loai thiet bi: May in mau" << endl;
     } else if (dynamic_cast<MayQuet*>(thietBi) != nullptr) {
-        cout << "Loại thiết bị: Máy quét" << endl;
+        cout << "Loai thiet bi: May quet" << endl;
     } else if (dynamic_cast<MayThamChieu*>(thietBi) != nullptr) {
-        cout << "Loại thiết bị: Máy tham chiếu" << endl;
+        cout << "Loai thiet bi: May tham chieu" << endl;
     }
     thietBi->hienThiThongTin();
     cout << "--------------------------" << endl;
@@ -180,11 +181,29 @@ cout << "\n\n\t\tthong tin cac loai mau tinh:" << endl;
 for (const auto& thietBi : danhSachThietBi) {
     MayTinh* mayTinh = dynamic_cast<MayTinh*>(thietBi);
     if (mayTinh != nullptr) {
-        cout << "Loại thiết bị: Máy tính" << endl;
+        cout << "Loai thiet bi: May tinh" << endl;
         mayTinh->hienThiThongTin();
         cout << "--------------------------" << endl;
     }
 }
+// thống kê các thiết bị đến thời hạn thanh lý
+// Tạo danh sách các thiết bị đã qua thanh lý
+vector<ThietBi*> danhSachThanhLy;
+
+// Thống kê thiết bị hết hạn sử d ụng và đưa vào danh sách thanh lý
+for (ThietBi* tb : danhSachThietBi) {
+    if (tb->daDenThoiHanThanhLy()) {
+        danhSachThanhLy.push_back(tb);
+    }
+}
+
+// Hiển thị danh sách các thiết bị được thanh lý
+cout << "\n\n\t\t===Danh sach cac thiet bi den thoi han thanh ly==== " << endl;
+for (ThietBi* tb : danhSachThanhLy) {
+    tb->hienThiThongTin();
+    cout << "--------------------------" << endl;
+}
+
 
 
 // Giải phóng bộ nhớ
