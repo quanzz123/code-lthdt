@@ -111,7 +111,7 @@ public:
 
     void hienThiThongTin() {
         ThietBi::hienThiThongTin();
-        cout << "So gio tham chieu toi da: " << gioThamChieuToiDa << endl;
+        cout << "|" << setw(8) gioThamChieuToiDa << endl; // maxhours
     }
 };
 
@@ -164,15 +164,15 @@ for (const auto& thietBi : danhSachThietBi) {
 cout << "\n\n\t\tThong tin cac thiet bi :" << endl;
 for (const auto& thietBi : danhSachThietBi) {
     if (dynamic_cast<MayTinh*>(thietBi) != nullptr) {
-        cout << "Loai thiet bi: May tinh" << endl;
+        //cout << "Loai thiet bi: May tinh" << endl;
     } else if (dynamic_cast<MayInDenTrang*>(thietBi) != nullptr) {
-        cout << "Loai thiet bi: May in den trang" << endl;
+        //cout << "Loai thiet bi: May in den trang" << endl;
     } else if (dynamic_cast<MayInMau*>(thietBi) != nullptr) {
-        cout << "Loai thiet bi: May in mau" << endl;
+        //cout << "Loai thiet bi: May in mau" << endl;
     } else if (dynamic_cast<MayQuet*>(thietBi) != nullptr) {
-        cout << "Loai thiet bi: May quet" << endl;
+        //cout << "Loai thiet bi: May quet" << endl;
     } else if (dynamic_cast<MayThamChieu*>(thietBi) != nullptr) {
-        cout << "Loai thiet bi: May tham chieu" << endl;
+        //cout << "Loai thiet bi: May tham chieu" << endl;
     }
     thietBi->hienThiThongTin();
     cout << "--------------------------" << endl;
@@ -181,7 +181,7 @@ cout << "\n\n\t\tthong tin cac loai mau tinh:" << endl;
 for (const auto& thietBi : danhSachThietBi) {
     MayTinh* mayTinh = dynamic_cast<MayTinh*>(thietBi);
     if (mayTinh != nullptr) {
-        cout << "Loai thiet bi: May tinh" << endl;
+        //cout << "Loai thiet bi: May tinh" << endl;
         mayTinh->hienThiThongTin();
         cout << "--------------------------" << endl;
     }
@@ -201,7 +201,7 @@ for (ThietBi* tb : danhSachThietBi) {
 cout << "\n\n\t\t===Danh sach cac thiet bi den thoi han thanh ly==== " << endl;
 for (ThietBi* tb : danhSachThanhLy) {
     tb->hienThiThongTin();
-    cout << "--------------------------" << endl;
+    cout<< endl;
 }
 
 
