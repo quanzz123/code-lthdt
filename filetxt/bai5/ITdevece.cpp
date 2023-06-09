@@ -117,6 +117,21 @@ public:
         cout << "|" << setw(8) << gioThamChieuToiDa << endl; // maxhours
     }
 };
+void timKiemThongTin(const vector<ThietBi*>& danhSachThietBi, const string& tenTimKiem) {
+    bool timThay = false;
+    
+    cout << "Thong tin cac thiet bi tim thay:" << endl;
+    for (const auto& thietBi : danhSachThietBi) {
+        if (thietBi->getname() == tenTimKiem) {
+            thietBi->hienThiThongTin();
+            timThay = true;
+        }
+    }
+    
+    if (!timThay) {
+        cout << "Khong tim thay thiet bi voi ten '" << tenTimKiem << "'" << endl;
+    }
+}
 
 int main() {
     vector<ThietBi*> danhSachThietBi;
@@ -224,6 +239,12 @@ for (ThietBi* tb : danhSachThanhLy) {
     cout<< endl;
     cout << endl;
 }
+ string tenTimKiem;
+    cout << "Nhap ten thiết bị: ";
+    getline(cin, tenTimKiem);
+    
+    // Tìm kiếm và hiển thị thông tin thiết bị theo tên
+    timKiemThongTin(danhSachThietBi, tenTimKiem);
 
 
 
