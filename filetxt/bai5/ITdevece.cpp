@@ -67,7 +67,7 @@ public:
 
     void hienThiThongTin() {
         MayIn::hienThiThongTin();
-        cout << "So diem anh: " << soDiemAnh << endl;
+        cout << "|" << setw(11) << soDiemAnh;
     }
 };
 
@@ -82,7 +82,7 @@ public:
 
     void hienThiThongTin() {
         MayInDenTrang::hienThiThongTin();
-        cout << "So mau: " << soMau << endl;
+        cout << "|" << setw(6) << soMau;
     }
 };
 // Lớp Máy quét
@@ -96,7 +96,7 @@ public:
 
     void hienThiThongTin() {
         ThietBi::hienThiThongTin();
-        cout << "Toc do quet: " << tocDoQuet << endl;
+        cout << "|" << setw(11) << tocDoQuet;
     }
 };
 
@@ -111,7 +111,7 @@ public:
 
     void hienThiThongTin() {
         ThietBi::hienThiThongTin();
-        cout << "|" << setw(8) gioThamChieuToiDa << endl; // maxhours
+        cout << "|" << setw(8) << gioThamChieuToiDa << endl; // maxhours
     }
 };
 
@@ -157,10 +157,10 @@ cout << "Khong the mo tep  thietbi.txt!" << endl;
 return 1; // Kết thúc chương trình với mã lỗi 1
 }
 // Hiển thị thông tin thiết bị
-for (const auto& thietBi : danhSachThietBi) {
+/*for (const auto& thietBi : danhSachThietBi) {
     thietBi->hienThiThongTin();
     cout << "--------------------------" << endl;
-}
+}*/
 cout << "\n\n\t\tThong tin cac thiet bi :" << endl;
 for (const auto& thietBi : danhSachThietBi) {
     if (dynamic_cast<MayTinh*>(thietBi) != nullptr) {
@@ -177,13 +177,21 @@ for (const auto& thietBi : danhSachThietBi) {
     thietBi->hienThiThongTin();
     cout << "--------------------------" << endl;
 }
-cout << "\n\n\t\tthong tin cac loai mau tinh:" << endl;
+cout << "\n\n\t\tthong tin cac loai may tinh:" << endl;
 for (const auto& thietBi : danhSachThietBi) {
     MayTinh* mayTinh = dynamic_cast<MayTinh*>(thietBi);
     if (mayTinh != nullptr) {
         //cout << "Loai thiet bi: May tinh" << endl;
         mayTinh->hienThiThongTin();
-        cout << "--------------------------" << endl;
+        cout <<endl;
+    }
+}
+cout << "\n\n\t\tthong tin cac loai may in den trang:" << endl;
+for (const auto& thietBi : danhSachThietBi) {
+    MayInDenTrang* mayInDenTrang = dynamic_cast<MayInDenTrang*>(thietBi);
+    if(mayInDenTrang != nullptr) {
+        mayInDenTrang->hienThiThongTin();
+        cout << endl;
     }
 }
 // thống kê các thiết bị đến thời hạn thanh lý
