@@ -120,7 +120,7 @@ public:
 void timKiemThongTin(const vector<ThietBi*>& danhSachThietBi, const string& tenTimKiem) {
     bool timThay = false;
     
-    cout << "Thong tin cac thiet bi tim thay:" << endl;
+    cout << "Thong tin cac thiet bi tim thay:/n/n" << endl;
     for (const auto& thietBi : danhSachThietBi) {
         if (thietBi->getname() == tenTimKiem) {
             thietBi->hienThiThongTin();
@@ -129,7 +129,7 @@ void timKiemThongTin(const vector<ThietBi*>& danhSachThietBi, const string& tenT
     }
     
     if (!timThay) {
-        cout << "Khong tim thay thiet bi voi ten '" << tenTimKiem << "'" << endl;
+        cout << "Khong tim thay thiet bi voi ten '" << tenTimKiem << "'" << endl << endl;
     }
 }
 int main() {
@@ -274,10 +274,10 @@ int main() {
         case 8: {
             string tenTimKiem;
             cout << "Nhap ten thiet bi: ";
+            cin.ignore();
             getline(cin, tenTimKiem);
-
-            timKiemThongTin(danhSachThietBi, tenTimKiem);
-            cout << endl;
+            timKiemThongTin(danhSachThietBi,tenTimKiem);
+            cout << endl << endl;
             break;
         }
         case 0:
