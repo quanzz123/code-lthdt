@@ -180,7 +180,7 @@ cout << "\n\n\t\tthong tin cac loai mau tinh:" << endl;
 for (const auto& thietBi : danhSachThietBi) {
     MayTinh* mayTinh = dynamic_cast<MayTinh*>(thietBi);
     if (mayTinh != nullptr) {
-        cout << "Loại thiết bị: Máy tính" << endl;
+        cout << "Loai thiet bi: may tinh" << endl;
         mayTinh->hienThiThongTin();
         cout << "--------------------------" << endl;
     }
