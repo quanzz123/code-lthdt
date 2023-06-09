@@ -28,6 +28,9 @@ public:
     bool daDenThoiHanThanhLy() {
         return trangThai == "thanhly";
     }
+    string getname() {
+        return tenThietBi;
+    }
 };
 
 // Lớp Máy tính
@@ -139,7 +142,7 @@ int main() {
             } else if (ten == "MayInDenTrang") {
                 ss >> sodiem;
                 danhSachThietBi.push_back(new MayInDenTrang(ten, ma, ngay, trangthai, sodiem));
-            } else if (ten == "MayInMau") {
+            } else if (ten == "MayinMau") {
                 ss >> sodiem >> somau;
                 danhSachThietBi.push_back(new MayInMau(ten, ma, ngay, trangthai, sodiem, somau));
             } else if (ten == "MayQuet") {
@@ -161,7 +164,7 @@ return 1; // Kết thúc chương trình với mã lỗi 1
     thietBi->hienThiThongTin();
     cout << "--------------------------" << endl;
 }*/
-cout << "\n\n\t\tThong tin cac thiet bi :" << endl;
+/*cout << "\n\n\t\tThong tin cac thiet bi :" << endl;
 for (const auto& thietBi : danhSachThietBi) {
     if (dynamic_cast<MayTinh*>(thietBi) != nullptr) {
         //cout << "Loai thiet bi: May tinh" << endl;
@@ -176,7 +179,7 @@ for (const auto& thietBi : danhSachThietBi) {
     }
     thietBi->hienThiThongTin();
     cout << "--------------------------" << endl;
-}
+}*/
 cout << "\n\n\t\tthong tin cac loai may tinh:" << endl;
 for (const auto& thietBi : danhSachThietBi) {
     MayTinh* mayTinh = dynamic_cast<MayTinh*>(thietBi);
@@ -189,8 +192,17 @@ for (const auto& thietBi : danhSachThietBi) {
 cout << "\n\n\t\tthong tin cac loai may in den trang:" << endl;
 for (const auto& thietBi : danhSachThietBi) {
     MayInDenTrang* mayInDenTrang = dynamic_cast<MayInDenTrang*>(thietBi);
-    if(mayInDenTrang != nullptr) {
+    if (mayInDenTrang != nullptr && dynamic_cast<MayInMau*>(thietBi) == nullptr) {
         mayInDenTrang->hienThiThongTin();
+        cout << endl;
+    }
+}
+
+cout <<"\n\n\t\tthong tin cac loai may in mau:" << endl;
+for (const auto& thietBi : danhSachThietBi) {
+    MayInMau* mayInMau = dynamic_cast<MayInMau*>(thietBi);
+    if(mayInMau!= nullptr) {
+        mayInMau->hienThiThongTin();
         cout << endl;
     }
 }
@@ -210,6 +222,7 @@ cout << "\n\n\t\t===Danh sach cac thiet bi den thoi han thanh ly==== " << endl;
 for (ThietBi* tb : danhSachThanhLy) {
     tb->hienThiThongTin();
     cout<< endl;
+    cout << endl;
 }
 
 
