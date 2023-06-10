@@ -193,31 +193,32 @@ int main() {
         getline(ss, nhaXuatBan, ',');
        
         getline(ss, ngayXuatBan, ',');
+
         getline(ss, phuongthuc,',');
 
-       
+        
         ss >> soTrang;
         ss.ignore();
         ss >> soBanLuu;
        
-        getline(ss, ngayMuon, ',');
-        getline(ss, ngayHenTra, ',');
-        
-        getline(ss, gioMuon, ',');
-        ss.ignore();
-        getline(ss, gioTra, ',');
+       
 
         if (phuongthuc == "doc") {
-            SachMuonDoc* sachMuonDoc = new SachMuonDoc(maSo, ten, chuDe, tacGia, nhaXuatBan, ngayXuatBan, phuongthuc, soTrang, soBanLuu, gioMuon, gioTra);
-             
-            danhSachSach.push_back(sachMuonDoc);
-        } else if (phuongthuc == "muon") {
-            SachMuonVe* sachMuonVe = new SachMuonVe();
+            ss.ignore();
+            getline(ss, gioMuon, ',');
             
-            danhSachSach.push_back(sachMuonVe);
-        } else {maSo, ten, chuDe, tacGia, nhaXuatBan, ngayXuatBan, phuongthuc, soTrang, soBanLuu, ngayMuon, ngayHenTra
-            Sach* sach = new Sach(maSo, ten, chuDe, tacGia, nhaXuatBan, ngayXuatBan, phuongthuc, soTrang, soBanLuu);
-            danhSachSach.push_back(sach);
+            getline(ss, gioTra, ',');
+            danhSachSach.push_back(new SachMuonDoc(maSo, ten, chuDe, tacGia, nhaXuatBan, ngayXuatBan, phuongthuc, soTrang, soBanLuu, gioMuon, gioTra));
+        } else if (phuongthuc == "muon") {
+            ss.ignore();
+            getline(ss, ngayMuon, ',');
+            
+            getline(ss, ngayHenTra, ',');
+            
+            danhSachSach.push_back(new SachMuonVe(maSo, ten, chuDe, tacGia, nhaXuatBan, ngayXuatBan, phuongthuc, soTrang, soBanLuu, ngayMuon, ngayHenTra));
+        } else {
+            
+            danhSachSach.push_back(new Sach(maSo, ten, chuDe, tacGia, nhaXuatBan, ngayXuatBan, phuongthuc, soTrang, soBanLuu));
         }
     }
 
@@ -227,17 +228,27 @@ int main() {
         return 0;
     }
   
-cout << "Danh sach sach cho phep muon doc:" << endl;
+cout << "\n\n\t====Danh sach sach cho phep muon doc====" << endl;
 for (const auto& sach : danhSachSach) {
     SachMuonDoc* sachMuonDoc = dynamic_cast<SachMuonDoc*>(sach);
     SachMuonVe* sachMuonVe = dynamic_cast<SachMuonVe*>(sach);
     if (sachMuonDoc != nullptr) {
         sachMuonDoc->hienThiThongTin();
+        cout << "--------------------" << endl;
         cout << endl;
     }
 }
 
-
+cout << "\n\n\t====Danh sach sach cho phep muon ve====" << endl;
+for (const auto& sach : danhSachSach) {
+    SachMuonVe* sachMuonVe = dynamic_cast<SachMuonVe*>(sach);
+    if(sachMuonVe != nullptr) {
+        sachMuonVe->hienThiThongTin();
+        cout << "--------------------" << endl;
+        cout << endl;
+    }
+}
+    
 
 
  // Giải phóng bộ nhớ cho các đối tượng sách
