@@ -1,0 +1,5 @@
+Trach Thi Doanh, 19, 9.5
+Nguyen Van Anh, 20,   7.5
+Phan Ngoc Mai, 18, 4.5
+Tran Trung Truc, 19, 6.5
+Dang Duy Tung, 20, 8.5

@@ -1,7 +1,17 @@
-MayTinh MT001 01/01/2023 đang sử dụng Đen 3 8
-MayTinh MT002 01/01/2023 đang sử dụng Đen 3 8
-MayInDenTrang MIDT001 02/01/2023 đến thời hạn thanh lý 1200
-MayInMau MIM001 03/01/2023 đang sử dụng 1200 4
-MayQuet MQ001 04/01/2023 đang sử dụng 2400
-MayQuet MQ002 04/01/2023 đang sử dụng 2400
-MayThamChieu MTC001 05/01/2023 đến thời hạn thanh lý 8
+MayTinh MT001 01/01/2023 dung Den 3 8
+MayTinh MT002 01/01/2023 dung Den 3 8
+MayTinh MT002 02/02/2023 dung Den 3 9
+
+
+
+MayInDenTrang MIDT001 02/01/2023 thanhly 1200
+MayInDenTrang MIDT002 02/01/2023 dung 1200
+
+MayinMau MIM001 03/01/2023 dung 1200 4
+
+
+MayQuet MQ001 04/01/2023 dung 2400
+MayQuet MQ002 04/01/2023 dung 2400
+
+
+MayThamChieu MTC001 05/01/2023 thanhly 8
