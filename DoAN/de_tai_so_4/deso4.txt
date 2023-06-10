@@ -1,0 +1,19 @@
+ĐỀ TÀI SỐ 4
+Viết chương trình quản lý sách trong một thư viện. Thông tin của mỗi cuốn sách
+như sau: Mã số sách, Tên sách, Chủ đề, Tác giả, Nhà xuất bản, Ngày tháng năm
+xuất bản, Số trang, Số bản lưu thư viện. Sách được chia làm hai loại là sách có thể
+mượn về và sách mượn đọc. Nếu sách mượn về thì được quản lý thêm thông tin
+Ngày mượn, Ngày hẹn trả, nếu sách mượn đọc thì được quản lý thêm Giờ mượn
+đọc, Giờ trả.
+Viết chương trình quản lý danh sách các cuốn sách có ở thư viện, danh sách các
+cuốn sách đang mượn về và danh sách các cuốn sách đang mượn đọc. Chương
+trình cho phép tìm kiếm, thống kê các cuốn sách theo các tiêu chí.
+Yêu cầu:
+ Phân tích, thiết kế các lớp;
+ Biểu diễn các lớp, sơ đồ kế thừa nếu có (có thể sử dụng công cụ UML);
+ Xác định lớp cơ sở ảo, lớp cơ sở trừu tượng, hàm xử lý liên kết tương
+ứng bội (nếu có);
+ Sử dụng ngôn ngữ C++ để viết chương trình;
+ Dữ liệu vào/ra sử dụng tệp văn bản;
+ Báo cáo toàn bộ nội dung đã thực hiện bằng bản Word (Theo Mẫu Báo
+cáo Đồ án)
