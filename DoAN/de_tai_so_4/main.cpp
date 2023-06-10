@@ -212,10 +212,10 @@ int main() {
              
             danhSachSach.push_back(sachMuonDoc);
         } else if (phuongthuc == "muon") {
-            SachMuonVe* sachMuonVe = new SachMuonVe();
+            SachMuonVe* sachMuonVe = new SachMuonVe(maSo, ten, chuDe, tacGia, nhaXuatBan, ngayXuatBan, phuongthuc, soTrang, soBanLuu, ngayMuon, ngayHenTra);
             
             danhSachSach.push_back(sachMuonVe);
-        } else {maSo, ten, chuDe, tacGia, nhaXuatBan, ngayXuatBan, phuongthuc, soTrang, soBanLuu, ngayMuon, ngayHenTra
+        } else {
             Sach* sach = new Sach(maSo, ten, chuDe, tacGia, nhaXuatBan, ngayXuatBan, phuongthuc, soTrang, soBanLuu);
             danhSachSach.push_back(sach);
         }

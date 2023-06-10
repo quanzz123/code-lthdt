@@ -1,4 +1,7 @@
-12345,Sach 1,Khoa hoc,Tac gia 1,Nha xuat ban kimdong,2022-01-01,muon,200,5,2023-05-01,2023-05-15
+12345a,Sach 1,Khoa hoc1,Tac gia 1,Nha xuat ban kimdong,2022-01-01,muon,200,5,2023-05-01,2023-05-15
+12345b,Sach 1.1,Khoa hoc2,Tac gia 1,Nha xuat ban kimdong,2022-01-01,muon,200,5,2023-05-01,2023-05-15
+12345c,Sach 1.2,Khoa hoc2,Tac gia 1,Nha xuat ban kimdong,2022-01-01,muon,200,5,2023-05-01,2023-05-15
+12345e,Sach 1.3,Khoa hoc4,Tac gia 1,Nha xuat ban kimdong,2022-01-01,muon,200,5,2023-05-01,2023-05-15
 23456,Sach 2,Toan hoc,Tac gia 2,Nha xuat ban sphn,2021-12-15,muon,150,3,2023-06-01,2023-06-10
 34567,Sach 3,Van hoc,Tac gia 3,Nha xuat ban thanhnien,2022-03-10,muon,180,4,2023-05-20,2023-06-05
 45678,Sach 4,Lich su,Tac gia 4,Nha xuat ban phunu,2022-05-20,muon,250,2,2023-05-25,2023-06-02

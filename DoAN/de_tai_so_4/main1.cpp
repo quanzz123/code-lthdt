@@ -165,7 +165,23 @@ public:
         return gioTra;
     }
 };
-
+void timKiemThongTin(const vector<Sach*>&danhSachSach , const string& TimKiemTG) {
+    bool timThay = false;
+    
+    cout << "Thong tin cac sach tim thay:\n\n" << endl;
+    for (const auto& Sach : danhSachSach) {
+        if (Sach->getTacGia() == TimKiemTG) {
+            Sach->hienThiThongTin();
+            cout << "-----------------";
+            cout << endl;
+            timThay = true;
+        }
+    }
+    
+    if (!timThay) {
+        cout << "Khong tim thay sach voi ten '" << TimKiemTG << "'" << endl << endl;
+    }
+}
 int main() {
 
     vector<Sach*> danhSachSach;
@@ -248,7 +264,12 @@ for (const auto& sach : danhSachSach) {
         cout << endl;
     }
 }
-    
+//tìm kiếm theo tên nhà xuất bản
+            string tenTimKiem;
+            cout << "Nhap ten tac gia: ";
+            getline(cin, tenTimKiem);
+            timKiemThongTin(danhSachSach,tenTimKiem);
+            cout << endl << endl;
 
 
  // Giải phóng bộ nhớ cho các đối tượng sách
