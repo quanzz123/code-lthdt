@@ -1,0 +1,4 @@
+OfficeEmployee,John Smith,E001,1990-01-15,Male,New York,2020-05-10,5000,Room A
+OfficeEmployee,Sarah Johnson,E002,1992-06-25,Female,Los Angeles,2019-09-20,4800,Room B
+FactoryWorker,Michael Brown,F001,1988-03-07,Male,Boston,2021-02-01,3000,100
+FactoryWorker,Emily Davis,F002,1991-11-12,Female,Chicago,2022-01-10,2800,90
