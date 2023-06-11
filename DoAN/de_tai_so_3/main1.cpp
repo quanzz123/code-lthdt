@@ -241,11 +241,12 @@ int main() {
                         cout << "\n\n\t=====thong tin cac loai may in den trang=====" << endl;
                         for(const auto& thietbi : danhsachThietBi) {
                             MayInDenTrang *mayindentrang = dynamic_cast<MayInDenTrang*>(thietbi);
-                            if(mayindentrang != nullptr) {
+                            if(mayindentrang != nullptr && dynamic_cast<MayInMau*>(thietbi) == nullptr) {
                                 mayindentrang->hienThiThongTin();
                                 cout << endl;
                             }
                         }
+                        _getch();
                         break;
                     }
                     case 3: {
@@ -258,6 +259,7 @@ int main() {
                                 cout<< endl;
                             }
                         }
+                        _getch();
                         break;
                     }
                     case 4 : {
@@ -270,6 +272,7 @@ int main() {
                                 cout << endl;
                             }
                         }
+                        _getch();
                         break;
                     }
                     case 5: {
@@ -282,6 +285,7 @@ int main() {
                                 cout << endl;
                             }
                         }
+                        _getch();
                         break;
                     }
                     case 0 : {
