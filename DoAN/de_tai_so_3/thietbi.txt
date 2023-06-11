@@ -16,4 +16,4 @@ MayQuet,MQ001,04/01/2023,hoat dong,2400
 MayQuet,MQ002,05/01/2023,thanh ly,2400
 
 
-MayThamChieu,MTC001,05/01/2023,thanhly 8
+MayThamChieu,MTC001,05/01/2023,thanhly,8
