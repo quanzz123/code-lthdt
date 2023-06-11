@@ -26,7 +26,7 @@ public:
     virtual void hienThiThongTin() {
         cout << "|" << setw(15) <<  tenThietBi; //12
         cout << "|" << setw(11) << maThietBi; // 11
-        cout << "|" << setw(12) << ngayNhap << "/" << thangNhap << "/" << namNhap; //12
+        cout << "|" << setw(2) << ngayNhap << "/" << setw(2) << thangNhap << "/" << setw(4) <<  namNhap; //12
         cout << "|" << setw(15) << trangThai;
        
     } 
@@ -151,6 +151,7 @@ void timKiemThongTin(const vector<ThietBi*>& danhSachThietBi, const string& tenT
         cout << "Khong tim thay thiet bi voi ID '" << ID << "'" << endl;
     }
 }
+
 int main() {
     vector<ThietBi*> danhsachThietBi;
     //menu1
@@ -249,7 +250,31 @@ int main() {
                         clearScreen();
                         
                         //hien thi thong tin các loai may tinh
-                        cout << "\n\n\t====thongtin cac loai may tinh======" << endl;
+                        cout << "\n\n\t\t\t====thongtin cac loai may tinh======\n\n" << endl;
+                        cout << (char)218 << setfill('-') << setw(76) << "-" << (char)191 << endl;
+                        cout << setfill(' ');
+                        cout << "|" << setw(15) << "NAME";
+                        cout << "|" << setw(11) << "ID";
+                        cout << "|" << setw(10) << "DATE";
+                        cout << "|" << setw(15) << "STATIC";
+                        cout << "|" << setw(7) << "COL";
+                        cout << "|" << setw(6) << "SPE";
+                        cout << "|" << setw(6) << "MEM" << "|" << endl;
+                        cout << "|";
+                        cout << setfill('-') << setw(15) << "-" << "|";
+                        cout << setfill(' ');
+                        cout << setfill('-') << setw(11) << "-" << "|";
+                        cout << setfill(' ');
+                        cout << setfill('-') << setw(10) << "-" << "|";
+                        cout << setfill(' ');
+                        cout << setfill('-') << setw(15) << "-" << "|";
+                        cout << setfill(' ');
+                        cout << setfill('-') << setw(7) << "-" << "|";
+                        cout << setfill(' ');
+                        cout << setfill('-') << setw(6) << "-" << "|";
+                        cout << setfill(' ');
+                        cout << setfill('-') << setw(6) << "-" << "|" << endl;
+                        cout << setfill(' ');
                         for(const auto& thietbi : danhsachThietBi) {
                             MayTinh *maytinh = dynamic_cast<MayTinh*>(thietbi);
                             if(maytinh != nullptr) {
@@ -257,9 +282,20 @@ int main() {
                                 
                                 cout << endl;
                                 cout << "|";
-                                cout << setfill('-') << setw(3) << "-" << "|";
+                                cout << setfill('-') << setw(15) << "-" << "|";
                                 cout << setfill(' ');
-                               
+                                cout << setfill('-') << setw(11) << "-" << "|";
+                                cout << setfill(' ');
+                                cout << setfill('-') << setw(10) << "-" << "|";
+                                cout << setfill(' ');
+                                cout << setfill('-') << setw(15) << "-" << "|";
+                                cout << setfill(' ');
+                                cout << setfill('-') << setw(7) << "-" << "|";
+                                cout << setfill(' ');
+                                cout << setfill('-') << setw(6) << "-" << "|";
+                                cout << setfill(' ');
+                                cout << setfill('-') << setw(6) << "-" << "|" << endl;
+                                cout << setfill(' ');
                             }
                         
                         }
@@ -273,12 +309,43 @@ int main() {
                         clearScreen();
                         
                         //hien thi thong tin cac loai may in den trang
-                        cout << "\n\n\t=====thong tin cac loai may in den trang=====" << endl;
+                        cout << "\n\n\t\t\t=====thong tin cac loai may in den trang=====\n\n" << endl;
+                        cout << (char)218 << setfill('-') << setw(66) << "-" << (char)191 << endl;
+                        cout << setfill(' ');
+                        cout << "|" << setw(15) << "NAME";
+                        cout << "|" << setw(11) << "ID";
+                        cout << "|" << setw(10) << "DATE";
+                        cout << "|" << setw(15) << "STATIC";
+                        cout << "|" << setw(11) << "PIX" << "|" << endl;
+
+                        cout << "|";
+                        cout << setfill('-') << setw(15) << "-" << "|";
+                        cout << setfill(' ');
+                        cout << setfill('-') << setw(11) << "-" << "|";
+                        cout << setfill(' ');
+                        cout << setfill('-') << setw(10) << "-" << "|";
+                        cout << setfill(' ');
+                        cout << setfill('-') << setw(15) << "-" << "|";
+                        cout << setfill(' ');
+                        cout << setfill('-') << setw(11) << "-" << "|" << endl;
+                        cout << setfill(' ');
                         for(const auto& thietbi : danhsachThietBi) {
                             MayInDenTrang *mayindentrang = dynamic_cast<MayInDenTrang*>(thietbi);
                             if(mayindentrang != nullptr && dynamic_cast<MayInMau*>(thietbi) == nullptr) {
                                 mayindentrang->hienThiThongTin();
                                 cout << endl;
+                                cout << "|";
+                                cout << setfill('-') << setw(15) << "-" << "|"; // name
+                                cout << setfill(' ');
+                                cout << setfill('-') << setw(11) << "-" << "|"; // id
+                                cout << setfill(' ');
+                                cout << setfill('-') << setw(10) << "-" << "|"; // date
+                                cout << setfill(' ');
+                                cout << setfill('-') << setw(15) << "-" << "|"; // static
+                                cout << setfill(' ');
+                                cout << setfill('-') << setw(11) << "-" << "|" << endl;
+                                cout << setfill(' ');
+
                             }
                         }
                         _getch();
