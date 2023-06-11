@@ -224,6 +224,7 @@ int main() {
             case 2: {
                 clearScreen();
                 int luachon2;
+                while (luachon2 != 0) {
                 cout << "\n\n\t==========Hien thi thong tin============" << endl;
                 cout << "\n1.May tinh" << endl;
                 cout << "\n2.May in den trang" << endl;
@@ -236,6 +237,7 @@ int main() {
                 cin >> luachon2;
                 switch(luachon2) {
                     case 1: {
+                        clearScreen();
                         //hien thi thong tin các loai may tinh
                         cout << "\n\n\t====thongtin cac loai may tinh======" << endl;
                         for(const auto& thietbi : danhsachThietBi) {
@@ -248,10 +250,14 @@ int main() {
                             }
                         
                         }
-                        _getch();
+                        //_getch();
+                        cin.ignore();
+                        cin.get();
+                        clearScreen();
                         break;
                     }
                     case 2: {
+                        clearScreen();
                         //hien thi thong tin cac loai may in den trang
                         cout << "\n\n\t=====thong tin cac loai may in den trang=====" << endl;
                         for(const auto& thietbi : danhsachThietBi) {
@@ -261,7 +267,8 @@ int main() {
                                 cout << endl;
                             }
                         }
-                        _getch();
+                        _getch();\
+                        clearScreen();
                         break;
                     }
                     case 3: {
@@ -308,6 +315,7 @@ int main() {
                     }
                     default :
                         cout << "\nlua chon khong hop le!" << endl;
+                }
                 }
                 
                 break;
