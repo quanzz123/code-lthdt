@@ -153,11 +153,20 @@ class Projector : public ITDevice {
             cout << "so gio max: " << maxHours << endl;
         }
 };
+// Hàm xóa màn hình console
+void clearScreen() {
+    #ifdef _WIN32
+        std::system("cls");
+    #else
+        std::system("clear");
+    #endif
+}
 int main() {
     vector<ITDevice*> devices;
     int choice;
 
     while (true) {
+         clearScreen(); 
         cout << "================= MENU =================" << endl;
         cout << "1. Them thiet bi" << endl;
         cout << "2. Hien thi thong tin cac thiet bi" << endl;
@@ -170,6 +179,7 @@ int main() {
 
         switch (choice) {
             case 1: {
+                 clearScreen(); 
                 int deviceChoice;
                 cout << "================= MENU =================" << endl;
                 cout << "1. May tinh" << endl;

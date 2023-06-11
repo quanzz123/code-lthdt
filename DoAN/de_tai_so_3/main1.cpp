@@ -4,6 +4,7 @@
 #include <string>
 #include <sstream>
 #include <bits/stdc++.h>
+#include <conio.h>
 using namespace std;
 
 // Lớp cơ sở Thiết bị
@@ -24,6 +25,7 @@ public:
         cout << "|"<< setw(12) <<  tenThietBi; //12
         cout << "|" << setw(11) << maThietBi; // 11
         cout << "|" << setw(12) << ngayNhap << "/" << thangNhap << "/" << namNhap; //9
+        cout << "|" << setw(15) << trangThai;
        
     } 
 
@@ -119,11 +121,19 @@ public:
         cout << "|" << setw(8) << gioThamChieuToiDa << endl; // maxhours
     }
 };
-
+// Hàm xóa màn hình console
+void clearScreen() {
+    #ifdef _WIN32
+        std::system("cls");
+    #else
+        std::system("clear");
+    #endif
+}
 int main() {
     vector<ThietBi*> danhsachThietBi;
     //menu1
     int luachon1;
+    
     while (true) {
         cout << "\n\n\t=======MENU=========" << endl;
         cout << "\n1.Them thiet bi tu file thietbi.txt" << endl;
@@ -131,12 +141,13 @@ int main() {
         cout << "\n3.Thong ke va tim kiem" << endl;
         cout << "\n0.Thoat chuong trinh" << endl;
         cout << "===========================" << endl;
+        cout << "moi nhap lua chon:  ";
         cin >> luachon1;
         switch(luachon1) {
             case 1: {
                 //dọc dữ liệu từ tệp văn bản
                 ifstream inputfile("thietbi.txt");
-                if(inputfile.open()) {
+                if(inputfile.is_open()) {
                     string line;
                     while(getline(inputfile, line)) {
                         stringstream ss(line);
@@ -157,8 +168,9 @@ int main() {
                         ss.ignore();
                         getline(ss, trangthai, ',');
                         if(ten == "MayTinh") {
-                            ss >> mau;
-                            ss.ignore();
+        
+                            getline(ss, mau, ',');
+                            
                             ss >> tocdo;
                             ss.ignore();
                             ss >> bonho;
@@ -180,11 +192,101 @@ int main() {
                             danhsachThietBi.push_back(new MayThamChieu(ten, ma, ngay, thang, nam, trangthai, giothamchieu));
                         }
                     }
+                    inputfile.close();
+                    cout << "\nNhap du lieu thanh cong" << endl;
+                } else {
+                    cout << "\nkhong the mo file" << endl;
+                    return 1;
+                }
+               
+                
+                break;
+                
+            }
+            case 2: {
+                
+                int luachon2;
+                cout << "\n\n\t==========Hien thi thong tin============" << endl;
+                cout << "\n1.May tinh" << endl;
+                cout << "\n2.May in den trang" << endl;
+                cout << "\n3.May in mau" << endl;
+                cout << "\n4.May quet" << endl;
+                cout << "\n5.May chieu" << endl;
+                cout << "\n0.quay lai" << endl;
+                cout <<"================================================" << endl;
+                cout << "moi nhap lua chon: " ;
+                cin >> luachon2;
+                switch(luachon2) {
+                    case 1: {
+                        //hien thi thong tin các loai may tinh
+                        cout << "\n\n\t====thongtin cac loai may tinh======" << endl;
+                        for(const auto& thietbi : danhsachThietBi) {
+                            MayTinh *maytinh = dynamic_cast<MayTinh*>(thietbi);
+                            if(maytinh != nullptr) {
+                                maytinh->hienThiThongTin();
+                                cout << endl;
+                            }
+                        }
+                        break;
+                    }
+                    case 2: {
+                        //hien thi thong tin cac loai may in den trang
+                        cout << "\n\n\t=====thong tin cac loai may in den trang=====" << endl;
+                        for(const auto& thietbi : danhsachThietBi) {
+                            MayInDenTrang *mayindentrang = dynamic_cast<MayInDenTrang*>(thietbi);
+                            if(mayindentrang != nullptr) {
+                                mayindentrang->hienThiThongTin();
+                                cout << endl;
+                            }
+                        }
+                        break;
+                    }
+                    case 3: {
+                        //hien thi may in mau
+                        cout << "\n\n\t====thong tin cac loai may in mau======" << endl;
+                        for(const auto& thietbi : danhsachThietBi) {
+                            MayInMau *mayinmau = dynamic_cast<MayInMau*>(thietbi);
+                            if(mayinmau != nullptr) {
+                                mayinmau->hienThiThongTin();
+                                cout<< endl;
+                            }
+                        }
+                        break;
+                    }
+                    case 4 : {
+                        //hien thi may quet 
+                        cout << "\n\n\t===Hiren thi thong tin cac loai may quet========" << endl;
+                        for(const auto& thietbi : danhsachThietBi) {
+                            MayQuet *mayquet =dynamic_cast<MayQuet*>(thietbi);
+                            if(mayquet != nullptr) {
+                                mayquet->hienThiThongTin();
+                                cout << endl;
+                            }
+                        }
+                        break;
+                    }
+                    case 5: {
+                        //hien thi thong tin cac loai may chieu
+                        cout << "\n\n\t======Hien thi thong tin cac loai may chieu====" << endl;
+                        for(const auto& thietbi : danhsachThietBi) {
+                            MayThamChieu *maythamchieu = dynamic_cast<MayThamChieu*>(thietbi);
+                            if(maythamchieu != nullptr) {
+                                maythamchieu->hienThiThongTin();
+                                cout << endl;
+                            }
+                        }
+                        break;
+                    }
+                    case 0 : {
+                        break;
+                    }
+                    default :
+                        cout << "\nlua chon khong hop le!" << endl;
                 }
                 break;
             }
             default:
-                cout << "lau chon khonh hop le" << endl;
+                cout << "lua chon khonh hop le" << endl;
         }
     }
 }
