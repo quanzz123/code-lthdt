@@ -300,6 +300,12 @@ int main() {
                 cout << "lua chon khonh hop le" << endl;
         }
     }
+
+    //giai phong bo nho
+    for(const auto& thietbi : danhsachThietBi) {
+        delete thietbi;
+    }
+    danhsachThietBi.clear();
     system("pause");
     return 0;
 }
