@@ -215,7 +215,7 @@ int main() {
         
         ss >> soTrang;
         ss.ignore();
-        ss >> soBanLuu;
+        ss >> soBanLuu; 
        
        
 

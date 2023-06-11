@@ -200,7 +200,7 @@ int main() {
             cout << "\n\n\t====Thong tin cac loai may tinh===" << endl;
             for (const auto& thietBi : danhSachThietBi) {
                 MayTinh* mayTinh = dynamic_cast<MayTinh*>(thietBi);
-                if (mayTinh != nullptr) {
+                if (mayTinh != nullptr) { 
                 mayTinh->hienThiThongTin();
                 cout <<endl;
                 }
