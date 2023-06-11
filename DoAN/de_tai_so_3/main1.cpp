@@ -5,6 +5,8 @@
 #include <sstream>
 #include <bits/stdc++.h>
 #include <conio.h>
+#include <windows.h>
+
 using namespace std;
 
 // Lớp cơ sở Thiết bị
@@ -129,6 +131,7 @@ void clearScreen() {
         std::system("clear");
     #endif
 }
+
 void timKiemThongTin(const vector<ThietBi*>& danhSachThietBi, const string& tenTimKiem) {
     bool timThay = false;
     
@@ -151,6 +154,7 @@ int main() {
     
     while (true) {
         clearScreen();
+        
         cout << "\n\n\t=======MENU=========" << endl;
         cout << "\n1.Them thiet bi tu file thietbi.txt" << endl;
         cout << "\n2.Hien thi thong tin cac thiet bi" << endl;
@@ -223,6 +227,7 @@ int main() {
             }
             case 2: {
                 clearScreen();
+               
                 int luachon2;
                 while (luachon2 != 0) {
                 cout << "\n\n\t==========Hien thi thong tin============" << endl;
@@ -238,6 +243,7 @@ int main() {
                 switch(luachon2) {
                     case 1: {
                         clearScreen();
+                        
                         //hien thi thong tin các loai may tinh
                         cout << "\n\n\t====thongtin cac loai may tinh======" << endl;
                         for(const auto& thietbi : danhsachThietBi) {
@@ -250,14 +256,15 @@ int main() {
                             }
                         
                         }
-                        //_getch();
-                        cin.ignore();
-                        cin.get();
+                        _getch();
+                        
                         clearScreen();
+                        
                         break;
                     }
                     case 2: {
                         clearScreen();
+                        
                         //hien thi thong tin cac loai may in den trang
                         cout << "\n\n\t=====thong tin cac loai may in den trang=====" << endl;
                         for(const auto& thietbi : danhsachThietBi) {
@@ -269,6 +276,7 @@ int main() {
                         }
                         _getch();\
                         clearScreen();
+                        
                         break;
                     }
                     case 3: {
@@ -282,9 +290,11 @@ int main() {
                             }
                         }
                         _getch();
+                        clearScreen();
                         break;
                     }
                     case 4 : {
+                        clearScreen();
                         //hien thi may quet 
                         cout << "\n\n\t===Hien thi thong tin cac loai may quet========" << endl;
                         for(const auto& thietbi : danhsachThietBi) {
@@ -295,9 +305,11 @@ int main() {
                             }
                         }
                         _getch();
+                        clearScreen();
                         break;
                     }
                     case 5: {
+                        clearScreen();
                         //hien thi thong tin cac loai may chieu
                         cout << "\n\n\t======Hien thi thong tin cac loai may chieu====" << endl;
                         for(const auto& thietbi : danhsachThietBi) {
@@ -308,6 +320,7 @@ int main() {
                             }
                         }
                         _getch();
+                        clearScreen();
                         break;
                     }
                     case 0 : {
@@ -321,22 +334,27 @@ int main() {
                 break;
             }
             case 3: {
+                clearScreen();
                 int luachon3;
-                cout << "\n\n\t==thong ke va tim kiem===\n\n" << endl;
-                cout <<"\n1.thong ke" << endl;
-                cout << "\n2.tim kiem" << endl;
-                cout << "\n0.thoat" << endl;
-                cout << "\nmoi nhap lua chon: ";
-                cin >> luachon3;
-                switch (luachon3) {
-                    case 1: {
-                        int luachon4;
+                while {luachon3 != 0} {
+                    cout << "\n\n\t===Thong ke và tim kiem===\n\n" << endl;
+                    cout << "\n1.THong ke" <<endl;
+                    cout << "\n2.tim kiem" << endl;
+                    cout << "===================" << endl;
+                    cout << "moi nhap lua chon: ";
+                    cin >> luachon3;
+                    switch (luachon3) {
+                        case 1 : {
+                            break;
+                        }
+                        case 0:
+                            break;
+                        default :
+                            cout << "lua chon khong hop le" <<endl;
 
-                        break;
                     }
-                    default :
-                        cout << "lua chon khong hop le" << endl;
                 }
+                
                 break;
             }
             default:
