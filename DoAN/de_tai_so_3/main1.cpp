@@ -164,15 +164,20 @@ int main() {
                             ss >> bonho;
                             danhsachThietBi.push_back(new MayTinh(ten, ma, ngay, thang, nam, trangthai, mau, tocdo, bonho));
                         } else if(ten == "MayInDenTrang") {
-                            ss.ignore();
                             ss >> sodiem;
                             danhsachThietBi.push_back(new MayInDenTrang(ten, ma, ngay, thang, nam, trangthai, sodiem));
                         } else if(ten == "MayinMau") {
-                            ss.ignore();
+                            
                             ss >> sodiem;
                             ss.ignore();
                             ss >> somau;
                             danhsachThietBi.push_back(new MayInMau(ten, ma, ngay, thang, nam, trangthai, sodiem, somau));
+                        } else if(ten == "MayQuet") {
+                            ss >> tocdoscan;
+                            danhsachThietBi.push_back(new MayQuet(ten, ma, ngay, thang, nam, trangthai, tocdoscan));
+                        } else if(ten == "MayThamChieu") {
+                            ss >> giothamchieu;
+                            danhsachThietBi.push_back(new MayThamChieu(ten, ma, ngay, thang, nam, trangthai, giothamchieu));
                         }
                     }
                 }
