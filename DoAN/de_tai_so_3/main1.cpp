@@ -135,6 +135,7 @@ int main() {
     int luachon1;
     
     while (true) {
+        clearScreen();
         cout << "\n\n\t=======MENU=========" << endl;
         cout << "\n1.Them thiet bi tu file thietbi.txt" << endl;
         cout << "\n2.Hien thi thong tin cac thiet bi" << endl;
@@ -194,8 +195,10 @@ int main() {
                     }
                     inputfile.close();
                     cout << "\nNhap du lieu thanh cong" << endl;
+                    _getch();
                 } else {
                     cout << "\nkhong the mo file" << endl;
+                    _getch();
                     return 1;
                 }
                
@@ -204,7 +207,7 @@ int main() {
                 
             }
             case 2: {
-                
+                clearScreen();
                 int luachon2;
                 cout << "\n\n\t==========Hien thi thong tin============" << endl;
                 cout << "\n1.May tinh" << endl;
@@ -224,9 +227,13 @@ int main() {
                             MayTinh *maytinh = dynamic_cast<MayTinh*>(thietbi);
                             if(maytinh != nullptr) {
                                 maytinh->hienThiThongTin();
+                            
                                 cout << endl;
+                               
                             }
+                        
                         }
+                        _getch();
                         break;
                     }
                     case 2: {
@@ -289,4 +296,6 @@ int main() {
                 cout << "lua chon khonh hop le" << endl;
         }
     }
+    system("pause");
+    return 0;
 }
