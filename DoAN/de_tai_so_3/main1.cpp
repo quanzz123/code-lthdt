@@ -129,6 +129,21 @@ void clearScreen() {
         std::system("clear");
     #endif
 }
+void timKiemThongTin(const vector<ThietBi*>& danhSachThietBi, const string& tenTimKiem) {
+    bool timThay = false;
+    
+    cout << "Thong tin cac thiet bi tim thay:/n/n" << endl;
+    for (const auto& thietBi : danhSachThietBi) {
+        if (thietBi->getname() == tenTimKiem) {
+            thietBi->hienThiThongTin();
+            timThay = true;
+        }
+    }
+    
+    if (!timThay) {
+        cout << "Khong tim thay thiet bi voi ten '" << tenTimKiem << "'" << endl << endl;
+    }
+}
 int main() {
     vector<ThietBi*> danhsachThietBi;
     //menu1
@@ -293,6 +308,26 @@ int main() {
                     }
                     default :
                         cout << "\nlua chon khong hop le!" << endl;
+                }
+                
+                break;
+            }
+            case 3: {
+                int luachon3;
+                cout << "\n\n\t==thong ke va tim kiem===\n\n" << endl;
+                cout <<"\n1.thong ke" << endl;
+                cout << "\n2.tim kiem" << endl;
+                cout << "\n0.thoat" << endl;
+                cout << "\nmoi nhap lua chon: ";
+                cin >> luachon3;
+                switch (luachon3) {
+                    case 1: {
+                        int luachon4;
+
+                        break;
+                    }
+                    default :
+                        cout << "lua chon khong hop le" << endl;
                 }
                 break;
             }
