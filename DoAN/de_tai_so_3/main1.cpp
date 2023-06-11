@@ -24,9 +24,9 @@ public:
         : tenThietBi(ten), maThietBi(ma), ngayNhap(ngay),thangNhap(thang), namNhap(nam), trangThai(trangthai) {}
 
     virtual void hienThiThongTin() {
-        cout << "|"<< setw(12) <<  tenThietBi; //12
+        cout << "|" << setw(15) <<  tenThietBi; //12
         cout << "|" << setw(11) << maThietBi; // 11
-        cout << "|" << setw(12) << ngayNhap << "/" << thangNhap << "/" << namNhap; //9
+        cout << "|" << setw(12) << ngayNhap << "/" << thangNhap << "/" << namNhap; //12
         cout << "|" << setw(15) << trangThai;
        
     } 
@@ -36,6 +36,9 @@ public:
     }
     string getname() {
         return tenThietBi;
+    }
+    string getID() {
+        return maThietBi;
     }
 };
 
@@ -52,10 +55,10 @@ public:
 
     void hienThiThongTin() {
         ThietBi::hienThiThongTin();
-        cout << "|" << setw(7) << mauSac ; // 7
+        cout << "|" << setw(7) << mauSac; // 7
         cout << "|" << setw(6) << tocDo ; // 6
-        cout << "|"<< setw(6) << boNho << "|" << endl; // 6
-    }
+        cout << "|" << setw(6) << boNho << "|"; // 6
+    }    
 };
 
 // Lớp Máy in
@@ -76,7 +79,7 @@ public:
 
     void hienThiThongTin() {
         MayIn::hienThiThongTin();
-        cout << "|" << setw(11) << soDiemAnh;
+        cout << "|" << setw(11) << soDiemAnh << "|";
     }
 };
 
@@ -91,7 +94,7 @@ public:
 
     void hienThiThongTin() {
         MayInDenTrang::hienThiThongTin();
-        cout << "|" << setw(6) << soMau;
+        cout << "|" << setw(6) << soMau << "|";
     }
 };
 // Lớp Máy quét
@@ -105,7 +108,7 @@ public:
 
     void hienThiThongTin() {
         ThietBi::hienThiThongTin();
-        cout << "|" << setw(11) << tocDoQuet;
+        cout << "|" << setw(11) << tocDoQuet << "|";
     }
 };
 
@@ -120,7 +123,7 @@ public:
 
     void hienThiThongTin() {
         ThietBi::hienThiThongTin();
-        cout << "|" << setw(8) << gioThamChieuToiDa << endl; // maxhours
+        cout << "|" << setw(8) << gioThamChieuToiDa << "|" ; // maxhours
     }
 };
 // Hàm xóa màn hình console
@@ -132,19 +135,20 @@ void clearScreen() {
     #endif
 }
 
-void timKiemThongTin(const vector<ThietBi*>& danhSachThietBi, const string& tenTimKiem) {
+void timKiemThongTin(const vector<ThietBi*>& danhSachThietBi, const string& tenTimKiem, const string &ID) {
     bool timThay = false;
     
     cout << "Thong tin cac thiet bi tim thay:/n/n" << endl;
     for (const auto& thietBi : danhSachThietBi) {
-        if (thietBi->getname() == tenTimKiem) {
+        if (thietBi->getname() == tenTimKiem && thietBi->getID() == ID) {
             thietBi->hienThiThongTin();
             timThay = true;
         }
     }
     
     if (!timThay) {
-        cout << "Khong tim thay thiet bi voi ten '" << tenTimKiem << "'" << endl << endl;
+        cout << "Khong tim thay thiet bi voi ten '" << tenTimKiem << "'" << endl ;
+        cout << "Khong tim thay thiet bi voi ID '" << ID << "'" << endl;
     }
 }
 int main() {
@@ -250,8 +254,11 @@ int main() {
                             MayTinh *maytinh = dynamic_cast<MayTinh*>(thietbi);
                             if(maytinh != nullptr) {
                                 maytinh->hienThiThongTin();
-                            
+                                
                                 cout << endl;
+                                cout << "|";
+                                cout << setfill('-') << setw(3) << "-" << "|";
+                                cout << setfill(' ');
                                
                             }
                         
@@ -274,7 +281,7 @@ int main() {
                                 cout << endl;
                             }
                         }
-                        _getch();\
+                        _getch();
                         clearScreen();
                         
                         break;
@@ -328,6 +335,7 @@ int main() {
                     }
                     default :
                         cout << "\nlua chon khong hop le!" << endl;
+                        _getch();
                 }
                 }
                 
@@ -336,15 +344,77 @@ int main() {
             case 3: {
                 clearScreen();
                 int luachon3;
-                while {luachon3 != 0} {
+                while (luachon3 != 0) {
                     cout << "\n\n\t===Thong ke và tim kiem===\n\n" << endl;
                     cout << "\n1.THong ke" <<endl;
                     cout << "\n2.tim kiem" << endl;
+                    cout << "\n0.thoat" << endl;
                     cout << "===================" << endl;
                     cout << "moi nhap lua chon: ";
                     cin >> luachon3;
                     switch (luachon3) {
                         case 1 : {
+                            clearScreen();
+                            int luachon3_1;
+                            while (luachon3_1 != 0) {
+                                cout << "\n\n\t===Thong ke===\n\n" << endl;
+                                cout << "\n1.thong ke danh sach thiet bi thanh ly" << endl;
+                                cout << "\n2.thong ke danh danh sach thiet bi dang su dung" << endl;
+                                cout << "\n0.thoat" << endl;
+                                cout << "===================" << endl;
+                                cout << "moi nhap lua chon cua ban: ";
+                                cin >> luachon3_1;
+                                switch (luachon3_1) {
+                                    case 1 : {
+                                        clearScreen();
+                                        vector<ThietBi*>danhsachthanhly;
+                                        for(ThietBi *tb : danhsachThietBi) {
+                                            if(tb->daDenThoiHanThanhLy()) {
+                                                danhsachthanhly.push_back(tb);
+                                            }
+                                        }
+                                        cout << "\n\n\t======Thong ke danh sach thiet bi thanh ly======\n\n" << endl;
+                                        for(ThietBi*tb : danhsachthanhly) {
+                                            tb->hienThiThongTin();
+                                            cout << endl;
+                                        }
+                                        _getch();
+                                        clearScreen();
+                                        break;
+                                    }
+                                    case 2: {
+                                        clearScreen();
+                                        vector<ThietBi*>danhsachdangsuadung;
+                                        for(ThietBi *tb :danhsachThietBi) {
+                                            if(tb->daDenThoiHanThanhLy() == false) {
+                                                danhsachdangsuadung.push_back(tb);
+                                            }
+                                        }
+                                        cout << "\n\n\t=======Thong ke danh sach thiet bi con dang su dung=====\n\n" <<endl;
+                                        for(ThietBi*tb : danhsachdangsuadung) {
+                                            tb->hienThiThongTin();
+                                            cout << endl;
+                                        
+                                        }
+                                        _getch();
+                                        clearScreen();
+                                        break;
+                                    }
+                                    case 0:
+                                        break;
+                                    default:
+                                        cout << "lua chon khong hop le!" << endl;
+                                }
+                            }
+                            _getch();
+                            clearScreen();
+                            break;
+                        }
+                        case 2: {
+                            clearScreen();
+
+                            _getch();
+                            clearScreen();
                             break;
                         }
                         case 0:

@@ -32,6 +32,9 @@ public:
     string getname() {
         return tenThietBi;
     }
+    string getID() {
+        return maThietBi;
+    }
 };
 
 // Lớp Máy tính
@@ -118,19 +121,20 @@ public:
         cout << "|" << setw(8) << gioThamChieuToiDa << endl; // maxhours
     }
 };
-void timKiemThongTin(const vector<ThietBi*>& danhSachThietBi, const string& tenTimKiem) {
+void timKiemThongTin(const vector<ThietBi*>& danhSachThietBi, const string& tenTimKiem, const string& ID) {
     bool timThay = false;
     
     cout << "Thong tin cac thiet bi tim thay:/n/n" << endl;
     for (const auto& thietBi : danhSachThietBi) {
-        if (thietBi->getname() == tenTimKiem) {
+        if (thietBi->getname() == tenTimKiem && thietBi->getID() == ID) {
             thietBi->hienThiThongTin();
             timThay = true;
         }
     }
     
     if (!timThay) {
-        cout << "Khong tim thay thiet bi voi ten '" << tenTimKiem << "'" << endl << endl;
+        cout << "Khong tim thay thiet bi voi ten '" << tenTimKiem << "'" << endl;
+        cout << "Khong tim thay thiet bi voi id '" << ID << "'" << endl;
     }
 }
 int main() {

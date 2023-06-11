@@ -9,7 +9,8 @@
         "*.tcc": "cpp",
         "deque": "cpp",
         "string": "cpp",
-        "vector": "cpp"
+        "vector": "cpp",
+        "fstream": "cpp"
     },
     "C_Cpp.errorSquiggles": "disabled"
 }
