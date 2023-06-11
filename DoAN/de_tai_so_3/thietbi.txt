@@ -1,17 +1,19 @@
-MayTinh MT001 01/01/2023 dung Den 3 8
-MayTinh MT002 01/01/2023 dung Den 3 8
-MayTinh MT002 02/02/2023 dung Den 3 9
+MayTinh,MT001,01/01/2023,hoat dong,Den,3,8
+MayTinh,MT002,01/01/2023,hoat dong,Den,3,8
+MayTinh,MT002,02/02/2023,hoat dong,Den,3,9
 
 
 
-MayInDenTrang MIDT001 02/01/2023 thanhly 1200
-MayInDenTrang MIDT002 02/01/2023 dung 1200
+MayInDenTrang,MIDT001,02/01/2023,thanh ly,1200
+MayInDenTrang,MIDT002,02/01/2023,hoat dong,1200
 
-MayinMau MIM001 03/01/2023 dung 1200 4
-
-
-MayQuet MQ001 04/01/2023 dung 2400
-MayQuet MQ002 04/01/2023 dung 2400
+MayinMau,MIM001,03/01/2023,hoat dong,1200,4
+MayinMau,MIM002,04/01/2023,hoat dong,1200,4
+MayinMau,MIM003,05/01/2023,hoat dong,1200,4
 
 
-MayThamChieu MTC001 05/01/2023 thanhly 8
+MayQuet,MQ001,04/01/2023,hoat dong,2400
+MayQuet,MQ002,05/01/2023,thanh ly,2400
+
+
+MayThamChieu,MTC001,05/01/2023,thanhly 8

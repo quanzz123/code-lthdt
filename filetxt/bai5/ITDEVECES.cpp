@@ -6,7 +6,6 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-
 // Lớp cơ sở Thiết bị
 class ThietBi {
 protected:
@@ -139,7 +138,7 @@ int main() {
 //menu các lựa chọn
     int luachon;
     while (true) {
-       
+        
         cout << "==================MENU=================" << endl;
         cout << "\n1.them thiet bi" << endl;
         cout << "\n2.hien thi thong tin may tinh" << endl;
