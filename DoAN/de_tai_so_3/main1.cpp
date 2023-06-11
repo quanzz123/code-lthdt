@@ -137,7 +137,7 @@ int main() {
     while (true) {
         cout << "\n\n\t=======MENU=========" << endl;
         cout << "\n1.Them thiet bi tu file thietbi.txt" << endl;
-        cout << "\n2.Hien thi thông tin cac thiet bi" << endl;
+        cout << "\n2.Hien thi thong tin cac thiet bi" << endl;
         cout << "\n3.Thong ke va tim kiem" << endl;
         cout << "\n0.Thoat chuong trinh" << endl;
         cout << "===========================" << endl;
@@ -255,7 +255,7 @@ int main() {
                     }
                     case 4 : {
                         //hien thi may quet 
-                        cout << "\n\n\t===Hiren thi thong tin cac loai may quet========" << endl;
+                        cout << "\n\n\t===Hien thi thong tin cac loai may quet========" << endl;
                         for(const auto& thietbi : danhsachThietBi) {
                             MayQuet *mayquet =dynamic_cast<MayQuet*>(thietbi);
                             if(mayquet != nullptr) {
