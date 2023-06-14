@@ -13,37 +13,7 @@ protected:
     string chuDe;
     string tacGia;
     string nhaXuatBan;
-    string ngayXuatBan;
-    string phuongthuc;
-    int soTrang;
-    int soBanLuu;
-
-public:
-    Sach(string maSo, string ten, string chuDe, string tacGia, string nhaXuatBan, string ngayXuatBan, string phuongthuc, int soTrang, int soBanLuu) {
-        maSoSach = maSo;
-        tenSach = ten;
-        this->chuDe = chuDe;
-        this->tacGia = tacGia;
-        this->nhaXuatBan = nhaXuatBan;
-        this->ngayXuatBan = ngayXuatBan;
-        this->phuongthuc = phuongthuc;
-
-        this->soTrang = soTrang;
-        this->soBanLuu = soBanLuu;
-    }
-
-    virtual void hienThiThongTin() {
-        cout << "ma so sach: " << maSoSach << endl;
-        cout << "Ten sach: " << tenSach << endl;
-        cout << "Chu de: " << chuDe << endl;
-        cout << "Tac gia: " << tacGia << endl;
-        cout << "nha xuat ban: " << nhaXuatBan << endl;
-        cout << "ngay xuat ban: " << ngayXuatBan << endl;
-        cout << "phuong thuc: " << phuongthuc << endl;
-        cout << "So trang: " << soTrang << endl;
-        cout << "So ban luu thu vien: " << soBanLuu << endl;
-    }
-      // Getter và Setter cho các thuộc tính
+    string ngayXuatBan;      
 
     string getMaSoSach() {
         return maSoSach;
@@ -181,8 +151,8 @@ void timKiemThongTin(const vector<Sach*>&danhSachSach , const string& TimKiemTG)
     if (!timThay) {
         cout << "Khong tim thay sach voi ten '" << TimKiemTG << "'" << endl << endl;
     }
-}
-int main() {
+} 
+int main() {     
 
     vector<Sach*> danhSachSach;
 
