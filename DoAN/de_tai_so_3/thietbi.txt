@@ -1,11 +1,23 @@
 MayTinh,MT001,01/01/2023,hoat dong,Den,3,8
-MayTinh,MT002,01/01/2023,hoat dong,Den,3,8
-MayTinh,MT002,02/02/2023,hoat dong,Den,3,9
+MayTinh,MT002,01/01/2023,thanh ly,xanh,5,8
+MayTinh,MT002,02/02/2023,hoat dong,trang,6,9
+MayTinh,MT90z,01/01/2023,hoat dong,hong,7,8
+MayTinh,MT00z,01/01/2023,thanh ly,tim,10,8
+MayTinh,MT123,02/02/2023,hoat dong,Den,5,9
+MayTinh,MTFF1,01/01/2023,hoat dong,Den,3,8
+MayTinh,MTPP1,01/01/2023,thanh ly,Den,3,8
+MayTinh,MTAA1,02/02/2023,hoat dong,Den,3,9
 
 
 
 MayInDenTrang,MIDT001,02/01/2023,thanh ly,1200
-MayInDenTrang,MIDT002,02/01/2023,hoat dong,1200
+MayInDenTrang,MIDT002,02/01/2023,hoat dong,2400
+MayInDenTrang,MIDTGTX,02/01/2023,thanh ly,1200
+MayInDenTrang,MIDTTHY,02/01/2023,hoat dong,4800
+MayInDenTrang,MIDTUUU,02/01/2023,thanh ly,1200
+MayInDenTrang,MIDT00K,02/01/2023,hoat dong,1200
+MayInDenTrang,MIDT00X,02/01/2023,thanh ly,8000
+MayInDenTrang,MIDT00Z,02/01/2023,hoat dong,1200
 
 MayinMau,MIM001,03/01/2023,hoat dong,1200,4
 MayinMau,MIM002,04/01/2023,hoat dong,1200,4
@@ -16,4 +28,7 @@ MayQuet,MQ001,04/01/2023,hoat dong,2400
 MayQuet,MQ002,05/01/2023,thanh ly,2400
 
 
-MayThamChieu,MTC001,05/01/2023,thanhly,8
+MayThamChieu,MTCCC,05/03/2023,thanh ly,9
+MayThamChieu,MTCQQ1,25/05/2023,hoat dong,8
+MayThamChieu,MTCZZ1,26/01/2023,thanh ly,2
+MayThamChieu,MTCTT1,12/07/2023,hoat dong,16

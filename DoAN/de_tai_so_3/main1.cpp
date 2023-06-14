@@ -94,7 +94,7 @@ public:
 
     void hienThiThongTin() {
         MayInDenTrang::hienThiThongTin();
-        cout << "|" << setw(6) << soMau << "|";
+        cout << setw(6) << soMau << "|";
     }
 };
 // Lớp Máy quét
@@ -157,7 +157,7 @@ int main() {
     //menu1
     int luachon1;
     
-    while (true) {
+    while (luachon1 != 0) {
         clearScreen();
         
         cout << "\n\n\t=======MENU=========" << endl;
@@ -165,7 +165,7 @@ int main() {
         cout << "\n2.Hien thi thong tin cac thiet bi" << endl;
         cout << "\n3.Thong ke va tim kiem" << endl;
         cout << "\n0.Thoat chuong trinh" << endl;
-        cout << "===========================" << endl;
+        cout << "=====================================" << endl;
         cout << "moi nhap lua chon:  ";
         cin >> luachon1;
         switch(luachon1) {
@@ -226,7 +226,8 @@ int main() {
                     return 1;
                 }
                
-                
+                _getch();
+                clearScreen();
                 break;
                 
             }
@@ -235,7 +236,7 @@ int main() {
                
                 int luachon2;
                 while (luachon2 != 0) {
-                cout << "\n\n\t==========Hien thi thong tin============" << endl;
+                cout << "\n\n==========Hien thi thong tin===============" << endl;
                 cout << "\n1.May tinh" << endl;
                 cout << "\n2.May in den trang" << endl;
                 cout << "\n3.May in mau" << endl;
@@ -354,13 +355,50 @@ int main() {
                         break;
                     }
                     case 3: {
+                        clearScreen();
                         //hien thi may in mau
-                        cout << "\n\n\t====thong tin cac loai may in mau======" << endl;
+                        cout << "\n\n\t====thong tin cac loai may in mau======\n\n" << endl;
+                        cout << (char)218 << setfill('-') << setw(73) << "-" << (char)191 << endl;
+                        cout << setfill(' ');
+                        cout << "|" << setw(15) << "NAME";
+                        cout << "|" << setw(11) << "ID";
+                        cout << "|" << setw(10) << "DATE";
+                        cout << "|" << setw(15) << "STATIC";
+                        cout << "|" << setw(11) << "PIX";
+                        cout << "|" << setw(6) << "COLS" << "|" << endl;
+
+                        cout << "|";
+                        cout << setfill('-') << setw(15) << "-" << "|";
+                        cout << setfill(' ');
+                        cout << setfill('-') << setw(11) << "-" << "|";
+                        cout << setfill(' ');
+                        cout << setfill('-') << setw(10) << "-" << "|";
+                        cout << setfill(' ');
+                        cout << setfill('-') << setw(15) << "-" << "|";
+                        cout << setfill(' ');
+                        cout << setfill('-') << setw(11) << "-" << "|";
+                        cout << setfill(' ');
+                        cout << setfill('-') << setw(6) << "-" << "|" << endl;
+                        cout << setfill(' ');
                         for(const auto& thietbi : danhsachThietBi) {
                             MayInMau *mayinmau = dynamic_cast<MayInMau*>(thietbi);
                             if(mayinmau != nullptr) {
                                 mayinmau->hienThiThongTin();
                                 cout<< endl;
+                                cout << "|";
+                                cout << setfill('-') << setw(15) << "-" << "|"; // name
+                                cout << setfill(' ');
+                                cout << setfill('-') << setw(11) << "-" << "|"; // id
+                                cout << setfill(' ');
+                                cout << setfill('-') << setw(10) << "-" << "|"; // date
+                                cout << setfill(' ');
+                                cout << setfill('-') << setw(15) << "-" << "|"; // static
+                                cout << setfill(' ');
+                                cout << setfill('-') << setw(11) << "-" << "|";
+                                cout << setfill(' ');
+                                cout << setfill('-') << setw(6) << "-" << "|" << endl;
+                                cout << setfill(' ');
+
                             }
                         }
                         _getch();
@@ -370,12 +408,41 @@ int main() {
                     case 4 : {
                         clearScreen();
                         //hien thi may quet 
-                        cout << "\n\n\t===Hien thi thong tin cac loai may quet========" << endl;
+                        cout << "\n\n\t===Hien thi thong tin cac loai may quet========\n\n" << endl;
+                        cout << (char)218 << setfill('-') << setw(66) << "-" << (char)191 << endl;
+                        cout << setfill(' ');
+                        cout << "|" << setw(15) << "NAME";
+                        cout << "|" << setw(11) << "ID";
+                        cout << "|" << setw(10) << "DATE";
+                        cout << "|" << setw(15) << "STATIC";
+                        cout << "|" << setw(11) << "SSPE" << "|" << endl;
+                        cout << "|";
+                        cout << setfill('-') << setw(15) << "-" << "|";
+                        cout << setfill(' ');
+                        cout << setfill('-') << setw(11) << "-" << "|";
+                        cout << setfill(' ');
+                        cout << setfill('-') << setw(10) << "-" << "|";
+                        cout << setfill(' ');
+                        cout << setfill('-') << setw(15) << "-" << "|";
+                        cout << setfill(' ');
+                        cout << setfill('-') << setw(11) << "-" << "|" << endl;
+                        cout << setfill(' ');
                         for(const auto& thietbi : danhsachThietBi) {
                             MayQuet *mayquet =dynamic_cast<MayQuet*>(thietbi);
                             if(mayquet != nullptr) {
                                 mayquet->hienThiThongTin();
                                 cout << endl;
+                                cout << "|";
+                                cout << setfill('-') << setw(15) << "-" << "|"; // name
+                                cout << setfill(' ');
+                                cout << setfill('-') << setw(11) << "-" << "|"; // id
+                                cout << setfill(' ');
+                                cout << setfill('-') << setw(10) << "-" << "|"; // date
+                                cout << setfill(' ');
+                                cout << setfill('-') << setw(15) << "-" << "|"; // static
+                                cout << setfill(' ');
+                                cout << setfill('-') << setw(11) << "-" << "|" << endl; // scanspeed
+                                cout << setfill(' ');
                             }
                         }
                         _getch();
@@ -385,12 +452,41 @@ int main() {
                     case 5: {
                         clearScreen();
                         //hien thi thong tin cac loai may chieu
-                        cout << "\n\n\t======Hien thi thong tin cac loai may chieu====" << endl;
+                        cout << "\n\n\t======Hien thi thong tin cac loai may chieu====\n\n" << endl;
+                        cout << (char)218 << setfill('-') << setw(63) << "-" << (char)191 << endl;
+                        cout << setfill(' ');
+                        cout << "|" << setw(15) << "NAME";
+                        cout << "|" << setw(11) << "ID";
+                        cout << "|" << setw(10) << "DATE";
+                        cout << "|" << setw(15) << "STATIC";
+                        cout << "|" << setw(8) << "MAXH" << "|" << endl;
+                        cout << "|";
+                        cout << setfill('-') << setw(15) << "-" << "|";
+                        cout << setfill(' ');
+                        cout << setfill('-') << setw(11) << "-" << "|";
+                        cout << setfill(' ');
+                        cout << setfill('-') << setw(10) << "-" << "|";
+                        cout << setfill(' ');
+                        cout << setfill('-') << setw(15) << "-" << "|";
+                        cout << setfill(' ');
+                        cout << setfill('-') << setw(8) << "-" << "|" << endl;
+                        cout << setfill(' ');
                         for(const auto& thietbi : danhsachThietBi) {
                             MayThamChieu *maythamchieu = dynamic_cast<MayThamChieu*>(thietbi);
                             if(maythamchieu != nullptr) {
                                 maythamchieu->hienThiThongTin();
                                 cout << endl;
+                                cout << "|";
+                                cout << setfill('-') << setw(15) << "-" << "|"; // name
+                                cout << setfill(' ');
+                                cout << setfill('-') << setw(11) << "-" << "|"; // id
+                                cout << setfill(' ');
+                                cout << setfill('-') << setw(10) << "-" << "|"; // date
+                                cout << setfill(' ');
+                                cout << setfill('-') << setw(15) << "-" << "|"; // static
+                                cout << setfill(' ');
+                                cout << setfill('-') << setw(8) << "-" << "|" << endl; // scanspeed
+                                cout << setfill(' ');
                             }
                         }
                         _getch();
@@ -428,7 +524,7 @@ int main() {
                                 cout << "\n1.thong ke danh sach thiet bi thanh ly" << endl;
                                 cout << "\n2.thong ke danh danh sach thiet bi dang su dung" << endl;
                                 cout << "\n0.thoat" << endl;
-                                cout << "===================" << endl;
+                                cout << "==================================================" << endl;
                                 cout << "moi nhap lua chon cua ban: ";
                                 cin >> luachon3_1;
                                 switch (luachon3_1) {
@@ -491,9 +587,12 @@ int main() {
 
                     }
                 }
-                
+                _getch();
+                clearScreen();
                 break;
             }
+            case 0:
+                break;
             default:
                 cout << "lua chon khonh hop le" << endl;
         }
