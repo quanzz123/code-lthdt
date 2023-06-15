@@ -541,6 +541,14 @@ int main() {
                                             tb->hienThiThongTin();
                                             cout << endl;
                                         }
+                                        cout << "\n\n\t==========thong ke danh sach may tinh bi thanh ly========\n\n";
+                                        for(ThietBi*tb : danhsachthanhly) {
+                                            MayTinh* maytinh = dynamic_cast<MayTinh*>(tb);
+                                            if(maytinh != nullptr) {
+                                                maytinh->hienThiThongTin();
+                                                cout << endl;
+                                            }
+                                        }
                                         _getch();
                                         clearScreen();
                                         break;
@@ -553,12 +561,53 @@ int main() {
                                                 danhsachdangsuadung.push_back(tb);
                                             }
                                         }
-                                        cout << "\n\n\t=======Thong ke danh sach thiet bi con dang su dung=====\n\n" <<endl;
+                                        cout << "\n\n\t=======Thong ke danh sach may quet con dang su dung=====\n\n" <<endl;
                                         for(ThietBi*tb : danhsachdangsuadung) {
-                                            tb->hienThiThongTin();
-                                            cout << endl;
-                                        
+                                            MayQuet* mayquet = dynamic_cast<MayQuet*>(tb);
+                                            if(mayquet != nullptr) {
+                                                mayquet->hienThiThongTin();
+                                                cout << endl;
+                                            }
+                                            
                                         }
+                                        cout << "\n\n\t=======Thong ke danh sach may tinh con dang su dung=====\n\n" <<endl;
+                                        for(ThietBi*tb : danhsachdangsuadung) {
+                                            MayTinh* maytinh = dynamic_cast<MayTinh*>(tb);
+                                            if(maytinh != nullptr) {
+                                                maytinh->hienThiThongTin();
+                                                cout << endl;
+                                            }
+                                            
+                                        }
+                                        cout << "\n\n\t=======Thong ke danh sach may in den trang con dang su dung=====\n\n" <<endl;
+                                        for(ThietBi*tb : danhsachdangsuadung) {
+                                            MayInDenTrang* mayindentrang = dynamic_cast<MayInDenTrang*>(tb);
+                                            MayInMau* mayinmau = dynamic_cast<MayInMau*>(tb);
+                                            if(mayindentrang != nullptr && mayinmau == nullptr ) {
+                                                mayindentrang->hienThiThongTin();
+                                                cout << endl;
+                                            }
+                                            
+                                        }
+                                        cout << "\n\n\t=======Thong ke danh sach may in mau con dang su dung=====\n\n" <<endl;
+                                        for(ThietBi*tb : danhsachdangsuadung) {
+                                            MayInMau* mayinmau = dynamic_cast<MayInMau*>(tb);
+                                            if(mayinmau != nullptr) {
+                                                mayinmau->hienThiThongTin();
+                                                cout << endl;
+                                            }
+                                            
+                                        }
+                                        cout << "\n\n\t=======Thong ke danh sach may chieu con dang su dung=====\n\n" <<endl;
+                                        for(ThietBi*tb : danhsachdangsuadung) {
+                                            MayThamChieu* maythamchieu = dynamic_cast<MayThamChieu*>(tb);
+                                            if(maythamchieu != nullptr) {
+                                                maythamchieu->hienThiThongTin();
+                                                cout << endl;
+                                            }
+                                            
+                                        }
+
                                         _getch();
                                         clearScreen();
                                         break;
