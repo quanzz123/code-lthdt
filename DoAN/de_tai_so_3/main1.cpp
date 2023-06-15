@@ -157,7 +157,7 @@ int main() {
     //menu1
     int luachon1;
     
-    while (luachon1 != 0) {
+    while (true) {
         clearScreen();
         
         cout << "\n\n\t=======MENU=========" << endl;

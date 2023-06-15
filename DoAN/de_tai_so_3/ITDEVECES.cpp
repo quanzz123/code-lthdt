@@ -121,7 +121,7 @@ public:
         cout << "|" << setw(8) << gioThamChieuToiDa << endl; // maxhours
     }
 };
-void timKiemThongTin(const vector<ThietBi*>& danhSachThietBi, const string& tenTimKiem, const string& ID) {
+void timKiemThongTin2(const vector<ThietBi*>& danhSachThietBi, const string& tenTimKiem, const string& ID) {
     bool timThay = false;
     
     cout << "Thong tin cac thiet bi tim thay:/n/n" << endl;
@@ -135,6 +135,22 @@ void timKiemThongTin(const vector<ThietBi*>& danhSachThietBi, const string& tenT
     if (!timThay) {
         cout << "Khong tim thay thiet bi voi ten '" << tenTimKiem << "'" << endl;
         cout << "Khong tim thay thiet bi voi id '" << ID << "'" << endl;
+    }
+}
+void timKiemThongTin(const vector<ThietBi*>& danhSachThietBi, const string& tenTimKiem) {
+    bool timThay = false;
+    
+    cout << "Thong tin cac thiet bi tim thay:/n/n" << endl;
+    for (const auto& thietBi : danhSachThietBi) {
+        if (thietBi->getname() == tenTimKiem) {
+            thietBi->hienThiThongTin();
+            timThay = true;
+        }
+    }
+    
+    if (!timThay) {
+        cout << "Khong tim thay thiet bi voi ten '" << tenTimKiem << "'" << endl;
+        
     }
 }
 int main() {
@@ -265,16 +281,22 @@ int main() {
             vector<ThietBi*>danhsachthanhly;
             //thong ke cac thiet bi den hanh thanh ly
             for(ThietBi* tb : danhSachThietBi) {
-                if(tb->daDenThoiHanThanhLy()) {
-                    danhsachthanhly.push_back(tb);
+                MayThamChieu* maychieu = dynamic_cast<MayThamChieu*>(tb);
+                if(maychieu->daDenThoiHanThanhLy()) {
+                    danhsachthanhly.push_back(maychieu);
+                }
+                if(maychieu != nullptr) {
+                    maychieu->hienThiThongTin();
+                    cout << endl;
                 }
             }
             //hien thi thong tin danh sach
-            cout << "\n\n\t==Danh sach thiet bi den thoi han hanh li==" << endl;
-            for(ThietBi* tb : danhsachthanhly) {
-                tb->hienThiThongTin();
-                cout << endl << endl;
-            }
+            // cout << "\n\n\t==Danh sach thiet bi den thoi han hanh li==" << endl;
+            // for(ThietBi* tb : danhsachthanhly) {
+            //     tb->hienThiThongTin();
+            //     cout << endl << endl;
+            // }
+            
             break;
         }
         case 8: {
