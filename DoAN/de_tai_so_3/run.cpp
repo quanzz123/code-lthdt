@@ -434,11 +434,19 @@ private:
             }
         }
 
-        cout << "\n\n\t======Thong ke danh sach thiet bi thanh ly======\n\n" << endl;
+        // cout << "\n\n\t======Thong ke danh sach thiet bi thanh ly======\n\n" << endl;
 
-        for (ThietBi* tb : danhsachthanhly) {
-            tb->hienThiThongTin();
-            cout << endl;
+        // for (ThietBi* tb : danhsachthanhly) {
+        //     tb->hienThiThongTin();
+        //     cout << endl;
+        // }
+        cout << "\n\n\t===danh sach may tinh bi thanh ly====\n\n";
+        for(ThietBi* tb : danhsachthanhly) {
+            MayTinh* maytinh = dynamic_cast<MayTinh*>(tb);
+            if(maytinh != nullptr) {
+                maytinh->hienThiThongTin();
+                cout << endl;
+            }
         }
 
         _getch();

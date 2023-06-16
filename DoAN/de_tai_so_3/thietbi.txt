@@ -22,7 +22,8 @@ MayInDenTrang,MIDT00Z,02/01/2023,hoat dong,1200
 MayinMau,MIM001,03/01/2023,hoat dong,1200,4
 MayinMau,MIM002,04/01/2023,hoat dong,1200,4
 MayinMau,MIM003,05/01/2023,hoat dong,1200,4
-
+MayinMau,MIMold1,06/07/2022,thanh ly,1200,4
+MayinMau,MIMold2,31/12/2020,thanh ly,1200,4
 
 MayQuet,MQ001,04/01/2023,hoat dong,2400
 MayQuet,MQ002,05/01/2023,thanh ly,2400
