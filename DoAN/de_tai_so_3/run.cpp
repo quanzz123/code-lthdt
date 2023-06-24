@@ -41,6 +41,7 @@ public:
     string getID() {
         return maThietBi;
     }
+    
 };
 
 // Lớp Máy tính
