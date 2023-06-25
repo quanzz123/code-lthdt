@@ -44,18 +44,21 @@ public:
     {
         return maThietBi;
     }
-    string getngay() {
+    int getngay()
+    {
         return ngayNhap;
     }
-    string getthang() {
+    int getthang()
+    {
         return thangNhap;
     }
-    string getnam() {
-        
+    int getnam()
+    {
 
-     return namNhap;
+        return namNhap;
     }
-    string gettrangthai() {
+    string gettrangthai()
+    {
         return trangThai;
     }
 };
@@ -79,6 +82,15 @@ public:
         cout << "|" << setw(6) << tocDo;  // 6
         cout << "|" << setw(6) << boNho << "|";
         ; // 6
+    }
+    string getmausac() {
+        return mauSac;
+    }
+    int getbonho() {
+        return boNho;
+    }
+    int gettocdo() {
+        return tocDo;
     }
 };
 
@@ -105,7 +117,8 @@ public:
         MayIn::hienThiThongTin();
         cout << "|" << setw(11) << soDiemAnh << "|";
     }
-    int getsodiemanh() {
+    int getsodiemanh()
+    {
         return soDiemAnh;
     }
 };
@@ -125,7 +138,8 @@ public:
         MayInDenTrang::hienThiThongTin();
         cout << setw(6) << soMau << "|";
     }
-    int getsomau() {
+    int getsomau()
+    {
         return soMau;
     }
 };
@@ -144,7 +158,8 @@ public:
         ThietBi::hienThiThongTin();
         cout << "|" << setw(11) << tocDoQuet << "|";
     }
-    int gettocsoquet() {
+    int gettocsoquet()
+    {
         return tocDoQuet;
     }
 };
@@ -164,7 +179,8 @@ public:
         ThietBi::hienThiThongTin();
         cout << "|" << setw(8) << gioThamChieuToiDa << "|"; // maxhours
     }
-    int getgiochieutoida() {
+    int getgiochieutoida()
+    {
         return gioThamChieuToiDa;
     }
 };
@@ -216,8 +232,10 @@ public:
             }
         }
     }
-     void giaiphong() {
-        for(const auto& thietbi : danhsachThietBi) {
+    void giaiphong()
+    {
+        for (const auto &thietbi : danhsachThietBi)
+        {
             delete thietbi;
         }
         danhsachThietBi.clear();
@@ -1380,10 +1398,11 @@ private:
             // Compare the ma of the tb object with the input ma
             // If found, display the information and set found to true
             // ...
-            if(tb->getID() == ma) {
+            if (tb->getID() == ma)
+            {
                 tb->hienThiThongTin();
                 cout << endl;
-                found = true;  
+                found = true;
             }
         }
 
@@ -1408,13 +1427,16 @@ private:
 
         bool found = false;
 
-        for (ThietBi *tb : danhsachThietBi)
+        for (const auto &tb : danhsachThietBi)
         {
             // Compare the ten of the tb object with the input ten
             // If found, display the information and set found to true
             // ...
-            if(tb->getname() == ten) {
-                tb->hienThiThongTin();
+            if (tb->getname() == ten)
+            {
+                if(ten == "MayTinh") {
+                    inBangMayTinh();
+                }
                 cout << endl;
                 found = true;
             }
@@ -1428,7 +1450,109 @@ private:
         _getch();
         clearScreen();
     }
-    
+    void inBangMayTinh()
+    {
+        // In tiêu đề của bảng
+        
+        cout << "\n\n\t\t\t====THONG TIN CAC LOAI MAY TINH======\n\n"
+             << endl;
+        cout << (char)218 << setfill('-') << setw(76) << "-" << (char)191 << endl;
+        cout << setfill(' ');
+        cout << "|" << setw(15) << "NAME";
+        cout << "|" << setw(11) << "ID";
+        cout << "|" << setw(10) << "DATE";
+        cout << "|" << setw(15) << "STATIC";
+        cout << "|" << setw(7) << "COL";
+        cout << "|" << setw(6) << "SPE";
+        cout << "|" << setw(6) << "MEM"
+             << "|" << endl;
+        cout << "|";
+        cout << setfill('-') << setw(15) << "-"
+             << "|";
+        cout << setfill(' ');
+        cout << setfill('-') << setw(11) << "-"
+             << "|";
+        cout << setfill(' ');
+        cout << setfill('-') << setw(10) << "-"
+             << "|";
+        cout << setfill(' ');
+        cout << setfill('-') << setw(15) << "-"
+             << "|";
+        cout << setfill(' ');
+        cout << setfill('-') << setw(7) << "-"
+             << "|";
+        cout << setfill(' ');
+        cout << setfill('-') << setw(6) << "-"
+             << "|";
+        cout << setfill(' ');
+        cout << setfill('-') << setw(6) << "-"
+             << "|" << endl;
+        cout << setfill(' ');
+        for (const auto &tb : danhsachThietBi)
+        {
+            if (dynamic_cast<MayTinh *>(tb) != nullptr)
+            {
+                MayTinh *maytinh = dynamic_cast<MayTinh *>(tb);
+                // In thông tin từng thiết bị vào từng cột
+                cout << "|" << setw(15) << maytinh->getname();
+                cout << "|" << setw(11) << maytinh->getID();
+                cout << "|" << setw(2) << maytinh->getngay() << "/" << setw(2)
+                << maytinh->getthang() << "/" << setw(4) << maytinh->getnam();
+                cout << "|" << setw(15) << maytinh->gettrangthai();
+                cout << "|" << setw(7) << maytinh->getmausac();
+                cout << "|" << setw(6) << maytinh->gettocdo();
+                cout << "|" << setw(6) << maytinh->getbonho() << "|";
+                cout << endl;
+                cout << "|";
+                cout << setfill('-') << setw(15) << "-"
+                     << "|";
+                cout << setfill(' ');
+                cout << setfill('-') << setw(11) << "-"
+                     << "|";
+                cout << setfill(' ');
+                cout << setfill('-') << setw(10) << "-"
+                     << "|";
+                cout << setfill(' ');
+                cout << setfill('-') << setw(15) << "-"
+                     << "|";
+                cout << setfill(' ');
+                cout << setfill('-') << setw(7) << "-"
+                     << "|";
+                cout << setfill(' ');
+                cout << setfill('-') << setw(6) << "-"
+                     << "|";
+                cout << setfill(' ');
+                cout << setfill('-') << setw(6) << "-"
+                     << "|" << endl;
+                cout << setfill(' ');
+            }
+        }
+        _getch();
+        clearScreen();
+    }
+
+    void inBangMayInDenTrang()
+    {
+        // In tiêu đề của bảng
+        cout << "Tên,Thiết bị ID,Ngày nhập,Trạng thái,Số điểm ảnh" << endl;
+
+        for (const auto &tb : danhsachThietBi)
+        {
+            if (dynamic_cast<MayInDenTrang *>(tb) != nullptr)
+            {
+                MayInDenTrang *mayindentrang = dynamic_cast<MayInDenTrang *>(tb);
+                // In thông tin từng thiết bị vào từng cột
+                cout << left << setw(20) << mayindentrang->getnam();
+                cout << left << setw(15) << mayindentrang->getID();
+                cout << left << setw(10) << mayindentrang->getngay();
+                cout << left << setw(15) << mayindentrang->gettrangthai();
+                cout << left << setw(15) << mayindentrang->getsodiemanh();
+                cout << endl;
+            }
+        }
+    }
+
+    // Tương tự, bạn có thể tạo các hàm inBangMayInMau(), inBangMayQuet(), inBangMayThamChieu() tương ứng cho các loại thiết bị khác.
 };
 
 int main()
