@@ -1412,6 +1412,7 @@ private:
                          tb->hienThiThongTin();
                          cout << endl;
                          found = true;
+                         break;
                     }
                }
           }
@@ -1448,18 +1449,23 @@ private:
                     {
                          inBangMayTinh();
                          cout << endl;
+                         break;
                     } else if(ten == "MayInDenTrang") {
                          inBangMayInDenTrang();
                          cout << endl;
+                         break;
                     } else if(ten == "MayinMau") {
                          inBangMayInMau();
                          cout << endl;
+                         break;
                     } else if(ten == "MayQuet") {
                          inBangMayQuet();
                          cout << endl;
+                         break;
                     } else if(ten == "MayThamChieu") {
                          inBangMayChieu();
                          cout << endl;
+                         break;
                     } else {
                          cout << "\nKhong tim thay thiet bi voi ten " << ten << endl;
                     }
