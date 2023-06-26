@@ -201,12 +201,12 @@ public:
           {
                clearScreen();
 
-               cout << "\n\n\t=======MENU=========" << endl;
+               cout << "\n\n================= MENU ==========================" << endl;
                cout << "\n1.Them thiet bi tu file thietbi.txt" << endl;
                cout << "\n2.Hien thi thong tin cac thiet bi" << endl;
                cout << "\n3.Thong ke va tim kiem" << endl;
                cout << "\n0.Thoat chuong trinh" << endl;
-               cout << "===========================" << endl;
+               cout << "==================================================" << endl;
                cout << "moi nhap lua chon:  ";
                cin >> luachon1;
 
@@ -336,14 +336,14 @@ private:
           int luachon2;
           while (luachon2 != 0)
           {
-               cout << "\n\n\t==========Hien thi thong tin============" << endl;
+               cout << "\n\n==================== Hien thi thong tin ============" << endl;
                cout << "\n1.May tinh" << endl;
                cout << "\n2.May in den trang" << endl;
                cout << "\n3.May in mau" << endl;
                cout << "\n4.May quet" << endl;
                cout << "\n5.May chieu" << endl;
                cout << "\n0.Quay lai" << endl;
-               cout << "================================================" << endl;
+               cout << "==================================================" << endl;
                cout << "Moi nhap lua chon: ";
                cin >> luachon2;
 
@@ -1025,12 +1025,12 @@ private:
           while (luachon3 != 0)
           {
                clearScreen();
-               cout << "\n\n\t===Thong ke và tim kiem===\n\n"
+               cout << "\n\n=== Thong ke va tim kiem ==="
                     << endl;
                cout << "\n1.Thong ke" << endl;
                cout << "\n2.Tim kiem" << endl;
                cout << "\n0.Thoat" << endl;
-               cout << "===================" << endl;
+               cout << "===========================" << endl;
                cout << "Moi nhap lua chon: ";
                cin >> luachon3;
 
