@@ -586,37 +586,37 @@ private:
           }
           _getch();
           clearScreen();
-          //hien thị ra file hienthi_mayindentrang.txt
+          // hien thị ra file hienthi_mayindentrang.txt
           ofstream outputfile("hienthi_mayindentrang.txt");
           if (outputfile.is_open())
           {
-               cout << "\n\n\t\t=====THONG TIN CAC LOAI MAY IN DEN TRANG=====\n\n"
-                    << endl;
+               outputfile << "\n\n\t\t=====THONG TIN CAC LOAI MAY IN DEN TRANG=====\n\n"
+                          << endl;
                outputfile << "+" << setfill('-') << setw(66) << "-"
-                    << "+" << endl;
+                          << "+" << endl;
                outputfile << setfill(' ');
                outputfile << "|" << setw(15) << "NAME";
                outputfile << "|" << setw(11) << "ID";
                outputfile << "|" << setw(10) << "DATE";
                outputfile << "|" << setw(15) << "STATIC";
                outputfile << "|" << setw(11) << "PIX"
-                    << "|" << endl;
+                          << "|" << endl;
 
                outputfile << "|";
                outputfile << setfill('-') << setw(15) << "-"
-                    << "|";
+                          << "|";
                outputfile << setfill(' ');
                outputfile << setfill('-') << setw(11) << "-"
-                    << "|";
+                          << "|";
                outputfile << setfill(' ');
                outputfile << setfill('-') << setw(10) << "-"
-                    << "|";
+                          << "|";
                outputfile << setfill(' ');
                outputfile << setfill('-') << setw(15) << "-"
-                    << "|";
+                          << "|";
                outputfile << setfill(' ');
                outputfile << setfill('-') << setw(11) << "-"
-                    << "|" << endl;
+                          << "|" << endl;
                outputfile << setfill(' ');
                for (const auto &tb : danhsachThietBi)
                {
@@ -631,19 +631,19 @@ private:
                          outputfile << endl;
                          outputfile << "|";
                          outputfile << setfill('-') << setw(15) << "-"
-                              << "+"; // name
+                                    << "+"; // name
                          outputfile << setfill(' ');
                          outputfile << setfill('-') << setw(11) << "-"
-                              << "+"; // id
+                                    << "+"; // id
                          outputfile << setfill(' ');
                          outputfile << setfill('-') << setw(10) << "-"
-                              << "+"; // date
+                                    << "+"; // date
                          outputfile << setfill(' ');
                          outputfile << setfill('-') << setw(15) << "-"
-                              << "+"; // static
+                                    << "+"; // static
                          outputfile << setfill(' ');
                          outputfile << setfill('-') << setw(11) << "-"
-                              << "|" << endl;
+                                    << "|" << endl;
                          outputfile << setfill(' ');
                     }
                }
@@ -714,40 +714,38 @@ private:
           }
           _getch();
           clearScreen();
-          //hien thi máy in màu
-          ofstream outputfile("hienthi_mayinmau.txt");
+          // hien thi máy in màu
+          ofstream outputfile("hienthi_mauinmau.txt");
           if (outputfile.is_open())
           {
                outputfile << "\n\n\t====THONG TIN CAC LOAI MAY IN MAU======" << endl;
-               outputfile << "+" << setfill('-') << setw(73) << "-"
-                    << "+" << endl;
+               outputfile << "+" << setfill('-') << setw(61) << "-"
+                          << "+" << endl;
                outputfile << setfill(' ');
                outputfile << "|" << setw(15) << "NAME";
                outputfile << "|" << setw(11) << "ID";
                outputfile << "|" << setw(10) << "DATE";
                outputfile << "|" << setw(15) << "STATIC";
-               outputfile << "|" << setw(11) << "PIX";
+
                outputfile << "|" << setw(6) << "COLS"
-                    << "|" << endl;
+                          << "|" << endl;
 
                outputfile << "|";
                outputfile << setfill('-') << setw(15) << "-"
-                    << "+";
+                          << "+";
                outputfile << setfill(' ');
                outputfile << setfill('-') << setw(11) << "-"
-                    << "+";
+                          << "+";
                outputfile << setfill(' ');
                outputfile << setfill('-') << setw(10) << "-"
-                    << "+";
+                          << "+";
                outputfile << setfill(' ');
                outputfile << setfill('-') << setw(15) << "-"
-                    << "+";
+                          << "+";
                outputfile << setfill(' ');
-               outputfile << setfill('-') << setw(11) << "-"
-                    << "+";
-               outputfile << setfill(' ');
+
                outputfile << setfill('-') << setw(6) << "-"
-                    << "|" << endl;
+                          << "|" << endl;
                outputfile << setfill(' ');
                for (const auto &tb : danhsachThietBi)
                {
@@ -758,26 +756,25 @@ private:
                          outputfile << "|" << setw(11) << mayinmau->getID();
                          outputfile << "|" << setw(2) << mayinmau->getngay() << "/" << setw(2) << mayinmau->getthang() << "/" << setw(4) << mayinmau->getnam();
                          outputfile << "|" << setw(15) << mayinmau->gettrangthai();
+
                          outputfile << "|" << setw(6) << mayinmau->getsomau() << "|";
                          outputfile << endl;
                          outputfile << "|";
                          outputfile << setfill('-') << setw(15) << "-"
-                              << "+"; // name
+                                    << "+"; // name
                          outputfile << setfill(' ');
                          outputfile << setfill('-') << setw(11) << "-"
-                              << "+"; // id
+                                    << "+"; // id
                          outputfile << setfill(' ');
                          outputfile << setfill('-') << setw(10) << "-"
-                              << "+"; // date
+                                    << "+"; // date
                          outputfile << setfill(' ');
                          outputfile << setfill('-') << setw(15) << "-"
-                              << "+"; // static
+                                    << "+"; // static
                          outputfile << setfill(' ');
-                         outputfile << setfill('-') << setw(11) << "-"
-                              << "+";
-                         outputfile << setfill(' ');
+
                          outputfile << setfill('-') << setw(6) << "-"
-                              << "+" << endl;
+                                    << "+" << endl;
                          outputfile << setfill(' ');
                     }
                }
@@ -840,34 +837,35 @@ private:
           }
           _getch();
           clearScreen();
-          //hỉn thi may quet ra tệp
+          // hỉn thi may quet ra tệp
           ofstream outputfile("hienthi_mayquet.txt");
           if (outputfile.is_open())
           {
                outputfile << "\n\n\t===HIEN THI THONG TIN CAC LOAI MAY QUET========" << endl;
-               outputfile << "+" << setfill('-') << setw(66) << "-" << "+" << endl;
+               outputfile << "+" << setfill('-') << setw(66) << "-"
+                          << "+" << endl;
                outputfile << setfill(' ');
                outputfile << "|" << setw(15) << "NAME";
                outputfile << "|" << setw(11) << "ID";
                outputfile << "|" << setw(10) << "DATE";
                outputfile << "|" << setw(15) << "STATIC";
                outputfile << "|" << setw(11) << "SSPE"
-                    << "|" << endl;
+                          << "|" << endl;
                outputfile << "|";
                outputfile << setfill('-') << setw(15) << "-"
-                    << "|";
+                          << "|";
                outputfile << setfill(' ');
                outputfile << setfill('-') << setw(11) << "-"
-                    << "|";
+                          << "|";
                outputfile << setfill(' ');
                outputfile << setfill('-') << setw(10) << "-"
-                    << "|";
+                          << "|";
                outputfile << setfill(' ');
                outputfile << setfill('-') << setw(15) << "-"
-                    << "|";
+                          << "|";
                outputfile << setfill(' ');
                outputfile << setfill('-') << setw(11) << "-"
-                    << "|" << endl;
+                          << "|" << endl;
                outputfile << setfill(' ');
                for (const auto &tb : danhsachThietBi)
                {
@@ -882,19 +880,19 @@ private:
                          outputfile << endl;
                          outputfile << "|";
                          outputfile << setfill('-') << setw(15) << "-"
-                              << "+"; // name
+                                    << "+"; // name
                          outputfile << setfill(' ');
                          outputfile << setfill('-') << setw(11) << "-"
-                              << "+"; // id
+                                    << "+"; // id
                          outputfile << setfill(' ');
                          outputfile << setfill('-') << setw(10) << "-"
-                              << "+"; // date
+                                    << "+"; // date
                          outputfile << setfill(' ');
                          outputfile << setfill('-') << setw(15) << "-"
-                              << "+"; // static
+                                    << "+"; // static
                          outputfile << setfill(' ');
                          outputfile << setfill('-') << setw(11) << "-"
-                              << "|" << endl; // scanspeed
+                                    << "|" << endl; // scanspeed
                          outputfile << setfill(' ');
                     }
                }
@@ -961,29 +959,30 @@ private:
           if (outputfile.is_open())
           {
                outputfile << "\n\n\t======HIEN THI THONG TIN CAC LOAI MAY CHIEU====" << endl;
-               outputfile << "+" << setfill('-') << setw(63) << "-" << "+" << endl;
+               outputfile << "+" << setfill('-') << setw(63) << "-"
+                          << "+" << endl;
                outputfile << setfill(' ');
                outputfile << "|" << setw(15) << "NAME";
                outputfile << "|" << setw(11) << "ID";
                outputfile << "|" << setw(10) << "DATE";
                outputfile << "|" << setw(15) << "STATIC";
                outputfile << "|" << setw(8) << "MAXH"
-                    << "|" << endl;
+                          << "|" << endl;
                outputfile << "|";
                outputfile << setfill('-') << setw(15) << "-"
-                    << "|";
+                          << "|";
                outputfile << setfill(' ');
                outputfile << setfill('-') << setw(11) << "-"
-                    << "|";
+                          << "|";
                outputfile << setfill(' ');
                outputfile << setfill('-') << setw(10) << "-"
-                    << "|";
+                          << "|";
                outputfile << setfill(' ');
                outputfile << setfill('-') << setw(15) << "-"
-                    << "|";
+                          << "|";
                outputfile << setfill(' ');
                outputfile << setfill('-') << setw(8) << "-"
-                    << "|" << endl;
+                          << "|" << endl;
                outputfile << setfill(' ');
                for (const auto &tb : danhsachThietBi)
                {
@@ -998,19 +997,19 @@ private:
                          outputfile << endl;
                          outputfile << "|";
                          outputfile << setfill('-') << setw(15) << "-"
-                              << "+"; // name
+                                    << "+"; // name
                          outputfile << setfill(' ');
                          outputfile << setfill('-') << setw(11) << "-"
-                              << "+"; // id
+                                    << "+"; // id
                          outputfile << setfill(' ');
                          outputfile << setfill('-') << setw(10) << "-"
-                              << "+"; // date
+                                    << "+"; // date
                          outputfile << setfill(' ');
                          outputfile << setfill('-') << setw(15) << "-"
-                              << "+"; // static
+                                    << "+"; // static
                          outputfile << setfill(' ');
                          outputfile << setfill('-') << setw(8) << "-"
-                              << "|" << endl; // scanspeed
+                                    << "|" << endl; // scanspeed
                          outputfile << setfill(' ');
                     }
                }
