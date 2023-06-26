@@ -449,6 +449,83 @@ private:
           }
           _getch();
           clearScreen();
+          ofstream outputfile("hienthi.txt");
+          if (outputfile.is_open())
+          {
+               outputfile << "\n\n\t\t\t====THONG TIN CAC LOAI MAY TINH======\n\n"
+                          << endl;
+               outputfile << "+" << setfill('-') << setw(76) << "-"
+                          << "+" << endl;
+               outputfile << setfill(' ');
+               outputfile << "|" << setw(15) << "NAME";
+               outputfile << "|" << setw(11) << "ID";
+               outputfile << "|" << setw(10) << "DATE";
+               outputfile << "|" << setw(15) << "STATIC";
+               outputfile << "|" << setw(7) << "COL";
+               outputfile << "|" << setw(6) << "SPE";
+               outputfile << "|" << setw(6) << "MEM"
+                          << "|" << endl;
+               outputfile << "|";
+               outputfile << setfill('-') << setw(15) << "-"
+                          << "|";
+               outputfile << setfill(' ');
+               outputfile << setfill('-') << setw(11) << "-"
+                          << "|";
+               outputfile << setfill(' ');
+               outputfile << setfill('-') << setw(10) << "-"
+                          << "|";
+               outputfile << setfill(' ');
+               outputfile << setfill('-') << setw(15) << "-"
+                          << "|";
+               outputfile << setfill(' ');
+               outputfile << setfill('-') << setw(7) << "-"
+                          << "|";
+               outputfile << setfill(' ');
+               outputfile << setfill('-') << setw(6) << "-"
+                          << "|";
+               outputfile << setfill(' ');
+               outputfile << setfill('-') << setw(6) << "-"
+                          << "|" << endl;
+               outputfile << setfill(' ');
+               for (const auto &tb : danhsachThietBi)
+               {
+                    MayTinh *maytinh = dynamic_cast<MayTinh *>(tb);
+                    if (maytinh != nullptr)
+                    {
+                         outputfile << "|" << setw(15) << maytinh->getname();
+                         outputfile << "|" << setw(11) << maytinh->getID();
+                         outputfile << "|" << setw(2) << maytinh->getngay() << "/" << setw(2) << maytinh->getthang() << "/" << setw(4) << maytinh->getnam();
+                         outputfile << "|" << setw(15) << maytinh->gettrangthai();
+                         outputfile << "|" << setw(7) << maytinh->getmausac();
+                         outputfile << "|" << setw(6) << maytinh->gettocdo();
+                         outputfile << "|" << setw(6) << maytinh->getbonho() << "|";
+                         outputfile << endl;
+                         outputfile << "|";
+                         outputfile << setfill('-') << setw(15) << "-"
+                              << "+";
+                         outputfile << setfill(' ');
+                         outputfile << setfill('-') << setw(11) << "-"
+                              << "+";
+                         outputfile << setfill(' ');
+                         outputfile << setfill('-') << setw(10) << "-"
+                              << "+";
+                         outputfile << setfill(' ');
+                         outputfile << setfill('-') << setw(15) << "-"
+                              << "+";
+                         outputfile << setfill(' ');
+                         outputfile << setfill('-') << setw(7) << "-"
+                              << "+";
+                         outputfile << setfill(' ');
+                         outputfile << setfill('-') << setw(6) << "-"
+                              << "+";
+                         outputfile << setfill(' ');
+                         outputfile << setfill('-') << setw(6) << "-"
+                              << "|" << endl;
+                         outputfile << setfill(' ');
+                    }
+               }
+          }
+          outputfile.close();
      }
 
      void hienThiMayInDenTrang()
@@ -509,6 +586,21 @@ private:
           }
           _getch();
           clearScreen();
+          ofstream outputfile("hienthi1.txt");
+          if (outputfile.is_open())
+          {
+               for (const auto &tb : danhsachThietBi)
+               {
+                    MayInDenTrang *mayindentrang = dynamic_cast<MayInDenTrang *>(tb);
+                    if (mayindentrang != nullptr && dynamic_cast<MayInMau *>(tb) == nullptr)
+                    {
+                         outputfile << "|" << setw(15) << mayindentrang->getname();
+                         outputfile << "|" << setw(11) << mayindentrang->getID();
+                         outputfile << "|" << setw(2) << mayindentrang->getngay() << endl;
+                    }
+               }
+          }
+          outputfile.close();
      }
 
      void hienThiMayInMau()
@@ -574,6 +666,21 @@ private:
           }
           _getch();
           clearScreen();
+          ofstream outputfile("hienthi.txt");
+          if (outputfile.is_open())
+          {
+               for (const auto &tb : danhsachThietBi)
+               {
+                    MayTinh *maytinh = dynamic_cast<MayTinh *>(tb);
+                    if (maytinh != nullptr)
+                    {
+                         outputfile << "|" << setw(15) << maytinh->getname();
+                         outputfile << "|" << setw(11) << maytinh->getID();
+                         outputfile << "|" << setw(2) << maytinh->getngay() << endl;
+                    }
+               }
+          }
+          outputfile.close();
      }
 
      void hienThiMayQuet()
@@ -631,6 +738,21 @@ private:
           }
           _getch();
           clearScreen();
+          ofstream outputfile("hienthi.txt");
+          if (outputfile.is_open())
+          {
+               for (const auto &tb : danhsachThietBi)
+               {
+                    MayTinh *maytinh = dynamic_cast<MayTinh *>(tb);
+                    if (maytinh != nullptr)
+                    {
+                         outputfile << "|" << setw(15) << maytinh->getname();
+                         outputfile << "|" << setw(11) << maytinh->getID();
+                         outputfile << "|" << setw(2) << maytinh->getngay() << endl;
+                    }
+               }
+          }
+          outputfile.close();
      }
 
      void hienThiMayChieu()
@@ -688,6 +810,21 @@ private:
           }
           _getch();
           clearScreen();
+          ofstream outputfile("hienthi.txt");
+          if (outputfile.is_open())
+          {
+               for (const auto &tb : danhsachThietBi)
+               {
+                    MayTinh *maytinh = dynamic_cast<MayTinh *>(tb);
+                    if (maytinh != nullptr)
+                    {
+                         outputfile << "|" << setw(15) << maytinh->getname();
+                         outputfile << "|" << setw(11) << maytinh->getID();
+                         outputfile << "|" << setw(2) << maytinh->getngay() << endl;
+                    }
+               }
+          }
+          outputfile.close();
      }
 
      void thongKeVaTimKiem()
@@ -1547,7 +1684,8 @@ private:
                     }
                     else if (loaithietbi == "MayThamChieu")
                     {
-                         cout << "\n\n\t======HIEN THI THONG TIN MA MAY CHIEU " << ma << " ====\n\n" << endl;
+                         cout << "\n\n\t======HIEN THI THONG TIN MA MAY CHIEU " << ma << " ====\n\n"
+                              << endl;
                          cout << (char)218 << setfill('-') << setw(63) << "-" << (char)191 << endl;
                          cout << setfill(' ');
                          cout << "|" << setw(15) << "NAME";
