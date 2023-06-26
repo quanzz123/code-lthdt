@@ -1405,15 +1405,177 @@ private:
                // Compare the ma of the tb object with the input ma
                // If found, display the information and set found to true
                // ...
-               if (loaithietbi == "MayTinh")
+               if (tb->getname() == loaithietbi && tb->getID() == ma)
                {
-                    if (tb->getID() == ma)
+                    if (loaithietbi == "MayTinh")
                     {
+                         cout << "\n\n\t\t\t====THONG TIN MA MAY TINH " << ma << " ======\n\n"
+                              << endl;
+                         cout << (char)218 << setfill('-') << setw(76) << "-" << (char)191 << endl;
+                         cout << setfill(' ');
+                         cout << "|" << setw(15) << "NAME";
+                         cout << "|" << setw(11) << "ID";
+                         cout << "|" << setw(10) << "DATE";
+                         cout << "|" << setw(15) << "STATIC";
+                         cout << "|" << setw(7) << "COL";
+                         cout << "|" << setw(6) << "SPE";
+                         cout << "|" << setw(6) << "MEM"
+                              << "|" << endl;
+                         cout << "|";
+                         cout << setfill('-') << setw(15) << "-"
+                              << "|";
+                         cout << setfill(' ');
+                         cout << setfill('-') << setw(11) << "-"
+                              << "|";
+                         cout << setfill(' ');
+                         cout << setfill('-') << setw(10) << "-"
+                              << "|";
+                         cout << setfill(' ');
+                         cout << setfill('-') << setw(15) << "-"
+                              << "|";
+                         cout << setfill(' ');
+                         cout << setfill('-') << setw(7) << "-"
+                              << "|";
+                         cout << setfill(' ');
+                         cout << setfill('-') << setw(6) << "-"
+                              << "|";
+                         cout << setfill(' ');
+                         cout << setfill('-') << setw(6) << "-"
+                              << "|" << endl;
+                         cout << setfill(' ');
                          tb->hienThiThongTin();
                          cout << endl;
-                         found = true;
-                         break;
                     }
+                    else if (loaithietbi == "MayInDenTrang")
+                    {
+                         cout << "\n\n\t\t=====THONG TIN MA MAY IN DEN TRANG " << ma << " =====\n\n"
+                              << endl;
+                         cout << (char)218 << setfill('-') << setw(66) << "-" << (char)191 << endl;
+                         cout << setfill(' ');
+                         cout << "|" << setw(15) << "NAME";
+                         cout << "|" << setw(11) << "ID";
+                         cout << "|" << setw(10) << "DATE";
+                         cout << "|" << setw(15) << "STATIC";
+                         cout << "|" << setw(11) << "PIX"
+                              << "|" << endl;
+
+                         cout << "|";
+                         cout << setfill('-') << setw(15) << "-"
+                              << "|";
+                         cout << setfill(' ');
+                         cout << setfill('-') << setw(11) << "-"
+                              << "|";
+                         cout << setfill(' ');
+                         cout << setfill('-') << setw(10) << "-"
+                              << "|";
+                         cout << setfill(' ');
+                         cout << setfill('-') << setw(15) << "-"
+                              << "|";
+                         cout << setfill(' ');
+                         cout << setfill('-') << setw(11) << "-"
+                              << "|" << endl;
+                         cout << setfill(' ');
+                         tb->hienThiThongTin();
+                         cout << endl;
+                    }
+                    else if (loaithietbi == "MayinMau")
+                    {
+                         cout << "\n\n\t====THONG TIN MA MAY IN MAU " << ma << " ======\n\n"
+                              << endl;
+                         cout << (char)218 << setfill('-') << setw(73) << "-" << (char)191 << endl;
+                         cout << setfill(' ');
+                         cout << "|" << setw(15) << "NAME";
+                         cout << "|" << setw(11) << "ID";
+                         cout << "|" << setw(10) << "DATE";
+                         cout << "|" << setw(15) << "STATIC";
+                         cout << "|" << setw(11) << "PIX";
+                         cout << "|" << setw(6) << "COLS"
+                              << "|" << endl;
+
+                         cout << "|";
+                         cout << setfill('-') << setw(15) << "-"
+                              << "|";
+                         cout << setfill(' ');
+                         cout << setfill('-') << setw(11) << "-"
+                              << "|";
+                         cout << setfill(' ');
+                         cout << setfill('-') << setw(10) << "-"
+                              << "|";
+                         cout << setfill(' ');
+                         cout << setfill('-') << setw(15) << "-"
+                              << "|";
+                         cout << setfill(' ');
+                         cout << setfill('-') << setw(11) << "-"
+                              << "|";
+                         cout << setfill(' ');
+                         cout << setfill('-') << setw(6) << "-"
+                              << "|" << endl;
+                         cout << setfill(' ');
+                         tb->hienThiThongTin();
+                         cout << endl;
+                    }
+                    else if (loaithietbi == "MayQuet")
+                    {
+                         cout << "\n\n\t===HIEN THI THONG TIN MA MAY QUET " << ma << " ========\n\n"
+                              << endl;
+                         cout << (char)218 << setfill('-') << setw(66) << "-" << (char)191 << endl;
+                         cout << setfill(' ');
+                         cout << "|" << setw(15) << "NAME";
+                         cout << "|" << setw(11) << "ID";
+                         cout << "|" << setw(10) << "DATE";
+                         cout << "|" << setw(15) << "STATIC";
+                         cout << "|" << setw(11) << "SSPE"
+                              << "|" << endl;
+                         cout << "|";
+                         cout << setfill('-') << setw(15) << "-"
+                              << "|";
+                         cout << setfill(' ');
+                         cout << setfill('-') << setw(11) << "-"
+                              << "|";
+                         cout << setfill(' ');
+                         cout << setfill('-') << setw(10) << "-"
+                              << "|";
+                         cout << setfill(' ');
+                         cout << setfill('-') << setw(15) << "-"
+                              << "|";
+                         cout << setfill(' ');
+                         cout << setfill('-') << setw(11) << "-"
+                              << "|" << endl;
+                         cout << setfill(' ');
+                         tb->hienThiThongTin();
+                         cout << endl;
+                    }
+                    else if (loaithietbi == "MayThamChieu")
+                    {
+                         cout << "\n\n\t======HIEN THI THONG TIN MA MAY CHIEU " << ma << " ====\n\n" << endl;
+                         cout << (char)218 << setfill('-') << setw(63) << "-" << (char)191 << endl;
+                         cout << setfill(' ');
+                         cout << "|" << setw(15) << "NAME";
+                         cout << "|" << setw(11) << "ID";
+                         cout << "|" << setw(10) << "DATE";
+                         cout << "|" << setw(15) << "STATIC";
+                         cout << "|" << setw(8) << "MAXH"
+                              << "|" << endl;
+                         cout << "|";
+                         cout << setfill('-') << setw(15) << "-"
+                              << "|";
+                         cout << setfill(' ');
+                         cout << setfill('-') << setw(11) << "-"
+                              << "|";
+                         cout << setfill(' ');
+                         cout << setfill('-') << setw(10) << "-"
+                              << "|";
+                         cout << setfill(' ');
+                         cout << setfill('-') << setw(15) << "-"
+                              << "|";
+                         cout << setfill(' ');
+                         cout << setfill('-') << setw(8) << "-"
+                              << "|" << endl;
+                         cout << setfill(' ');
+                         tb->hienThiThongTin();
+                         cout << endl;
+                    }
+                    found = true;
                }
           }
 
@@ -1450,26 +1612,36 @@ private:
                          inBangMayTinh();
                          cout << endl;
                          break;
-                    } else if(ten == "MayInDenTrang") {
+                    }
+                    else if (ten == "MayInDenTrang")
+                    {
                          inBangMayInDenTrang();
                          cout << endl;
                          break;
-                    } else if(ten == "MayinMau") {
+                    }
+                    else if (ten == "MayinMau")
+                    {
                          inBangMayInMau();
                          cout << endl;
                          break;
-                    } else if(ten == "MayQuet") {
+                    }
+                    else if (ten == "MayQuet")
+                    {
                          inBangMayQuet();
                          cout << endl;
                          break;
-                    } else if(ten == "MayThamChieu") {
+                    }
+                    else if (ten == "MayThamChieu")
+                    {
                          inBangMayChieu();
                          cout << endl;
                          break;
-                    } else {
+                    }
+                    else
+                    {
                          cout << "\nKhong tim thay thiet bi voi ten " << ten << endl;
                     }
-                    
+
                     found = true;
                }
           }
@@ -1526,11 +1698,12 @@ private:
                {
                     MayTinh *maytinh = dynamic_cast<MayTinh *>(tb);
                     // In thông tin từng thiết bị vào từng cột
-                    if(maytinh != nullptr) {
+                    if (maytinh != nullptr)
+                    {
                          maytinh->hienThiThongTin();
                          cout << endl;
                     }
-                    
+
                     cout << "|";
                     cout << setfill('-') << setw(15) << "-"
                          << "|";
@@ -1620,7 +1793,7 @@ private:
                     cout << setfill(' ');
                }
           }
-           _getch();
+          _getch();
           clearScreen();
      }
      void inBangMayInMau()
@@ -1639,7 +1812,7 @@ private:
                     cout << "|" << setw(6) << mayinmau->getsomau() << "|" << endl;
                }
           }
-           _getch();
+          _getch();
           clearScreen();
      }
      void inBangMayQuet()
@@ -1658,7 +1831,7 @@ private:
                     cout << "|" << setw(11) << mayquet->gettocsoquet() << "|" << endl;
                }
           }
-           _getch();
+          _getch();
           clearScreen();
      }
      void inBangMayChieu()
@@ -1677,7 +1850,7 @@ private:
                     cout << "|" << setw(8) << maychieu->getgiochieutoida() << "|" << endl;
                }
           }
-           _getch();
+          _getch();
           clearScreen();
      }
 };
