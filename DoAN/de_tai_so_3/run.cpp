@@ -263,11 +263,7 @@ private:
                string line;
                while (getline(inputfile, line))
                {
-                    // Parse the line and create objects based on the data
-                    // ...
-
-                    // Add the created object to the danhSachThietBi vector
-                    // danhsachThietBi.push_back(...);
+                    
                     stringstream ss(line);
                     string ten, ma, trangthai;
                     int ngay, thang, nam;
