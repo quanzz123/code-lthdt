@@ -843,6 +843,7 @@ int main()
                         {
                             clearScreen();
                             vector<ThietBi *> danhsachdangsuadung;
+                            vector<ThietBi *> danhsachthanhly;
                             for (ThietBi *tb : danhsachThietBi)
                             {
                                 if (tb->daDenThoiHanThanhLy() == false)
@@ -907,9 +908,71 @@ int main()
                                 }
                             }
 
+                            // Ví dụ: Đưa thiết bị có mã là "TB001" vào danh sách thanh lý
+                            for (int i = 0; i < danhsachdangsuadung.size(); i++)
+                            {
+                                ThietBi *tb = danhsachdangsuadung[i];
+                                if (tb->getID() == "MT001")
+                                {
+                                    danhsachthanhly.push_back(tb);
+                                    danhsachdangsuadung.erase(danhsachdangsuadung.begin() + i);
+                                    break; // Đã tìm thấy và xử lý thiết bị, thoát khỏi vòng lặp
+                                    tb->hienThiThongTin();
+                                    cout << endl;
+                                }
+                            }
+
                             _getch();
                             clearScreen();
                             break;
+                        }
+                        case 3:
+                        {
+                            clearScreen();
+                            vector<ThietBi *> danhsachdangsuadung;
+                            vector<ThietBi *> danhsachthanhly;
+                            for (ThietBi *tb : danhsachThietBi)
+                            {
+                                if (tb->daDenThoiHanThanhLy() == true)
+                                {
+                                    danhsachthanhly.push_back(tb);
+                                }
+                            }
+                            for (ThietBi *tb : danhsachThietBi)
+                            {
+                                if (tb->daDenThoiHanThanhLy() == false)
+                                {
+                                    danhsachdangsuadung.push_back(tb);
+                                }
+                            }
+                            // Ví dụ: Đưa thiết bị có mã là "TB001" vào danh sách thanh lý
+                            for (int i = 0; i < danhsachdangsuadung.size(); i++)
+                            {
+                                ThietBi *tb = danhsachdangsuadung[i];
+                                if (tb->getID() == "MT001")
+                                {
+                                    danhsachthanhly.push_back(tb);
+                                    danhsachdangsuadung.erase(danhsachdangsuadung.begin() + i);
+                                    break; // Đã tìm thấy và xử lý thiết bị, thoát khỏi vòng lặp
+                                }
+                            }
+                            cout << "\n\n\t=======Danh sach thiet bi thanh ly=======\n\n"
+                                 << endl;
+                            if (danhsachthanhly.empty())
+                            {
+                                cout << "Danh sach thanh ly rong." << endl;
+                            }
+                            else
+                            {
+                                for (ThietBi *tb : danhsachthanhly)
+                                {
+                                    tb->hienThiThongTin();
+                                    cout << endl;
+                                }
+                            }
+
+                            _getch();
+                            clearScreen();
                         }
                         case 0:
                             break;
