@@ -1,264 +1,186 @@
 #include <iostream>
-#include <iomanip>
-#include <vector>
-#include <string>
-#include <sstream>
 #include <fstream>
+#include <iomanip>
+#include <string>
+#include <vector>
 using namespace std;
+
 class DichVu {
 protected:
-	float DonGia;
-	float giamgia;
+    float donGia;
 public:
-	DichVu() {
-		DonGia = 0.0;
-	}
-	virtual float TinhTien(float thamso) {
-		return 0.0;
-	}
-	virtual void hienthi() = 0;
-	float getgiamgia() {
-		return giamgia;
-	}
+    DichVu() {
+        donGia = 0.0;
+    }
+    virtual float tinhTien(float thamso) {
+        return 0.0;
+    }
 };
-//============================================================
-class GiatDo : public DichVu {
-protected:
-	int soKgquanao;
-	float GiamGia;
-public:
-	GiatDo() : DichVu() {
-		soKgquanao = 0;
-		GiamGia = 0.0;
-	}
-	GiatDo(float dg, float gd, int sokg) : DichVu() {
-		DonGia = dg;
-		GiamGia = gd;
-		soKgquanao = sokg;
-	}
-	void hienthi() override {
-		cout << "Giat la - so kg giat la : " << soKgquanao << endl;
-	}
-	float TinhTien(float thamso) {
-		float tiengiat;
-		tiengiat = soKgquanao * DonGia;
-		if (soKgquanao > 5) {
-			tiengiat *= (1 - GiamGia);
-		}
-		return tiengiat;
-	}
-	int getsokg() {
-		return soKgquanao;
-	}
-	float getGiamGia() {
-		return GiamGia;
-	}
-};
-//===============================================================
-class ThueXe : public DichVu {
-protected :
-	float GiamGia;
-	int soGiothuexe;
-public:
-	ThueXe() : DichVu() {
-		GiamGia = 0.0;
-		soGiothuexe = 0;
-	}
-	ThueXe(float dg, float gd, int soH) : DichVu() {
-		DonGia = dg;
-		GiamGia = gd;
-		soGiothuexe = soH;
 
-	}
-	void hienthi() override {
-		cout << "Thue xe - so gio thue: " << soGiothuexe << endl;
-	}
-	float TinhTien(float thamso) {
-		float tienthue;
-		tienthue = DonGia * soGiothuexe;
-		if (soGiothuexe > 10) {
-			tienthue *= (1 - GiamGia);
-		}
-		return tienthue;
-	}
-	int getsoH() {
-		return soGiothuexe;
-	}
-	float getGiaGia() {
-		return GiamGia;
-	}
-	
+class GiatLao : public DichVu {
+    float giamGia;
+    int soKgQuanAo;
+public:
+    GiatLao() : DichVu() {
+        giamGia = 0.0;
+        soKgQuanAo = 0;
+    }
+    GiatLao(float pDonGia, float pGiamGia, int pSoKgQuanAo) : DichVu() {
+        donGia = pDonGia;
+        giamGia = pGiamGia;
+        soKgQuanAo = pSoKgQuanAo;
+    }
+    float tinhTien(float thamso) {
+        float tienGiatLao;
+        tienGiatLao = soKgQuanAo * donGia;
+        if (soKgQuanAo > 5) {
+            tienGiatLao *= (1 - giamGia);
+        }
+        return tienGiatLao;
+    }
 };
-//=========================================
+
+class ThueXe : public DichVu {
+    float giamGia;
+    int soGioThue;
+public:
+    ThueXe() : DichVu() {
+        giamGia = 0.0;
+        soGioThue = 0;
+    }
+    ThueXe(float pDonGia, float pGiamGia, int pSoGioThue) : DichVu() {
+        donGia = pDonGia;
+        giamGia = pGiamGia;
+        soGioThue = pSoGioThue;
+    }
+    float tinhTien(float thamso) {
+        float tienThueXe;
+        tienThueXe = soGioThue * donGia;
+        if (soGioThue > 10) {
+            tienThueXe *= (1 - giamGia);
+			
+        }
+		
+        return tienThueXe;
+    }
+};
+
 class HoaDon {
 protected:
-	string maHoaDon;
-	string maKhachHang;
-	string tenKhachHang;
-	/*DichVu* dichvu1;
-	DichVu* dichvu2;*/
-	float TongTien;
-
+    string maHoaDon;
+    string maKhachHang;
+    string tenKhachHang;
+    DichVu* dichVu1;
+    DichVu* dichVu2;
+    float tongTien;
 public:
-	DichVu* dichvu1;
-	DichVu* dichvu2;
-	string getmahoadon() {
-		return maHoaDon;
-	}
-	string getmakhachhang() {
-		return maKhachHang;
-	}
-	string gettenkhachhang() {
-		return tenKhachHang;
-	}
-	float gettongtien() {
-		return TongTien;
-	}
-	void setmahoadon(string& maHD) {
-		maHoaDon = maHD;
-	}
-	void setmakhachhang(string& maKH) {
-		maKhachHang = maKH;
-	}
-	void settenkhachhang(string& tenKH) {
-		tenKhachHang = tenKH;
-	}
-	void settongtien(float& TT) {
-		TongTien = TT;
-	}
-	HoaDon() {
-		
-		dichvu1 = nullptr;
-		dichvu2 = nullptr;
+    HoaDon() {
+        maHoaDon = "";
+        maKhachHang = "";
+        tenKhachHang = "";
+        dichVu1 = NULL;
+        dichVu2 = NULL;
+        tongTien = 0.0;
+    }
 
-	}
-	~HoaDon() {
-		delete dichvu1;
-		delete dichvu2;
-	}
-	void tinhtiendichvu() const {
-		if (dichvu1 != nullptr) {
-			dichvu1->TinhTien(0);
-		}
-		if (dichvu2 != nullptr) {
-			dichvu2->TinhTien(0);
-		}
-	}
-	void NhapHoaDon() {
-		cout << "Nhap ma hoa don: ";
-		getline(cin, maHoaDon);
-		cout << "\nNhap ma khach hang: ";
-		getline(cin, maKhachHang);
-		cout << "\nNhap ten khach hang: ";
-		getline(cin, tenKhachHang);
-		
-		dichvu1 = new GiatDo();
-		cout << "\nNhap so KG quan ao: ";
-		int KG;
-		cin >> KG;
-		cin.ignore();
-		dichvu1 = new GiatDo(10000, 0.05, KG);
+    // void nhapHoaDon(ifstream& file) {
+    //     getline(file, maHoaDon);
 
-		dichvu2 = new ThueXe();
-		cout << "\nNhap so gio thue xe: ";
-		int H;
-		cin >> H;
-		cin.ignore();
-		dichvu2 = new ThueXe(20000, 0.1, H);
-	}
-	void hienthihoadon() const {
-		cout << "\t\tHIEN THI HOA DON" << endl;
-		cout << "Ma hoa don: " << endl;
-		cout << "Ten khach hang: " << endl;
-		cout << "Ma khach hang: " << endl;
-		cout << "Cac dich vu su dung /t/t so tien \t\t Giam gia" << endl;
-		if (dichvu1 != nullptr) {
-			dichvu1->hienthi();
-			cout << "\t\t\t" << dichvu1->TinhTien(0) << "\t" << dichvu1->getgiamgia() << endl;
-		}
-		if (dichvu2 != nullptr) {
-			dichvu2->hienthi();
-			cout << "\t\t\t" << dichvu2->TinhTien(0) << "\t" << dichvu2->getgiamgia() << endl;
-		}
-		float tongTien = 0.0;
-		if (dichvu1 != nullptr)
-			tongTien += dichvu1->TinhTien(0);
-		if (dichvu2 != nullptr)
-			tongTien += dichvu2->TinhTien(0);
+    //     getline(file, maKhachHang);
 
-		float tongGiamGia = 0.0;
-		if (dichvu1 != nullptr)
-			tongGiamGia += dichvu1->getgiamgia();
-		if (dichvu2 != nullptr)
-			tongGiamGia += dichvu2->getgiamgia();
+    //     getline(file, tenKhachHang);
 
-		cout << "Tổng\t\t\t" << tongTien << "\t" << tongGiamGia << endl;
+    //     int soKgQuanAo;
+    //     file >> soKgQuanAo;
+    //     file.ignore();
+    //     dichVu1 = new GiatLao(100000, 0.05, soKgQuanAo);
 
-		float soTienPhaiTra = tongTien - tongGiamGia;
-		cout << "Số tiền khách hàng phải trả: " << soTienPhaiTra << endl;
-	}
+    //     int soGioThue;
+    //     file >> soGioThue;
+    //     file.ignore();
+    //     dichVu2 = new ThueXe(200000, 0.1, soGioThue);
+    // }
+
+    void tinhTienDichVu() {
+        float tienDichVu1 = dichVu1->tinhTien(0);
+        //cout << "Tien dich vu 1 (giat la): " << fixed << setprecision(2) << tienDichVu1 << endl;
+
+        float tienDichVu2 = dichVu2->tinhTien(0);
+        //cout << "Tien dich vu 2 (thue xe): " << fixed << setprecision(2) << tienDichVu2 << endl;
+
+        tongTien = tienDichVu1 + tienDichVu2;
+    }
+
+    void tinhTongTien() {
+        cout << "Tong tien phai tra: " << tongTien << endl;
+    }
+
+    void hienThiHoaDon() const {
+        cout << "\t\tHOA DON SU DUNG DICH VU" << endl;
+        cout << "\t\tMa hoa don: " << maHoaDon << endl;
+        cout << "Ten khach hang: " << tenKhachHang << endl;
+        cout << "Ma khach hang: " << maKhachHang << endl;
+
+        cout << "cac dich vu su dung" << endl;
+        cout << "Dich vu\t\t\tSo tien\t\tGiam gia" << endl;
+        cout << "Giat la\t\t\t" << dichVu1->tinhTien(0) << "\t\t0" << endl;
+        cout << "Thue xe\t\t\t" << dichVu2->tinhTien(0) << "\t\t0" << endl;
+
+        cout << "Tong\t\t\t" << tongTien << "\t\t0" << endl;
+        cout << "So tien khach phai tra: " << tongTien << endl;
+		cout << "\n\n\n";
+    }
+	void nhapHoaDon(ifstream& file) {
+    getline(file, maHoaDon);
+    getline(file, maKhachHang);
+    getline(file, tenKhachHang);
+
+    int soKgQuanAo;
+    file >> soKgQuanAo;
+    file.ignore();
+    dichVu1 = new GiatLao(10000, 0.05, soKgQuanAo);
+
+    int soGioThue;
+    file >> soGioThue;
+    file.ignore();
+    dichVu2 = new ThueXe(20000, 0.1, soGioThue);
+}
 
 };
-//===============================================================
-void docTepVanBan() {
-	ifstream inputFile("ten_tep_van_ban.txt");
-	if (!inputFile.is_open()) {
-		cout << "Khong thể mở tệp văn bản" << endl;
-		return;
-	}
 
-	string line;
-	vector<HoaDon> danhSachHoaDon;
-
-	while (getline(inputFile, line)) {
-		if (line.empty()) {
-			// Đây là dòng trống, tạo đối tượng HoaDon mới
-			HoaDon hoaDon;
-
-			getline(inputFile, line); // Nhập mã hóa đơn từ tệp
-			hoaDon.getmahoadon() = line.substr(line.find(":") + 2);
-
-			getline(inputFile, line); // Nhập mã khách hàng từ tệp
-			hoaDon.getmakhachhang() = line.substr(line.find(":") + 2);
-
-			getline(inputFile, line); // Nhập tên khách hàng từ tệp
-			hoaDon.gettenkhachhang() = line.substr(line.find(":") + 2);
-
-			getline(inputFile, line); // Nhập đơn giá giặt là từ tệp
-			float donGiaGiatLao = stof(line.substr(line.find(":") + 2));
-
-			getline(inputFile, line); // Nhập giảm giá giặt là từ tệp
-			float giamGiaGiatLao = stof(line.substr(line.find(":") + 2));
-
-			getline(inputFile, line); // Nhập số kg quần áo từ tệp
-			int soKgQuanAo = stoi(line.substr(line.find(":") + 2));
-			hoaDon.dichvu1 = new GiatDo(donGiaGiatLao, giamGiaGiatLao, soKgQuanAo);
-
-			getline(inputFile, line); // Nhập đơn giá thuê xe từ tệp
-			float donGiaThueXe = stof(line.substr(line.find(":") + 2));
-
-			getline(inputFile, line); // Nhập giảm giá thuê xe từ tệp
-			float giamGiaThueXe = stof(line.substr(line.find(":") + 2));
-
-			getline(inputFile, line); // Nhập số giờ thuê xe từ tệp
-			int soGioThueXe = stoi(line.substr(line.find(":") + 2));
-			hoaDon.dichvu2 = new ThueXe(donGiaThueXe, giamGiaThueXe, soGioThueXe);
-
-			danhSachHoaDon.push_back(hoaDon);
-		}
-	}
-
-	inputFile.close();
-
-	//// Xử lý danh sách hóa đơn
-	for (const HoaDon& hoaDon : danhSachHoaDon) {
-		hoaDon.tinhtiendichvu();
-		hoaDon.hienthihoadon();
-		cout << endl;
-	}
-}
 int main() {
-	docTepVanBan();
-	system("pause");
-	return 0;
+    vector<HoaDon> danhSachHoaDon;
+    ifstream file("data.txt"); // Thay đổi "data.txt" thành tên tệp tin bạn muốn đọc
+
+    if (file.is_open()) {
+        while (!file.eof()) {
+            HoaDon hoaDon;
+            hoaDon.nhapHoaDon(file);
+            hoaDon.tinhTienDichVu();
+            danhSachHoaDon.push_back(hoaDon);
+        }
+
+        file.close();
+
+        // for (const HoaDon& hoaDon : danhSachHoaDon) {
+        //     hoaDon.hienThiHoaDon();
+        //     cout << endl;
+        // }
+    } else {
+        cout << "Không thể mở tệp tin." << endl;
+    }
+	for (const HoaDon& hoaDon : danhSachHoaDon) {
+            hoaDon.hienThiHoaDon();
+            cout << endl;
+        }
+
+    return 0;
 }
+
+
+
+
+
+
+
+
