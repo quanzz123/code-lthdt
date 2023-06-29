@@ -1,0 +1,14 @@
+Mahoadon: 001
+Makhachang: 001
+Tenkhachhang: Nguyễn Văn A
+Sokgquanao: 5
+Sogiothuexe: 8
+
+
+Mahoadon: 001
+Makhachang: 002
+Tenkhachhang: Nguyễn Văn y
+Sokgquanao: 5
+Sogiothuexe: 8
+
+

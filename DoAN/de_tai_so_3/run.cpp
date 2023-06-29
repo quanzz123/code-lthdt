@@ -263,7 +263,7 @@ private:
                string line;
                while (getline(inputfile, line))
                {
-                    
+
                     stringstream ss(line);
                     string ten, ma, trangthai;
                     int ngay, thang, nam;
@@ -1377,6 +1377,47 @@ private:
                     cout << setfill(' ');
                }
           }
+          // vector<ThietBi *> danhsachdangsuadung;
+          // vector<ThietBi *> danhsachthanhly;
+          // for (ThietBi *tb : danhsachThietBi)
+          // {
+          //      if (tb->daDenThoiHanThanhLy() == true)
+          //      {
+          //           danhsachthanhly.push_back(tb);
+          //      }
+          // }
+          // for (ThietBi *tb : danhsachThietBi)
+          // {
+          //      if (tb->daDenThoiHanThanhLy() == false)
+          //      {
+          //           danhsachdangsuadung.push_back(tb);
+          //      }
+          // }
+          // // Ví dụ: Đưa thiết bị có mã là "TB001" vào danh sách thanh lý
+          // for (int i = 0; i < danhsachdangsuadung.size(); i++)
+          // {
+          //      ThietBi *tb = danhsachdangsuadung[i];
+          //      if (tb->getID() == "MT001")
+          //      {
+          //           danhsachthanhly.push_back(tb);
+          //           danhsachdangsuadung.erase(danhsachdangsuadung.begin() + i);
+          //           break; // Đã tìm thấy và xử lý thiết bị, thoát khỏi vòng lặp
+          //      }
+          // }
+          // cout << "\n\n\t=======Danh sach thiet bi thanh ly=======\n\n"
+          //      << endl;
+          // if (danhsachthanhly.empty())
+          // {
+          //      cout << "Danh sach thanh ly rong." << endl;
+          // }
+          // else
+          // {
+          //      for (ThietBi *tb : danhsachthanhly)
+          //      {
+          //           tb->hienThiThongTin();
+          //           cout << endl;
+          //      }
+          // }
           _getch();
           clearScreen();
      }
@@ -1725,9 +1766,7 @@ private:
 
           for (ThietBi *tb : danhsachThietBi)
           {
-               // Compare the ma of the tb object with the input ma
-               // If found, display the information and set found to true
-               // ...
+              
                if (tb->getname() == loaithietbi && tb->getID() == ma)
                {
                     if (loaithietbi == "MayTinh")
